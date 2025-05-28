@@ -66,3 +66,6 @@ This project was a hands-on deep dive into Retrieval-Augmented Generation (RAG) 
 
 This project not only improved my understanding of retrieval-based LLM workflows but also strengthened my ability to integrate AI into real-world applications.
 
+![PDF RAG Chatbot_page-0001](https://github.com/user-attachments/assets/2df01fff-80f4-4ba5-8b03-7f0f7aada6ee)
+![PDF RAG Chatbot_page-0002](https://github.com/user-attachments/assets/a1e379c7-e51a-4735-9f81-7c5522cfd5a9)
+
