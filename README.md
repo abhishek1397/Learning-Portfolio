@@ -22,3 +22,10 @@ This repository contains a curated list of certifications I've earned from vario
 |------|------------|-------|---------|
 | AWS Practitioner | This repository contains Knowledge Checks (KCs) and related PDFs from the AWS re/Start program. | [Notes](https://github.com/abhishek1397/AWS-reStart) | [Project](https://github.com/abhishek1397/AWS-reStart) |
 | ML-DL-GenAI | This repository includes key concepts, algorithms, architectures, and practical insights to aid learning and development in AI. | [Notes](https://github.com/abhishek1397/Machine-Learning) | [Project](https://github.com/abhishek1397/Machine-Learning) |
+
+## Publication
+
+| Publication | Name | Description | Link |
+|------|-------------|--------------|-----|
+| IEEE | A State of the Art Regressor Model’s comparison for Effort Estimation of Agile software  | Ensemble regression methods, especially CatBoost, outperform others in Agile effort estimation by minimizing RMSE across real-world datasets. | [Paper](https://ieeexplore.ieee.org/document/9445345) | 
+
