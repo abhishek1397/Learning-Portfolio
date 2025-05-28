@@ -8,7 +8,7 @@ This repository contains a curated list of certifications I've earned from vario
 
 | Certification | Platform | Date | Link |
 |---------------|----------|------|------|
-| RAG Chatbot | Lets Upgrade | May 2024 | [View Certificate](link) |
+| RAG Chatbot | Lets Upgrade | May 2024 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/RAG%20Chatbot.md) |
 | Foundation of AI | Microsoft-Edunet Foundation | April-May 2025 | [View Certificate](link) |
 
 
