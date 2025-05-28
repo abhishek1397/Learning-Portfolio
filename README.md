@@ -10,7 +10,10 @@ This repository contains a curated list of certifications I've earned from vario
 
 | Certification | Platform | Date | Link | Project Link |
 |---------------|----------|------|------|------------|
-| RAG Chatbot | Lets Upgrade | May 2024 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/RAG%20Chatbot.md) | [Project](https://github.com/abhishek1397/PDF-RAG-Chatbot) |
+| AWS Re/start Graduate | AWS | April 2025| [View Certification](https://www.credly.com/badges/e71deb75-bf4d-4704-b0a1-0ac215c38bb6/linked_in_profile) |  [Project](https://www.credly.com/badges/e71deb75-bf4d-4704-b0a1-0ac215c38bb6/linked_in_profile)
+| RAG Chatbot | Lets Upgrade | May 2025 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/RAG%20Chatbot.md) | [Project](https://github.com/abhishek1397/PDF-RAG-Chatbot) |
+| Foundation of Generative AI | Udacity | February 2025 | [View Certificate](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a) | [Project](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a)
+| Deep Learning Specilization | Coursera | September 2019 | [View Certificate](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF) | [Project](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF)
 | Foundation of AI | Microsoft-Edunet Foundation | April-May 2025 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/Fundamental%20of%20AI.md) | [Project](https://github.com/abhishek1397/Weekly-Forecast-Sale) |
 
 ## Notes & Projects
