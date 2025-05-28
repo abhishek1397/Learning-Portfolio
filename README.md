@@ -1,4 +1,4 @@
-# 📚 My Certifications & Learning Portfolio
+# 📚 My Learning Portfolio & Certifications 
 
 ![Machine Learning Portfolio](https://github.com/user-attachments/assets/1a8b3b5b-63bf-4f31-8e55-b20266f0d374)
 
