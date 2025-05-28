@@ -2,6 +2,8 @@
 
 ![Internship_page-0001](https://github.com/user-attachments/assets/e1122ef4-dd6e-434e-b199-d000e606a8c4)
 
+🔗 **Project Repository**: [PDF-RAG-Chatbot](https://github.com/abhishek1397/Weekly-Forecast-Sale)
+
 ## 📚 Internship Learning Summary
 
 This project was developed during a 4-week internship focused on Artificial Intelligence, Machine Learning, and Azure-based applications.
