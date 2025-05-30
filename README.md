@@ -14,7 +14,12 @@ This repository contains a curated list of certifications I've earned from vario
 | RAG Chatbot | Lets Upgrade | May 2025 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/RAG%20Chatbot.md) | [Project](https://github.com/abhishek1397/PDF-RAG-Chatbot) |
 | Foundation of Generative AI | Udacity | February 2025 | [View Certificate](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a) | [Project](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a)
 | Deep Learning Specilization | Coursera | September 2019 | [View Certificate](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF) | [Project](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF)
-| Foundation of AI | Microsoft-Edunet Foundation | April-May 2025 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/Fundamental%20of%20AI.md) | [Project](https://github.com/abhishek1397/Weekly-Forecast-Sale) |
+| Foundation of AI | Microsoft-Edunet Foundation | April-May 2025 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/Fundamental%20of%20AI.md) | [Project]
+(https://github.com/abhishek1397/Weekly-Forecast-Sale) |
+| Power BI bootcamp | Lets Upgrade | May 2025 | [View Certificate](https://github.com/user-attachments/files/20524589/LUEPBIMAY125611.pdf) | [Project](https://github.com/user-attachments/files/20524589/LUEPBIMAY125611.pdf) |
+ 
+
+
 
 ## Notes & Projects
 
