@@ -26,6 +26,7 @@ This repository contains a curated list of certifications I've earned from vario
 |------|------------|-------|---------|
 | AWS Practitioner | This repository contains Knowledge Checks (KCs) and related PDFs from the AWS re/Start program. | [Notes](https://github.com/abhishek1397/AWS-reStart) | [Project](https://github.com/abhishek1397/AWS-reStart) |
 | ML-DL-GenAI | This repository includes key concepts, algorithms, architectures, and practical insights to aid learning and development in AI. | [Notes](https://github.com/abhishek1397/Machine-Learning) | [Project](https://github.com/abhishek1397/Machine-Learning) |
+| Data | SQL and Pandas practice questions covering data analysis, manipulation, filtering, aggregation, and querying concepts for hands-on learning. | [Notes](https://github.com/abhishek1397/Data) | [Project](https://github.com/abhishek1397/Data) |
 
 ## Publication
 
