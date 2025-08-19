@@ -6,15 +6,27 @@
 
 This repository contains a curated list of certifications I've earned from various online platforms, focusing on tech, data, and software development.
 
+## M.Tech
+
+| Subjects | Notes | Studying Material | Project Link |
+|---------------|--------|--------|------------|
+| Dissertation | | | |
+| Advance DSA |  |  |  |
+| Data Warehousing and Data Mining | | | |
+| Statisitcs for Data Science | | | |
+| Data Management | | | |
+
+
+
 ## Certifications
 
 | Certification | Platform | Date | Link | Project Link |
 |---------------|----------|------|------|------------|
-| AWS Re/start Graduate | AWS | April 2025| [View Certification](https://www.credly.com/badges/e71deb75-bf4d-4704-b0a1-0ac215c38bb6/linked_in_profile) |  [Project](https://github.com/abhishek1397/AWS/tree/main)
+| AWS Re/start Graduate | AWS | April 2025| [View Certification](https://www.credly.com/badges/e71deb75-bf4d-4704-b0a1-0ac215c38bb6/linked_in_profile) |  [Project](https://github.com/abhishek1397/AWS/tree/main) |
 | RAG Chatbot | Lets Upgrade | May 2025 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/RAG%20Chatbot.md) | [Project](https://github.com/abhishek1397/PDF-RAG-Chatbot) |
 | Quantum Computing | C-DAC Hyderabad & IIT Roorkee | May 2025 | [View Certification](https://drive.google.com/file/d/1JibgvhVKMGX7C_WJQseIKU1fymU9oYWI/view?usp=drive_link) | [Project](https://drive.google.com/file/d/1JibgvhVKMGX7C_WJQseIKU1fymU9oYWI/view?usp=drive_link) |
-| Foundation of Generative AI | Udacity | February 2025 | [View Certificate](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a) | [Project](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a)
-| Deep Learning Specilization | Coursera | September 2019 | [View Certificate](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF) | [Project](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF)
+| Foundation of Generative AI | Udacity | February 2025 | [View Certificate](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a) | [Project](https://www.udacity.com/certificate/e/d77ce664-b7bc-11ef-a296-7fee6a7d821a) |
+| Deep Learning Specilization | Coursera | September 2019 | [View Certificate](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF) | [Project](https://www.coursera.org/account/accomplishments/specialization/TUV453MMM6TF) |
 | Foundation of AI | Microsoft-Edunet Foundation | April-May 2025 | [View Certificate](https://github.com/abhishek1397/learning-portfolio/blob/main/AI-ML/Fundamental%20of%20AI.md) | [Project](https://github.com/abhishek1397/Weekly-Forecast-Sale) |
 | Power BI bootcamp | Lets Upgrade | May 2025 | [View Certificate](https://github.com/user-attachments/files/20524589/LUEPBIMAY125611.pdf) | [Project](https://github.com/user-attachments/files/20524589/LUEPBIMAY125611.pdf) |
  
