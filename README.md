@@ -11,7 +11,7 @@ This repository contains a curated list of certifications I've earned from vario
 | Subjects | Notes | Study Material | Project Link |
 |---------------|--------|--------|------------|
 | Dissertation | [Link](https://github.com/abhishek1397/Learning-Portfolio/tree/main/M.Tech/Dissertation) | | |
-| Advanced DSA | [Link](https://github.com/abhishek1397/Data-Structues-and-Algorithm) |  |  |
+| Advanced DSA | [Link](https://github.com/abhishek1397/Learning-Portfolio/tree/main/DSA) |  |  |
 | Data Warehousing and Data Mining | [Link](https://github.com/abhishek1397/Learning-Portfolio/tree/main/M.Tech/Data%20Warehousing%20and%20Data%20Mining) | | |
 | Statisitcs for Data Science | [Link](https://github.com/abhishek1397/Learning-Portfolio/tree/main/M.Tech/Statistics%20for%20Data%20Science) | | |
 | Data Management | [Link](https://github.com/abhishek1397/Learning-Portfolio/tree/main/M.Tech/Data%20Management) | | |
@@ -40,7 +40,7 @@ This repository contains a curated list of certifications I've earned from vario
 |------|------------|-------|---------|
 | AWS Practitioner | This repository contains Knowledge Checks (KCs) and related PDFs from the AWS re/Start program. | [Notes](https://github.com/abhishek1397/AWS-reStart) | [Project](https://github.com/abhishek1397/AWS-reStart) |
 | ML-DL-GenAI | This repository includes key concepts, algorithms, architectures, and practical insights to aid learning and development in AI. | [Notes](https://github.com/abhishek1397/Machine-Learning) | [Project](https://github.com/abhishek1397/Machine-Learning) |
-| Data | SQL and Pandas practice questions covering data analysis, manipulation, filtering, aggregation, and querying concepts for hands-on learning. | [Notes](https://github.com/abhishek1397/Data) | [Project](https://github.com/abhishek1397/Data) |
+| Data | SQL and Pandas practice questions covering data analysis, manipulation, filtering, aggregation, and querying concepts for hands-on learning. | [Notes](https://github.com/abhishek1397/Learning-Portfolio/tree/main/M.Tech/Data%20Management/SQL) | [Project](https://github.com/abhishek1397/Learning-Portfolio/tree/main/M.Tech/Data%20Management/SQL) |
 
 ## Publication
 
