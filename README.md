@@ -8,13 +8,14 @@ This repository contains a curated list of certifications I've earned from vario
 
 ## M.Tech
 
-| Subjects | Notes | Studying Material | Project Link |
+| Subjects | Notes | Study Material | Project Link |
 |---------------|--------|--------|------------|
 | Dissertation | | | |
-| Advance DSA |  |  |  |
+| Advanced DSA | [Link](https://github.com/abhishek1397/Data-Structues-and-Algorithm) |  |  |
 | Data Warehousing and Data Mining | | | |
 | Statisitcs for Data Science | | | |
 | Data Management | | | |
+| AWS | | | |
 
 
 
