@@ -366,5 +366,58 @@ Different studies have different objectives, based on the research type:
 
 ***
 
-These notes provide a rigorous and precise understanding of fundamental research concepts suitable for an M.Tech exam at an IIT level, emphasizing clarity, theoretical grounding, and empirical relevance.
+## Useful YouTube Videos & Tutorials
+
+I found one relevant video that you’ll likely find helpful:
+
+[How to use SCImago Journal & Country Rank (SJR) for journal metrics explanations](https://www.solutions4statistics.com/post/2017/07/30/journal-ranking-metrics?utm_source=chatgpt.com)
+
+This video demonstrates how to use the SCImago site (scimagojr.com) to explore SJR and h‑index metrics for journals—perfect for understanding how these metrics are applied in real cases. It also covers other metrics explained in context.([solutions4statistics.com][1])
+
+
+## Core Concepts Explained
+
+Here’s a brief overview of the key journal metrics and indexing concepts covered in your question, based on credible sources:
+
+### 1. **Journal Impact Factor (JIF) / Impact Factor (IF)**
+
+* Calculates the average citations in a given year to articles published in the journal during the previous two years.([Wikipedia][2])
+* Example: IF₍2017₎ = total citations in 2017 to 2015–2016 articles ÷ number of citable articles in those years.([Wikipedia][2])
+* Used widely but criticized for oversimplification, field bias, and susceptibility to manipulation.([Wikipedia][2])
+
+### 2. **SCImago Journal Rank (SJR)**
+
+* A prestige-weighted metric: citations from more prestigious journals count more.([Wikipedia][3])
+* Based on Scopus data, calculated over a three-year window.([Wikipedia][3], [in.sagepub.com][4])
+
+### 3. **CiteScore**
+
+* Scopus-based metric similar to IF, but spans four years and includes more document types (e.g., book chapters, etc.).([aut.ac.nz.libguides.com][5], [in.sagepub.com][4])
+
+### 4. **h‑Index**
+
+* Measures a journal's or researcher's productivity and citations: the highest value h such that there are h publications with at least h citations each.([Wikipedia][6])
+* Different databases (Scopus, Web of Science, Google Scholar) yield different values due to coverage and indexing differences.([Wikipedia][6])
+
+### 5. **Additional Metrics**
+
+* **Eigenfactor and Article Influence** – Weigh citations by prestige, spanning five years.([www.slideshare.net][7])
+* **Immediacy Index** – Average citations in the same year of publication.([www.slideshare.net][7])
+* **SNIP (Source Normalized Impact per Paper)** – Normalizes citations by field, helping cross-field comparisons.([aut.ac.nz.libguides.com][5], [in.sagepub.com][4])
+* **Cited Half-Life**, **Quartile Rankings (Q1, Q2, …)** – Additional evaluative tools.([aut.ac.nz.libguides.com][5])
+
+### 6. **Indexing & Journal Types**
+
+* Journals may be general or specialized; each has different visibility, acceptance rates, and scope.([www.slideshare.net][7])
+* Common indexing platforms: Web of Science, Scopus, PubMed, DOAJ, UGC‑CARE, etc.([www.slideshare.net][7])
+
+## Recommendation for M.Tech Students
+
+1. **Watch the video above**—it’s practical and shows how to navigate SJR and interpret its scores.
+2. **Use scimagojr.com** yourself to explore live examples of SJR and h-index metrics.
+3. **Understand each metric's pros and cons**—especially in how they relate to your field and selection of journals.
+4. **Consider other metrics and indexing databases** when choosing where to publish or evaluating journals.
+5. **Look for course-specific or institution-specific tutorials**—many academic institutions publish their own explainers (e.g., slides from stands like Slideshare).([www.slideshare.net][8])
+
+
 
