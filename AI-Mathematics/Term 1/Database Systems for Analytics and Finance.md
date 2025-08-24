@@ -72,8 +72,3 @@
   * [ ] Stored procedures & triggers for automation
   * [ ] Reports/dashboards for business decision-making
 
----
-
-✅ Now you can paste this directly into your **GitHub repo README.md** and tick items as you complete them.
-
-Do you also want me to **add sub-tasks under each item** (like mini checklists for practice, coding, and project work) so you can track *progress in finer detail*?
