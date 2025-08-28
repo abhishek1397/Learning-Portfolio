@@ -299,7 +299,69 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 
 ***
 
-# "Lec - 6:  "
+# "Lec - 6: OLTP | Online Transaction Processing "
+
+### What is OLTP?
+- OLTP stands for **Online Transaction Processing**.
+- It manages **transaction-oriented applications**, usually for data entry and retrieval transactions.
+- Examples include buying a product on Amazon, paying fees online, booking hotels, or transferring money via apps like Paytm or SBI.
+- Essentially, when users perform tasks or transactions online (e.g., searching for items, selecting products, making payments), they are using OLTP systems.
+- The focus is on **fast, reliable, and consistent processing** of transactions, such as inserting, updating, or deleting data.
+
+### Components of OLTP System
+1. **User Interface (UI)**
+   - Users interact via desktop or mobile applications.
+   - Through the UI, they search products, select items, add them to carts, make payments, etc.
+2. **Application Server**
+   - The applications run on servers which could be **on-premises** (company's own servers) or **cloud-based** (e.g., Google App Engine, AWS).
+   - The server handles the logic of the application.
+3. **Database**
+   - Stores all data related to transactions.
+   - Examples of database software include Oracle, SQL Server, MySQL.
+   - The database is where the actual data for products, users, transactions are maintained.
+   - Data is created and saved each time a transaction happens, ensuring the business operations continue smoothly.
+
+### Transaction Flow Example
+##### from non-tech perspective
+- User opens the application (like Amazon).
+- Searches and selects products.
+- Adds products to the cart and makes payment.
+- The transaction data is recorded into the database.
+
+##### from tech perspective
+- A user initiates a request (e.g., place an order).
+- The UI forwards the request to the application server.
+- The application processes business logic, validates data, and initiates a database transaction.
+- The database performs the insert/update/delete while maintaining data integrity.
+- Upon success, the transaction is committed; if any step fails, it rolls back completely.
+  
+### Key Characteristics of OLTP Systems
+- **High Concurrency**: Supports thousands or millions of simultaneous users performing transactions.
+- **Fast Processing**: Transactions are quick and often involve few records.
+- **Data Integrity**: Guarantees ACID compliance to prevent partial or incorrect updates.
+- **Reliability & Fault Tolerance**: Uses replication and failover mechanisms to ensure availability.
+- **Scalability**: Employs techniques like connection pooling, read replicas, and sharding to handle load.
+
+### Importance of Data
+- Data is critical for business analysis.
+- Though a user may not need old transaction data, companies keep it to analyze buying patterns, sales, profit, loss, and other business metrics.
+- This stored transactional data can be later used by **Online Analytical Processing (OLAP)** systems for reporting and analysis after being stored in data warehouses.
+
+  ### Modern OLTP System Trends
+- Support for diverse data types beyond traditional relational formats.
+- Integration with streaming platforms (e.g., Kafka) for event capture.
+- Use of distributed SQL databases for global scaling with ACID guarantees.
+- Coexistence with analytics, search, and big data systems to handle complex workloads.
+
+### Summary
+- OLTP systems facilitate the easy and quick performance of business transactions online.
+- Every day numerous transactions happen through various platforms.
+- The system relies on a tight integration of UI, application servers, and databases working together.
+- Transactions generate data that supports both current business operations and future analytical insights.
+
+***
+
+
 
 
 
