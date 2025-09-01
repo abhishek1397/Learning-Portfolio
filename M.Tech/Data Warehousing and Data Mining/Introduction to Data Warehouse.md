@@ -3,9 +3,12 @@
 ## Introduction to Data Warehouse
 
 ### What is a Data Warehouse?
-- A **Data Warehouse** is a centralized storage repository where data from multiple sources is collected and stored.
-- It is similar to a physical warehouse (like a potato warehouse) where produce is gathered from multiple locations and stored before use or distribution.
-- The data warehouse acts as a central area to hold large amounts of data, which can later be processed to extract meaningful insights to help grow and improve business.
+- A **Data Warehouse** is a centralized storage repository where large amounts of data from multiple sources is collected, stored and processed to extract meaningful insights to help grow and improve business.
+- sources such as operational databases, business applications, and external systems.
+- Enables businesses to integrate and harmonize data to create a single source of truth for analysis and reporting purposes
+- Supports business intelligence, analytics, and decision-making by allowing efficient trend analysis, reporting, and querying over large volumes of historical data
+- Stores both current and historical data to help organizations derive insights, predict future trends, and make informed decisions
+- It is similar to a physical warehouse (like a potato warehouse) where produce is gathered from multiple locations and stored before use or distribution. 
 
 ### ETL Process (Extract, Transform, Load)
 - Data is first **extracted** from multiple, diverse sources (such as different operational systems or databases).
