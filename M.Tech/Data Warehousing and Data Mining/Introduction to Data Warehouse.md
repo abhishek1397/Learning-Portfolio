@@ -207,6 +207,25 @@ The Star Schema is a fundamental data modeling technique used in data warehouses
 ### Summary
 The Star Schema offers a straightforward and powerful method for modeling data warehouses. It enhances query performance, simplifies reporting, and supports scalable and flexible analytics. By adhering to best practices, organizations can maximize the benefits of star schema designs for robust business intelligence and decision support.
 
+### Relationship Between Star Schema and Data Structures
+
+#### Star Schema (Logical Design)
+ **star schema** defines how data is **logically related and structured** for analytical processing. This logical model is optimized for querying and reporting in data warehouses.
+
+#### Data Structures (Physical Implementation)
+**Data structures** define how this schema is **implemented physically** in memory or on disk. They influence performance, storage, and query efficiency.
+
+Examples include:
+
+- **B-trees** for indexing fact and dimension tables.
+- Data stored in **columnar formats**, **arrays**, or **hash tables** to optimize read performance.
+- SQL joins implemented using algorithms like **hash joins** or **graph traversal**, which rely on appropriate data structures.
+
+### Summary
+
+While the **star schema** provides a logical blueprint for organizing data, **data structures** are the foundational tools that enable efficient storage, retrieval, and querying of that data.
+
+
 ***
 
 # "Lec - 5: Snowflake Schema in Data Warehousing "
