@@ -456,10 +456,7 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 
 - **Purpose**: Rescales feature to a fixed range, usually.[1]
 - **Formula**: 
-  $$
-  x' = \frac{x - \min(X)}{\max(X) - \min(X)}
-  $$
-  Where $$x$$ is the old value and $$x'$$ is the normalized value.
+![Min-Max](https://github.com/user-attachments/assets/a72b37aa-d310-43d8-a71e-cf406c605234)
 - **Application**: Suitable when minimum and maximum bounds are known and there are no outliers.
 - **Example**: House sizes ranging from 1000 to 1800 sq ft can be normalized to  using the formula above.[1]
 
@@ -467,10 +464,7 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 
 - **Purpose**: Standardizes feature by removing the mean and scaling to unit variance.
 - **Formula**: 
-  $$
-  z = \frac{x - \mu}{\sigma}
-  $$
-  Where $$\mu$$ is the mean and $$\sigma$$ is the standard deviation of the feature.
+ ![Z-score](https://github.com/user-attachments/assets/c75cc875-f3ab-49ae-9a33-5d31eb790f4f)
 - **Application**: Best when data is normally distributed.
 - **Example**: Feature values like  can be converted to z-scores to understand each value’s relative position to the mean.
 
