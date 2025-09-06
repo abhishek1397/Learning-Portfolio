@@ -2,7 +2,7 @@
 
 ## Introduction to Data Warehouse
 
-![Data Warehousing](<img width="1015" height="492" alt="image" src="https://github.com/user-attachments/assets/3402e951-bb54-48ca-96dc-e3ac3de33a14" />)
+![Data Warehousing](https://github.com/user-attachments/assets/3402e951-bb54-48ca-96dc-e3ac3de33a14)
 
 ### What is a Data Warehouse?
 - A **Data Warehouse** is a centralized storage repository where large amounts of data from multiple sources is collected, stored and processed to extract meaningful insights to help grow and improve business.
