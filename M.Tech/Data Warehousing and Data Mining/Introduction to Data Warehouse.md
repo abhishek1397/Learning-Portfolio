@@ -674,7 +674,7 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 - Data lakes provide a dumping ground for raw data enabling future analysis and machine learning model training.
 - Example mentioned: Amazon uses warehouses to store processed data and marts to access specific business function data.
 
-![Difference](https://github.com/user-attachments/assets/81d62ea1-1a54-4fbf-b370-0c94704fa4cf)
+![Difference](https://github.com/user-attachments/assets/ad751908-45ff-4d63-ab7e-705e471cf889)
 
 ***
 
