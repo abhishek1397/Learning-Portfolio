@@ -629,6 +629,8 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 
 # "Lec - 12: Difference Between Data Warehouse, Data Mart, & Data Lake"
 
+![Difference](https://github.com/user-attachments/assets/463b5980-8f15-4ed3-84d4-10056d4f2a99)
+
 ## Data Warehouse
 
 - A centralized repository where data from multiple locations is:
@@ -671,6 +673,8 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 - Data marts improve speed and efficiency for specific teams.
 - Data lakes provide a dumping ground for raw data enabling future analysis and machine learning model training.
 - Example mentioned: Amazon uses warehouses to store processed data and marts to access specific business function data.
+
+![Difference](https://github.com/user-attachments/assets/81d62ea1-1a54-4fbf-b370-0c94704fa4cf)
 
 ***
 
