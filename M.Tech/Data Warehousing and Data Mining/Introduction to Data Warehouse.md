@@ -474,22 +474,6 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 - Use **z-score normalization** for data where distribution is approximately normal and relative deviation from the mean is important.
 - Normalization improves algorithm performance by preventing features with large numeric ranges from dominating model training.
 
-The formal notes provided accurately define and describe data discretization in alignment with recognized technical definitions in machine learning and data science. They match with scholarly and industry sources and use correct terminology and examples.[1][3][4]
-
-### Formal Comparison to Authoritative Definitions
-
-- **Definition**: "Data discretization is a data pre-processing technique used to convert continuous data into discrete categories or bins."  
-  - Matches formal definitions such as:  
-    - "Discretization is the process of converting continuous data or numerical values into discrete categories or bins. This technique is often used in data analysis and machine learning to simplify complex data and make it easier to analyze and work with".[3]
-    - "In statistics and machine learning, discretization refers to the process of converting or partitioning continuous attributes, features or variables to discretized or nominal attributes/features/variables/intervals".[4]
-- **Purpose**: The notes mention that discretization "makes raw, continuous data more suitable for machine learning models," which is directly echoed in source literature.[2][3][4]
-- **Techniques**: Equal-width binning, equal-frequency binning, clustering, and custom/decision tree approaches are consistently listed as standard discretization techniques in both the notes and reputable references.[2][3]
-- **Workflow and Rationale**: The advantages, applications, and workflow steps outlined are formally correct and reflect the practical and theoretical use of discretization in data science and analytics.[5][3][2]
-
-### Conclusion
-Yes, these notes are **formal** and satisfy the expectations for academic, technical, or professional documentation about data discretization in the context of machine learning and data science.[3][4][2]
-
-***
 
 # "Lec - 9: Introduction to Data Discretization "
 
@@ -518,14 +502,15 @@ Yes, these notes are **formal** and satisfy the expectations for academic, techn
   - Each bin represents a category, helping with analysis and visualization.
 
 ## Common Discretization Techniques
+**Techniques**: Equal-width binning, equal-frequency binning, clustering, and custom/decision tree approaches are consistently listed as standard discretization techniques
 
 ### 1. Equal-Width Binning
 
 - Divide the entire range of a variable into intervals ("bins") of equal size.
 - **Formula for bin width:**
-  $$
-  \text{Bin Width} = \frac{\text{max value} - \text{min value}}{\text{number of bins}}
-  $$
+
+ ![Equal-Width Bin](https://github.com/user-attachments/assets/cdf6542b-8b90-4640-a3f0-5ccc7cd54b03)
+ 
 - Assign each value to its corresponding bin based on interval boundaries.
 - Example:
   - Age range: 18–70, bins: 4
