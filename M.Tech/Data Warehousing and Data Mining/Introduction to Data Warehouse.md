@@ -693,6 +693,9 @@ The Snowflake Schema is a normalized extension of the Star Schema designed to ad
 
 ## OLAP Operations
 
+![Difference](https://github.com/user-attachments/assets/cba5f0c4-9380-4c1c-80d0-228eeed124b3)
+
+
 ### 1. Slice
 - Selects a single dimension to examine.
 - Example: Slice by product 'Laptop' to see total sales for laptops across all regions and quarters.
