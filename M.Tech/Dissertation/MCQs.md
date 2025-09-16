@@ -1097,181 +1097,181 @@
 
 ## Brain Teaser
 
+### 203. A faculty member at LPU applies for the A++ Research Excellence Award. Which of the following combinations disqualifies the application based on eligibility criteria?
 
-### 183. A faculty member at LPU applies for the A++ Research Excellence Award. Which of the following combinations disqualifies the application based on eligibility criteria?
-
-A. 3 Scopus-indexed publications, revenue generation of ₹25 lakhs, no patents filed ✅
-B. 3 publications indexed in WoS, 1 patent filed, revenue generation of ₹10 lakhs
-C. 4 publications indexed in both Scopus and WoS, revenue generation of ₹20 lakhs, no patents filed
-D. 3 publications indexed in both Scopus and WoS (excluding ESCI), revenue generation of ₹22 lakhs
-
----
-
-### 184. If a faculty presents two papers at different international conferences in a year but only one is funded under LPU’s conference grant policy, which of the following is TRUE?
-
-A. Both conference grants will be reimbursed as there is no restriction.
-B. Only the first presentation is eligible, and the second cannot be claimed under any circumstance.
-C. Only one conference grant is reimbursed; for subsequent presentations, only registration fee (up to Rs. 10,000) is supported. ✅
-D. Both are reimbursed but the second one must be pre-approved by the Registrar.
+- A. 3 Scopus-indexed publications, revenue generation of ₹25 lakhs, no patents filed ✅  
+- B. 3 publications indexed in WoS, 1 patent filed, revenue generation of ₹10 lakhs  
+- C. 4 publications indexed in both Scopus and WoS, revenue generation of ₹20 lakhs, no patents filed  
+- D. 3 publications indexed in both Scopus and WoS (excluding ESCI), revenue generation of ₹22 lakhs  
 
 ---
 
-### 185. A research paper published in a Scopus/WoS Q1 journal has four LPU-affiliated authors. How is the cash incentive distributed if the total incentive is ₹35,000?
+### 204. If a faculty presents two papers at different international conferences in a year but only one is funded under LPU’s conference grant policy, which of the following is TRUE?
 
-A. Each author receives ₹8,750 equally.
-B. First author gets ₹17,500 and remaining ₹17,500 divided equally.
-C. The first author gets 70%, and the co-authors share the remaining 30%.
-D. 30% of ₹35,000 is equally divided among the internal co-authors, and the first author receives the remaining 70%. ✅
-
----
-
-### 186. A Ph.D. faculty member avails Seed Category I support of ₹50,000. Which of the following would result in a rejection of reimbursement claim?
-
-A. Spending ₹20,000 on consumables and ₹10,000 on analysis/testing expenses
-B. Spending ₹25,000 on research databases and ₹25,000 on buying a new laptop ✅
-C. Spending ₹30,000 on analysis/testing and ₹20,000 on software purchase
-D. Spending ₹15,000 on analysis/testing, ₹10,000 on consumables, and ₹25,000 on software licenses
+- A. Both conference grants will be reimbursed as there is no restriction.  
+- B. Only the first presentation is eligible, and the second cannot be claimed under any circumstance.  
+- C. Only one conference grant is reimbursed; for subsequent presentations, only registration fee (up to Rs. 10,000) is supported. ✅  
+- D. Both are reimbursed but the second one must be pre-approved by the Registrar.  
 
 ---
 
-### 187. Under the Intellectual Property Rights (IPR) policy at LPU, if an invention is initiated by a non-faculty (external partner), how much of the IPR income is allocated to the inventors?
+### 205. A research paper published in a Scopus/WoS Q1 journal has four LPU-affiliated authors. How is the cash incentive distributed if the total incentive is ₹35,000?
 
-A. 100% of the income is shared among LPU faculty inventors
-B. 70% of the income is shared among the inventors, regardless of initiator ✅
-C. Only 50% of the income is shared if the initiator is external
-D. No IPR income is shared with LPU faculty in such a case
-
----
-
-### 188. For a faculty with exactly 5 years of service, which of the following statements is TRUE regarding Career Enhancement Leaves (CEL)?
-
-A. They are eligible for 2 CEL in the academic year.
-B. They can avail up to 3 CEL in a year.
-C. They are eligible for 5 CEL in an academic year. ✅
-D. CEL is not applicable until 7 years of service.
+- A. Each author receives ₹8,750 equally.  
+- B. First author gets ₹17,500 and remaining ₹17,500 divided equally.  
+- C. The first author gets 70%, and the co-authors share the remaining 30%.  
+- D. 30% of ₹35,000 is equally divided among the internal co-authors, and the first author receives the remaining 70%. ✅  
 
 ---
 
-### 189. A faculty member receives a National Patent Granted that involves collaboration with an industry partner. The awarded points for research reward calculation will be:
+### 206. A Ph.D. faculty member avails Seed Category I support of ₹50,000. Which of the following would result in a rejection of reimbursement claim?
 
-A. 10 points
-B. 20 points
-C. 30 points ✅
-D. 40 points
-
----
-
-### 190. A faculty applies for a Seed Matching Grant (SMG) to fund additional equipment worth ₹10 lakhs, backed by an external project grant. What is the maximum amount LPU can match?
-
-A. ₹2.5 lakhs
-B. ₹4 lakhs
-C. ₹5 lakhs ✅
-D. ₹10 lakhs
+- A. Spending ₹20,000 on consumables and ₹10,000 on analysis/testing expenses  
+- B. Spending ₹25,000 on research databases and ₹25,000 on buying a new laptop ✅  
+- C. Spending ₹30,000 on analysis/testing and ₹20,000 on software purchase  
+- D. Spending ₹15,000 on analysis/testing, ₹10,000 on consumables, and ₹25,000 on software licenses  
 
 ---
 
-### 191. An interdisciplinary research paper indexed in Scopus under LPU affiliation receives bonus points in evaluation. The correct bonus point value is:
+### 207. Under the Intellectual Property Rights (IPR) policy at LPU, if an invention is initiated by a non-faculty (external partner), how much of the IPR income is allocated to the inventors?
 
-A. 13.04 points
-B. 19.56 points ✅
-C. 26.08 points
-D. 32.6 points
-
----
-
-### 192. In a scenario where a faculty supervises a PhD student who graduates, the awarded research points are:
-
-A. 32.6 points
-B. 68.46 points
-C. 97.8 points ✅
-D. Based on the number of co-supervisors
-
-
-### 193. A faculty applies for an International MOU incentive. If the MOU is successfully signed with a reputed research organization, which of the following is TRUE regarding cash incentives?
-
-A. No cash incentive is provided because it is a non-patented collaboration
-B. A fixed cash incentive of ₹10,000 is provided
-C. A fixed cash incentive of ₹20,000 is provided ✅
-D. Incentives are only provided if research outcomes are produced later
+- A. 100% of the income is shared among LPU faculty inventors  
+- B. 70% of the income is shared among the inventors, regardless of initiator ✅  
+- C. Only 50% of the income is shared if the initiator is external  
+- D. No IPR income is shared with LPU faculty in such a case  
 
 ---
 
-### 194. A faculty member with 4 years of service at LPU is applying for Career Enhancement Leave (CEL) for research data collection abroad. Which of the following applies?
+### 208. For a faculty with exactly 5 years of service, which of the following statements is TRUE regarding Career Enhancement Leaves (CEL)?
 
-A. Eligible for 5 CEL per academic year
-B. Eligible for 3 CEL per academic year ✅
-C. Cannot apply for CEL until 5 years of service is completed
-D. No restriction on the number of CELs
-
----
-
-### 195. Regarding the division of incentives for multi-authored publications (LPU affiliation only), which is the correct rule when there are more than two internal co-authors?
-
-A. First author receives 70%, co-authors share the remaining 30% equally ✅
-B. Each co-author receives an equal share of 50%
-C. The first author receives 30%, and the rest share 70%
-D. Incentives are awarded only to the first author
+- A. They are eligible for 2 CEL in the academic year.  
+- B. They can avail up to 3 CEL in a year.  
+- C. They are eligible for 5 CEL in an academic year. ✅  
+- D. CEL is not applicable until 7 years of service.  
 
 ---
 
-### 196. A research project is funded by an external agency and includes equipment worth ₹30 lakhs, overhead of ₹10 lakhs, and contingency of ₹5 lakhs. What is the maximum Seed Matching Grant (SMG) LPU can provide?
+### 209. A faculty member receives a National Patent Granted that involves collaboration with an industry partner. The awarded points for research reward calculation will be:
 
-A. ₹15 lakhs
-B. ₹25 lakhs
-C. ₹25 lakhs (i.e., 50% of equipment + overhead + contingency) ✅
-D. ₹45 lakhs (full external amount)
-
----
-
-### 197. A faculty applies for the Best School Research Award. Which of the following combinations would maximize the award chances?
-
-A. Publications in Scopus/WoS and industry MoUs only
-B. Publications in Scopus/WoS, patents granted, research grants, and top 2% researcher ranking ✅
-C. Only patents filed, no publications
-D. Only collaboration MoUs without any publication or patent
+- A. 10 points  
+- B. 20 points  
+- C. 30 points ✅  
+- D. 40 points  
 
 ---
 
-### 198. In case a faculty member acts as an external examiner for Ph.D. viva voce outside LPU, which of the following applies for leave benefits?
+### 210. A faculty applies for a Seed Matching Grant (SMG) to fund additional equipment worth ₹10 lakhs, backed by an external project grant. What is the maximum amount LPU can match?
 
-A. No leave granted
-B. Can avail Career Enhancement Leave (CEL) ✅
-C. Only casual leave permitted
-D. Leave can only be granted if within India
-
----
-
-### 199. If a faculty files a National Patent granted under LPU’s policy and is later granted a Technology Transfer, what is the correct incentive scheme?
-
-A. Only the patent incentive applies
-B. Both patent and technology transfer incentives apply separately ✅
-C. Only the technology transfer incentive applies
-D. No additional incentive beyond patent grant
+- A. ₹2.5 lakhs  
+- B. ₹4 lakhs  
+- C. ₹5 lakhs ✅  
+- D. ₹10 lakhs  
 
 ---
 
-### 200. For a faculty publishing a paper in Scopus/WoS Q4 journal with multiple authors (including one non-LPU co-author), which of the following statements is correct regarding earned incentive?
+### 211. An interdisciplinary research paper indexed in Scopus under LPU affiliation receives bonus points in evaluation. The correct bonus point value is:
 
-A. Only the first author gets the full cash incentive
-B. Incentives are distributed equally across all authors regardless of affiliation
-C. LPU pays only the LPU-affiliated authors based on its policy ✅
-D. No incentive is given unless all authors are from LPU
-
----
-
-### 201. A faculty submits a proposal for a multidisciplinary project grant with industry collaboration but no signed MoU is attached. What is the likely outcome?
-
-A. Proposal is accepted as is
-B. Proposal is considered incomplete and rejected ✅
-C. Only conditional acceptance with pending MoU
-D. Proposal is processed but no seed matching grant is provided
+- A. 13.04 points  
+- B. 19.56 points ✅  
+- C. 26.08 points  
+- D. 32.6 points  
 
 ---
 
-### 202. The Research Impact Award at LPU is given based on which key factor?
+### 212. In a scenario where a faculty supervises a PhD student who graduates, the awarded research points are:
 
-A. Highest number of publications
-B. Publications in top 5 journals only
-C. Faculty included in the Top 2% Scientists globally by Stanford University ✅
-D. Most patents filed
+- A. 32.6 points  
+- B. 68.46 points  
+- C. 97.8 points ✅  
+- D. Based on the number of co-supervisors  
+
+---
+
+### 213. A faculty applies for an International MOU incentive. If the MOU is successfully signed with a reputed research organization, which of the following is TRUE regarding cash incentives?
+
+- A. No cash incentive is provided because it is a non-patented collaboration  
+- B. A fixed cash incentive of ₹10,000 is provided  
+- C. A fixed cash incentive of ₹20,000 is provided ✅  
+- D. Incentives are only provided if research outcomes are produced later  
+
+---
+
+### 214. A faculty member with 4 years of service at LPU is applying for Career Enhancement Leave (CEL) for research data collection abroad. Which of the following applies?
+
+- A. Eligible for 5 CEL per academic year  
+- B. Eligible for 3 CEL per academic year ✅  
+- C. Cannot apply for CEL until 5 years of service is completed  
+- D. No restriction on the number of CELs  
+
+---
+
+### 215. Regarding the division of incentives for multi-authored publications (LPU affiliation only), which is the correct rule when there are more than two internal co-authors?
+
+- A. First author receives 70%, co-authors share the remaining 30% equally ✅  
+- B. Each co-author receives an equal share of 50%  
+- C. The first author receives 30%, and the rest share 70%  
+- D. Incentives are awarded only to the first author  
+
+---
+
+### 216. A research project is funded by an external agency and includes equipment worth ₹30 lakhs, overhead of ₹10 lakhs, and contingency of ₹5 lakhs. What is the maximum Seed Matching Grant (SMG) LPU can provide?
+
+- A. ₹15 lakhs  
+- B. ₹25 lakhs  
+- C. ₹25 lakhs (i.e., 50% of equipment + overhead + contingency) ✅  
+- D. ₹45 lakhs (full external amount)  
+
+---
+
+### 217. A faculty applies for the Best School Research Award. Which of the following combinations would maximize the award chances?
+
+- A. Publications in Scopus/WoS and industry MoUs only  
+- B. Publications in Scopus/WoS, patents granted, research grants, and top 2% researcher ranking ✅  
+- C. Only patents filed, no publications  
+- D. Only collaboration MoUs without any publication or patent  
+
+---
+
+### 218. In case a faculty member acts as an external examiner for Ph.D. viva voce outside LPU, which of the following applies for leave benefits?
+
+- A. No leave granted  
+- B. Can avail Career Enhancement Leave (CEL) ✅  
+- C. Only casual leave permitted  
+- D. Leave can only be granted if within India  
+
+---
+
+### 219. If a faculty member files a National Patent granted under LPU’s policy and is later granted a Technology Transfer, what is the correct incentive scheme?
+
+- A. Only the patent incentive applies  
+- B. Both patent and technology transfer incentives apply separately ✅  
+- C. Only the technology transfer incentive applies  
+- D. No additional incentive beyond patent grant  
+
+---
+
+### 220. For a faculty publishing a paper in Scopus/WoS Q4 journal with multiple authors (including one non-LPU co-author), which of the following statements is correct regarding earned incentive?
+
+- A. Only the first author gets the full cash incentive  
+- B. Incentives are distributed equally across all authors regardless of affiliation  
+- C. LPU pays only the LPU-affiliated authors based on its policy ✅  
+- D. No incentive is given unless all authors are from LPU  
+
+---
+
+### 221. A faculty submits a proposal for a multidisciplinary project grant with industry collaboration but no signed MoU is attached. What is the likely outcome?
+
+- A. Proposal is accepted as is  
+- B. Proposal is considered incomplete and rejected ✅  
+- C. Only conditional acceptance with pending MoU  
+- D. Proposal is processed but no seed matching grant is provided  
+
+---
+
+### 222. The Research Impact Award at LPU is given based on which key factor?
+
+- A. Highest number of publications  
+- B. Publications in top 5 journals only  
+- C. Faculty included in the Top 2% Scientists globally by Stanford University ✅  
+- D. Most patents filed  
 
