@@ -1275,3 +1275,146 @@
 - C. Faculty included in the Top 2% Scientists globally by Stanford University ✅  
 - D. Most patents filed  
 
+### 223. What is the primary aim of LPU’s academic and research promotion schemes?
+
+- A. To allow any faculty to claim awards as a right  
+- B. To provide predictable benefits based upon achieving specific measurable quality-based outcomes ✅  
+- C. To provide random benefits based on faculty rank  
+- D. To encourage only external collaborations  
+
+---
+
+### 224. Which of the following is NOT included in LPU’s benefit schemes?
+
+- A. Research Excellence & Appreciation Awards  
+- B. Seed Grants  
+- C. Cash Incentives for Staff Registered for PhD  
+- D. Guaranteed job promotion after three publications ✅  
+
+---
+
+### 225. According to LPU policy, the acceptance or rejection of any grant, award, incentive, or leave is:
+
+- A. Automatically approved if eligibility criteria are met  
+- B. Solely at the discretion of the University ✅  
+- C. Decided by a committee of peers  
+- D. Mandatory to be approved if applied  
+
+---
+
+### 226. To claim benefits for a publication under LPU policy, the author’s affiliation in the manuscript must be:
+
+- A. Lovely Professional University (LPU) ✅  
+- B. Any institution where the author worked during publication  
+- C. The present address mentioned in the manuscript  
+- D. Any Indian University  
+
+---
+
+### 227. Which of the following is TRUE about journal exclusions in LPU’s policy?
+
+- A. Only journals indexed in ESCI are excluded  
+- B. University reserves the right to exclude any journal indexed in WoS or Scopus for benefits/grants/awards ✅  
+- C. All journals in Scopus and WoS are automatically eligible  
+- D. No journal exclusions are allowed  
+
+---
+
+### 228. Who makes the final decision when there is a doubt in policy interpretation?
+
+- A. Research and Development Cell  
+- B. Head of Department  
+- C. Worthy Vice Chancellor ✅  
+- D. HR Division  
+
+---
+
+### 229. What happens to awarded benefits if a faculty member leaves the organization?
+
+- A. All benefits continue for up to one year  
+- B. All benefits lapse, except incentives for publications/IPR/Grants already granted ✅  
+- C. Only awards are revoked, not bonus points  
+- D. Benefits transfer to the next faculty member  
+
+---
+
+### 230. Under what condition are balance benefits and bonus points forwarded to a faculty member’s new UID?
+
+- A. If the faculty rejoins after a 3-month gap  
+- B. Only if rejoining immediately after leaving ✅  
+- C. Only if the faculty applies for transfer  
+- D. Never transferred; they reset  
+
+---
+
+### 231. For calculating incentives based on journal quartile (Q1-Q4) or Impact Factor (IF), which metric is considered?
+
+- A. The quartile/IF at the time of manuscript submission  
+- B. The journal quartile/IF available online at the time of log request verification ✅  
+- C. The quartile/IF at the time of conference acceptance  
+- D. The average quartile over the last year  
+
+---
+
+### 232. What is the validity period for publications eligible for LPU benefits in 2024?
+
+- A. Indexed in Scopus/WoS anytime in 2024  
+- B. Indexed under LPU affiliation between 1st January and 31st December 2024 ✅  
+- C. Indexed before 2024 but claimed in 2024  
+- D. Indexed within the calendar year but author need not be affiliated with LPU  
+
+---
+
+### 233. What happens to TDS (Tax Deducted at Source) for incentives given to LPU faculty?
+
+- A. No TDS is deducted from faculty incentives  
+- B. TDS is deducted as per ITR rules ✅  
+- C. TDS is deducted only for patents  
+- D. TDS is deducted only if the incentive exceeds ₹1 lakh  
+
+---
+
+### 234. For conference paper publications indexed in Scopus/WoS, what is applicable?
+
+- A. Conference grants cannot be applied  
+- B. Conference grants can be applied ✅  
+- C. Only registration fees are reimbursed  
+- D. Conference grants are not applicable for PhD students  
+
+---
+
+### 235. Which of the following disqualifies a faculty from award consideration in 2024?
+
+- A. Major or serious disciplinary case executed during the calendar year ✅  
+- B. Less than 3 publications indexed in Scopus  
+- C. Not involved in research supervision  
+- D. Not applying for awards  
+
+---
+
+### 236. Regarding students participating in research work, what is the correct policy?
+
+- A. Students are not allowed as authors  
+- B. Students should be included in the authorship role ✅  
+- C. Students can only be acknowledged in the footnotes  
+- D. Students receive cash incentives but no authorship  
+
+---
+
+### 237. What is the consequence if academic misconduct or plagiarism is found in any research activity?
+
+- A. Only future benefits are withheld  
+- B. Any/all awards, benefits, or entitlements already awarded may be withdrawn ✅  
+- C. No action is taken unless it is repeated  
+- D. Only the publication is withdrawn, no financial penalty  
+
+---
+
+### 238. What is the eligibility condition for contract faculty to be recommended for regularization?
+
+- A. Must achieve 100% of research targets  
+- B. Must achieve 50% of research publication target and no disciplinary case, plus a vacancy in department ✅  
+- C. Only no disciplinary cases are required  
+- D. Contract period must exceed one year for regularization  
+
+
