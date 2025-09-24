@@ -40,58 +40,8 @@
 
 [Intro to the RapidMiner Studio GUI](https://youtu.be/Gg01mmR3j-g)
 
-***
 
-## Part 2 Introduction to Turbo Prep | RapidMiner
-
-### What is Turbo Prep?
-- Turbo Prep in RapidMiner streamlines data preparation tasks such as extraction, transformation, and loading (ETL), reducing manual effort.[1]
-- Integrates seamlessly with RapidMiner's Auto Model, allowing for a smooth flow from data preparation to model building.[1]
-
-### Getting Started with Turbo Prep
-- Access Turbo Prep from the Views menu in RapidMiner Studio.[1]
-- Load data by clicking "Load Data" or the text prompt:
-  - Choose from recently used datasets, import new data from the local computer, network drive, or database, or access data via the RapidMiner Repository.[1]
-  - Repository functions like a local data folder and can connect to RapidMiner Server or external databases.[1]
-
-### Core Functions in Turbo Prep
-- Once data is loaded, transformation options are activated: **Transform**, **Cleanse**, **Generate**, etc..
-- Actions are grouped for structured data prep—perform and repeat different actions during the session.
-- Example 1: Renaming a column
-  - Select the column and transformation, rename (e.g., "sex" to "gender"), and apply; preview updates instantly.
-- Example 2: Generating a new column
-  - Use the Generate group to create features (e.g., family size as siblings + parents + 1); preview shows the new attribute immediately.
-
-### Process Tracking and Integration
-- Turbo Prep tracks and displays session history; previous steps can be rolled back or branched for separate data prep processes.
-- All actions in Turbo Prep are transparent and can be exported as a process to RapidMiner's Design View, where operators can be further examined and edited.
-- Changes made in the Design View process don't sync back to Turbo Prep unless the process is run directly in the Design View.
-
-### Data Exploration Tools
-- Table View presents data with histograms over attributes for quick visualization of distributions.[1]
-- Quality indicators under histograms help assess data issues:
-  - Red: Missing/infinite values
-  - Light Blue: Identities
-  - Gray: Stability
-  - Green: Valid values
-- Right-click for transformation, cleansing, or sorting on columns—sorting affects view only unless committed as a transformation.
-- Show column details for stats, histogram, format, and quality breakdowns.
-
-### Transition to Modeling
-- Use prepped data instantly in Auto Model by taking a snapshot—no need to save first unless desired.
-- Quick demonstration: Generating a decision tree model using the enriched feature (e.g., family size) and observing its impact on model criteria (feature importance, decision paths).
-
-### Key Data Science Concepts Highlighted
-- Feature generation: Creating new columns for meaningful model input.
-- Feature selection: Choosing optimal input columns; together with generation, forms feature engineering.
-
-Turbo Prep makes ETL, feature engineering, and transition to model building user-friendly and efficient within RapidMiner Studio.
-
-[1](https://www.youtube.com/watch?v=BZRVJMUk4nE)
-
-***
-
-## Part 3 RapidMiner: Importing Excel Data
+## Part 2 RapidMiner: Importing Excel Data
 
 ### 1. Find and Add Read Excel Operator
 - Use the search bar to type "Read Excel" and drag the operator into the process panel.
@@ -153,4 +103,56 @@ Turbo Prep makes ETL, feature engineering, and transition to model building user
 | Read Excel operator      | Dynamic       | Always reflects current file contents; live link   |
 
 Selecting between these methods allows flexibility between stable project archiving and real-time analysis with constantly updated data.[1]
+
+***
+
+## Part 3 Introduction to Turbo Prep | RapidMiner
+
+### What is Turbo Prep?
+- Turbo Prep in RapidMiner streamlines data preparation tasks such as extraction, transformation, and loading (ETL), reducing manual effort.[1]
+- Integrates seamlessly with RapidMiner's Auto Model, allowing for a smooth flow from data preparation to model building.[1]
+
+### Getting Started with Turbo Prep
+- Access Turbo Prep from the Views menu in RapidMiner Studio.[1]
+- Load data by clicking "Load Data" or the text prompt:
+  - Choose from recently used datasets, import new data from the local computer, network drive, or database, or access data via the RapidMiner Repository.[1]
+  - Repository functions like a local data folder and can connect to RapidMiner Server or external databases.[1]
+
+### Core Functions in Turbo Prep
+- Once data is loaded, transformation options are activated: **Transform**, **Cleanse**, **Generate**, etc..
+- Actions are grouped for structured data prep—perform and repeat different actions during the session.
+- Example 1: Renaming a column
+  - Select the column and transformation, rename (e.g., "sex" to "gender"), and apply; preview updates instantly.
+- Example 2: Generating a new column
+  - Use the Generate group to create features (e.g., family size as siblings + parents + 1); preview shows the new attribute immediately.
+
+### Process Tracking and Integration
+- Turbo Prep tracks and displays session history; previous steps can be rolled back or branched for separate data prep processes.
+- All actions in Turbo Prep are transparent and can be exported as a process to RapidMiner's Design View, where operators can be further examined and edited.
+- Changes made in the Design View process don't sync back to Turbo Prep unless the process is run directly in the Design View.
+
+### Data Exploration Tools
+- Table View presents data with histograms over attributes for quick visualization of distributions.[1]
+- Quality indicators under histograms help assess data issues:
+  - Red: Missing/infinite values
+  - Light Blue: Identities
+  - Gray: Stability
+  - Green: Valid values
+- Right-click for transformation, cleansing, or sorting on columns—sorting affects view only unless committed as a transformation.
+- Show column details for stats, histogram, format, and quality breakdowns.
+
+### Transition to Modeling
+- Use prepped data instantly in Auto Model by taking a snapshot—no need to save first unless desired.
+- Quick demonstration: Generating a decision tree model using the enriched feature (e.g., family size) and observing its impact on model criteria (feature importance, decision paths).
+
+### Key Data Science Concepts Highlighted
+- Feature generation: Creating new columns for meaningful model input.
+- Feature selection: Choosing optimal input columns; together with generation, forms feature engineering.
+
+Turbo Prep makes ETL, feature engineering, and transition to model building user-friendly and efficient within RapidMiner Studio.
+
+[Turbo Prep](https://www.youtube.com/watch?v=BZRVJMUk4nE)
+
+***
+
 
