@@ -121,3 +121,92 @@ int updateSorted(int oldVal, int newVal) {
 
 ---
 
+##### Nice 👍 Let’s extend the **update functions** so they handle **all occurrences** of a given value in the linked list (both **sorted** and **unsorted**). 
+
+# 🖊️ Update All Occurrences in Singly Linked List
+
+## 1️⃣ Update All in Unsorted Linked List
+
+* Traverse the **entire list**.
+* Replace **every node** with `oldVal` by `newVal`.
+* Keep track of positions updated.
+
+### Code:
+
+```cpp
+vector<int> updateAllUnsorted(int oldVal, int newVal) {
+    Node* temp = head;
+    int pos = 1;
+    vector<int> updatedPositions;
+
+    while (temp) {
+        if (temp->data == oldVal) {
+            temp->data = newVal;
+            updatedPositions.push_back(pos);
+        }
+        temp = temp->next;
+        pos++;
+    }
+
+    if (!updatedPositions.empty()) {
+        cout << "Updated all occurrences of " << oldVal 
+             << " to " << newVal << " at positions: ";
+        for (int p : updatedPositions) cout << p << " ";
+        cout << endl;
+    } else {
+        cout << oldVal << " not found, update failed." << endl;
+    }
+
+    return updatedPositions;
+}
+```
+
+---
+
+## 2️⃣ Update All in Sorted Linked List
+
+* Traverse while `node->data <= oldVal`.
+* Replace all matches of `oldVal` with `newVal`.
+* Stop early if `node->data > oldVal`.
+
+### Code:
+
+```cpp
+vector<int> updateAllSorted(int oldVal, int newVal) {
+    Node* temp = head;
+    int pos = 1;
+    vector<int> updatedPositions;
+
+    while (temp && temp->data <= oldVal) {
+        if (temp->data == oldVal) {
+            temp->data = newVal;
+            updatedPositions.push_back(pos);
+        }
+        temp = temp->next;
+        pos++;
+    }
+
+    if (!updatedPositions.empty()) {
+        cout << "Updated all occurrences of " << oldVal 
+             << " to " << newVal << " at positions: ";
+        for (int p : updatedPositions) cout << p << " ";
+        cout << endl;
+    } else {
+        cout << oldVal << " not found, update failed." << endl;
+    }
+
+    return updatedPositions;
+}
+```
+
+---
+
+## 📌 Summary
+
+| Case         | Traversal                            | Stops Early? | Updates                 | Returns             |
+| ------------ | ------------------------------------ | ------------ | ----------------------- | ------------------- |
+| **Unsorted** | Traverse entire list                 | ❌ No         | All matches             | Vector of positions |
+| **Sorted**   | Traverse until `node->data > oldVal` | ✅ Yes        | All matches up to limit | Vector of positions |
+
+---
+
