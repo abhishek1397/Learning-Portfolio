@@ -10,7 +10,7 @@
 ### Code:
 
 ```cpp
-int searchUnsorted(int key) {
+int searchUnsorted(Node* head, int key) {
     Node* temp = head;
     int pos = 1;
     while (temp) {
@@ -36,7 +36,7 @@ int searchUnsorted(int key) {
 ### Code:
 
 ```cpp
-int searchSorted(int key) {
+int searchSorted(Node* head,int key) {
     Node* temp = head;
     int pos = 1;
     while (temp && temp->data <= key) {
@@ -62,7 +62,7 @@ int searchSorted(int key) {
 ### Code:
 
 ```cpp
-int updateUnsorted(int oldVal, int newVal) {
+int updateUnsorted(Node* head,int oldVal, int newVal) {
     Node* temp = head;
     int pos = 1;
     while (temp) {
@@ -90,7 +90,7 @@ int updateUnsorted(int oldVal, int newVal) {
 ### Code:
 
 ```cpp
-int updateSorted(int oldVal, int newVal) {
+int updateSorted(Node* head,int oldVal, int newVal) {
     Node* temp = head;
     int pos = 1;
     while (temp && temp->data <= oldVal) {
@@ -172,7 +172,7 @@ vector<int> updateAllUnsorted(int oldVal, int newVal) {
 ### Code:
 
 ```cpp
-vector<int> updateAllSorted(int oldVal, int newVal) {
+vector<int> updateAllSorted(Node* head,int oldVal, int newVal) {
     Node* temp = head;
     int pos = 1;
     vector<int> updatedPositions;
