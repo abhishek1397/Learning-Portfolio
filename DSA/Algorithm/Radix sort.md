@@ -266,7 +266,41 @@ int main() {
     cout << endl;
 }
 ```
+# ✅ Updated Full Radix Sort (Handling Negative Numbers)
 
+```cpp
+void radixSortWithNegatives(vector<int>& arr) {
+    vector<int> negatives;
+    vector<int> positives;
+
+    // Step 1: Split into negatives and positives
+    for (int num : arr) {
+        if (num < 0)
+            negatives.push_back(-num); // Store as positive
+        else
+            positives.push_back(num);
+    }
+
+    // Step 2: Sort both arrays using radix sort
+    if (!negatives.empty()) radixSort(negatives);
+    if (!positives.empty()) radixSort(positives);
+
+    // Step 3: Reverse negatives and convert back to negative
+    reverse(negatives.begin(), negatives.end());
+    for (int& num : negatives) num = -num;
+
+    // Step 4: Combine negatives and positives
+    arr = negatives;
+    arr.insert(arr.end(), positives.begin(), positives.end());
+}
+```
+
+Now, you can use:
+```cpp
+radixSortWithNegatives(arr);
+```
+
+Instead of directly calling radixSort(arr).
 ---
 
 # 📊 Summary
