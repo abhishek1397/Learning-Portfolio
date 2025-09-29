@@ -37,16 +37,21 @@ void countingSort(vector<int>& arr, int exp) {
     vector<int> output(n);
     int count[10] = {0};
 
+    // Step 1: Count occurrences of each digit
     for (int i = 0; i < n; i++)
         count[(arr[i] / exp) % 10]++;
 
+    // Step 2: Compute the cumulative sum in the count array
     for (int i = 1; i < 10; i++)
         count[i] += count[i - 1];
 
+    // Step 3: Build the output array using the count array
     for (int i = n - 1; i >= 0; i--) {
         output[count[(arr[i] / exp) % 10] - 1] = arr[i];
         count[(arr[i] / exp) % 10]--;
     }
+
+    // Step 4: Copy the output array back to the original array
     arr = output;
 }
 
