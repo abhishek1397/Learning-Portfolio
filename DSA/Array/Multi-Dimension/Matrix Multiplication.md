@@ -1,15 +1,6 @@
 # ✅  Matrix Multiplication Code in C++
 
 ```cpp
-/*
-    Matrix Multiplication in C++
-    ----------------------------
-    Multiplies two matrices entered by the user.
-    Input and output are shown in matrix format (row-wise).
-
-    Author: [Your Name]
-    GitHub: [Your GitHub Link]
-*/
 
 #include <iostream>
 using namespace std;
