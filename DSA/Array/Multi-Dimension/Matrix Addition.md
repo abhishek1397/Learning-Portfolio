@@ -2,16 +2,6 @@
 # ✅ Matrix Addition Code in C++
 
 ```cpp
-/*
-    Matrix Addition in C++
-    -----------------------
-    Adds two matrices entered by the user.
-    Input and output are shown in matrix format (row-wise).
-
-    Author: [Your Name]
-    GitHub: [Your GitHub Link]
-*/
-
 #include <iostream>
 using namespace std;
 
