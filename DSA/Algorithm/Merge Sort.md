@@ -112,6 +112,44 @@ void merge(int arr[], int left, int mid, int right) {
 
 * **`merge(int arr[], int left, int mid, int right)`**: This function is responsible for merging two sorted subarrays (`arr[left..mid]` and `arr[mid+1..right]`) into a single sorted array.
 
+The parameters `left`, `mid`, and `right` are **indexes** that specify the portion of the array .
+
+### Meaning of the parameters:
+
+* **`int left`**: The starting index of the subarray to be merged.
+* **`int mid`**: The middle index, which separates the two halves that need to be merged.
+* **`int right`**: The ending index of the subarray to be merged.
+
+### Context (Merge Sort):
+
+When performing merge sort, you divide the array recursively into two halves and then merge the sorted halves.
+
+Let’s say we have an array:
+
+```cpp
+int arr[] = {2, 4, 1, 6, 8, 5, 3, 7};
+```
+
+Suppose we're merging the two sorted halves:
+
+* Left subarray: `arr[left..mid]`
+* Right subarray: `arr[mid+1..right]`
+
+So, for example:
+
+```cpp
+left = 0
+mid = 3
+right = 7
+```
+
+Then:
+* Left subarray: `arr[0..3] = {2, 4, 1, 6}`
+* Right subarray: `arr[4..7] = {8, 5, 3, 7}`
+
+The function will merge these two parts into a single sorted portion in `arr[0..7]`.
+
+
 #### Inside the `merge` function:
 
 ```cpp
