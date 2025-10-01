@@ -128,6 +128,46 @@ int *R = new int[n2];
 
 * Dynamically allocating memory for two temporary arrays `L` and `R` to hold the elements of the left and right subarrays.
 
+   `n1` and `n2` are calculated **just before** allocating the arrays `L` and `R`. So a natural question arises:
+
+> If `n1` and `n2` are known, why not just declare arrays like `int L[n1];` instead of using pointers and `new`?
+
+Let’s clarify this step-by-step.
+
+---
+
+## 🔍 The Real Reason: Where the Arrays Are Stored (Stack vs Heap)
+
+Even though `n1` and `n2` are known at runtime **within the function**, they are **not constants** at compile-time. And that matters for how arrays are created.
+
+---
+
+##### ✅ In C++ (Standard C++):
+
+You **cannot** do this:
+
+```cpp
+int n1 = mid - left + 1;
+int L[n1]; // ❌ Error in standard C++
+```
+
+Why?
+
+* Because standard C++ (pre-C++23) does **not support variable-length arrays (VLAs)** like C does.
+* Array sizes must be **compile-time constants** unless you're using `new` or a container like `std::vector`.
+
+So if you write:
+
+```cpp
+int *L = new int[n1];
+```
+
+You're telling the compiler:
+
+* "I know `n1` at runtime, and I want memory for `n1` integers from the **heap**, not the stack."
+
+---
+
 ```cpp
 for (int i = 0; i < n1; i++)
     L[i] = arr[left + i];
