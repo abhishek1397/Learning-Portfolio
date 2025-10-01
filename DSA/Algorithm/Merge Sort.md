@@ -134,13 +134,9 @@ int *R = new int[n2];
 
 Let’s clarify this step-by-step.
 
----
-
-## 🔍 The Real Reason: Where the Arrays Are Stored (Stack vs Heap)
+##### 🔍 The Real Reason: Where the Arrays Are Stored (Stack vs Heap)
 
 Even though `n1` and `n2` are known at runtime **within the function**, they are **not constants** at compile-time. And that matters for how arrays are created.
-
----
 
 ##### ✅ In C++ (Standard C++):
 
@@ -163,7 +159,6 @@ int *L = new int[n1];
 ```
 
 You're telling the compiler:
-
 * "I know `n1` at runtime, and I want memory for `n1` integers from the **heap**, not the stack."
 
 ---
