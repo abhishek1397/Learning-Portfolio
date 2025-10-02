@@ -289,6 +289,35 @@ mergeSort(arr, mid + 1, right);
 
 * These two recursive calls split the array into two halves: one from `left` to `mid`, and the other from `mid+1` to `right`.
 
+These two recursive calls do the following:
+
+1. **`mergeSort(arr, left, mid);`**
+   * This call sorts the **left half** of the array.
+   * It breaks down the portion of the array from index `left` to `mid`.
+
+2. **`mergeSort(arr, mid + 1, right);`**
+   * This call sorts the **right half** of the array.
+   * It breaks down the portion from index `mid + 1` to `right`.
+
+### Why we call it twice:
+Merge Sort recursively splits the array into **two halves**, sorts them **independently**, and then **merges** them in sorted order.
+
+##### Example:
+If you have an array:
+`[8, 4, 5, 2, 9, 1]`
+
+1. First split:
+   * Left half: `[8, 4, 5]`
+   * Right half: `[2, 9, 1]`
+
+2. Recursively sort each:
+   * Sort `[8, 4, 5]` → `[4, 5, 8]`
+   * Sort `[2, 9, 1]` → `[1, 2, 9]`
+
+3. Merge the two sorted halves:
+   * Merge `[4, 5, 8]` and `[1, 2, 9]` → `[1, 2, 4, 5, 8, 9]`
+     
+---
 ```cpp
 merge(arr, left, mid, right);
 ```
