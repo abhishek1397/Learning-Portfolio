@@ -382,7 +382,7 @@ return 0;
 
 * Returns `0` to indicate the program has executed successfully.
 
-✅ Merge Sort Using std::vector<int>
+# ✅ Merge Sort Using std::vector<int>
 
 ```cpp
 #include <iostream>
