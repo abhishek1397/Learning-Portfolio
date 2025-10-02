@@ -92,7 +92,7 @@ int main() {
 }
 ```
 
- Here's an explanation of each line in the code:
+# Explanation of each line in the code:
 
 ### Preprocessor Directives:
 
