@@ -68,9 +68,12 @@ A valid measure ensures **accuracy** and **theoretical alignment** between the c
   Examines whether the instrument adequately **covers the full range** of the construct under study.[4]
   Example: A job satisfaction scale should include items about pay, work conditions, and relationships.
 
-* **Criterion-Related Validity:**
-  Tests the ability of the measure to **predict** future outcomes (predictive validity) or **correlate** with existing, established measures (concurrent validity).[4,5]
-  Example: A new aptitude test should correlate with performance outcomes.
+* **Criterion-Related Validity** refers to the extent to which a measure is related to an outcome. It includes two subtypes:
+
+  * **Predictive validity**: the measure’s ability to predict future outcomes.
+  * **Concurrent validity**: the degree to which the measure correlates with an existing, established measure assessed at the same time.
+
+	* Example*: A new aptitude test should show a strong correlation with actual performance outcomes (predictive validity) or with existing validated tests measuring similar abilities (concurrent validity)
 
 * **Construct Validity:**
   The most abstract form; it evaluates how well a measurement corresponds to the **theoretical construct** it represents (e.g., motivation, leadership).[6]
