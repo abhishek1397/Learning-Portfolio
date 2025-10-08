@@ -15,7 +15,9 @@ Formally, scientific measurement is defined as establishing "rules for assigning
 
 ### B. Quantification of Variables
 
-Measurement involves devising a scale and mapping the properties of objects onto that scale through a rule of correspondence.[4] Even **qualitative characteristics** can be represented numerically — for example: education level may be coded as 1 = High School, 2 = Bachelor's, 3 = Master's, 4 = Doctorate, etc
+Measurement involves devising a scale and mapping the properties of objects onto that scale through a rule of correspondence.
+###### A rule of correspondence is a systematic way to assign numbers or categories to properties of objects or phenomena so that we can measure them meaningfully.
+Even **qualitative characteristics** can be represented numerically — for example: education level may be coded as 1 = High School, 2 = Bachelor's, 3 = Master's, 4 = Doctorate, etc
 This enables statistical analysis and comparison among variables that are not inherently numeric.
 
 ### C. Measurement as Mapping
