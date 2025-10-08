@@ -45,7 +45,8 @@ Perfect measurement is an ideal seldom achieved. Researchers must be aware of po
    * Introduced through interviewer bias, inconsistent question delivery, leading questions, or errors during data processing (e.g., incorrect coding or tabulation).[4]
 
 4. **Instrument (Tool) Errors:**
-These errors arise from flaws in the design or implementation of the research instrument, such as poor questionnaire construction, ambiguous wording, overly complex response scales, or failure to adequately represent the construct domain.
+
+    * These errors arise from flaws in the design or implementation of the research instrument, such as poor questionnaire construction, ambiguous wording, overly complex response scales, or failure to adequately represent the construct domain.
 
   * Example: A questionnaire that lacks sufficient response options to capture nuanced opinions, leading to incomplete or misleading data.
 
