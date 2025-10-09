@@ -128,6 +128,184 @@ The number **10** appears most often → **Mode = 10**
 
 ***
 
+# 🔢 **Quartiles**
+
+**Quartiles** divide a **sorted dataset** into **four equal parts**, with each part containing **25% of the data**.
+
+They help summarize the distribution and **spot trends or outliers**.
+
+Here are the key quartiles:
+
+| **Quartile** | **Name**        | **Meaning**                                             |
+| ------------ | --------------- | ------------------------------------------------------- |
+| **Q1**       | First Quartile  | 25% of the data falls **below** this value              |
+| **Q2**       | Second Quartile | 50% of the data falls below this (i.e., the **median**) |
+| **Q3**       | Third Quartile  | 75% of the data falls **below** this value              |
+
+So:
+
+* **Q1** is the **25th percentile**
+* **Q2** is the **50th percentile (median)**
+* **Q3** is the **75th percentile**
+
+---
+
+### 📈 **Visual Example of Quartiles in a Sorted Dataset**
+
+Let’s take this **sorted dataset**:
+
+[
+\text{Data} = [5,\ 7,\ 8,\ 10,\ 12,\ 13,\ 14,\ 17,\ 18]
+]
+
+#### Step 1: Find Q2 (Median)
+
+There are 9 values → **Middle value = 5th** → **Q2 = 12**
+
+#### Step 2: Find Q1 (Lower Quartile)
+
+Lower half (before the median): [5, 7, 8, 10]
+Q1 = average of 2nd and 3rd values → (7 + 8) / 2 = **7.5**
+
+#### Step 3: Find Q3 (Upper Quartile)
+
+Upper half (after the median): [13, 14, 17, 18]
+Q3 = average of 2nd and 3rd values → (14 + 17) / 2 = **15.5**
+
+✅ Now you have:
+
+* Q1 = 7.5
+* Q2 = 12
+* Q3 = 15.5
+* IQR = Q3 - Q1 = 15.5 - 7.5 = **8**
+
+
+### 💡 **Why Quartiles Matter in Data Analysis**
+
+* **Summarize Data**: Quartiles give a quick picture of how your data is distributed.
+* **Detect Skewness**: If Q2 is closer to Q1 than Q3, the data is **right-skewed**, and vice versa.
+* **Help Spot Outliers**: As we discussed with IQR, outliers are identified using Q1 and Q3.
+* **Used in Box Plots**: Box plots visually represent Q1, Q2, Q3, and outliers.
+
+### 🧠 Summary
+
+* **Quartiles split your data into four equal parts.**
+* **Q1, Q2 (median), and Q3** are used to describe data distribution.
+* They are essential for calculating **IQR** and identifying **outliers**.
+* More **robust** than using just the mean and range, especially with skewed or messy data.
+
+
+### **Interquartile Range (IQR) – Explained**
+
+The **Interquartile Range (IQR)** is a measure of statistical dispersion, or how spread out the values in a dataset are. It focuses on the **middle 50% of the data** and is calculated as:
+
+[
+\text{IQR} = Q_3 - Q_1
+]
+
+Where:
+
+* **Q1 (First Quartile)** is the 25th percentile (the value below which 25% of the data fall),
+* **Q3 (Third Quartile)** is the 75th percentile (the value below which 75% of the data fall).
+
+
+### **Significance of IQR in Data Analysis**
+
+1. **Focuses on the Core Data**:
+   IQR ignores the lowest 25% and the highest 25% of values, giving a clearer picture of the spread in the central part of the dataset.
+
+2. **Resistant to Outliers**:
+   Because it only considers the middle 50% of the data, the IQR is **not influenced by extreme values or outliers**. This makes it more **robust** than the full range.
+
+3. **Useful in Skewed Distributions**:
+   In datasets that are not symmetrically distributed (i.e., skewed), IQR provides a better sense of variability than other measures like standard deviation.
+
+
+### **IQR and Outliers**
+
+IQR plays a key role in identifying **outliers** in a dataset. A common method for detecting outliers using IQR is:
+
+* **Lower Bound** = Q1 - 1.5 × IQR
+* **Upper Bound** = Q3 + 1.5 × IQR
+
+Any data point **below the lower bound** or **above the upper bound** is considered a **potential outlier**.
+
+
+### **Why IQR Might Be Preferred Over Range**
+
+| **Feature** | **Range**                           | **Interquartile Range (IQR)**           |
+| ----------- | ----------------------------------- | --------------------------------------- |
+| Formula     | Max - Min                           | Q3 - Q1                                 |
+| Sensitivity | Highly sensitive to outliers        | Resistant to outliers                   |
+| Focus       | Looks at the full dataset           | Focuses on the middle 50%               |
+| Usefulness  | Less useful in skewed or noisy data | More reliable in real-world, messy data |
+
+**Summary**:
+While **range** shows the total spread of the data, it can be distorted by extreme values. In contrast, **IQR provides a more stable and accurate measure** of variability, especially when data contains **outliers or is skewed**.
+
+Great! Let's break down the **Lower Bound** and **Upper Bound** formulas:
+
+
+### 📌 **Formulas for Detecting Outliers**
+
+![Detecting Outliers](https://github.com/user-attachments/assets/4216e865-112d-45a4-8076-c2f0e4c71cb2)
+
+These formulas are used to **identify outliers** in a dataset.
+
+
+### ✅ **What Do These Bounds Represent?**
+
+* **Q1 (First Quartile)**: 25% of data falls below this point.
+* **Q3 (Third Quartile)**: 75% of data falls below this point.
+* **IQR (Interquartile Range)**: Spread of the middle 50% of the data = Q3 - Q1.
+
+Now, using these bounds:
+
+* Any data point **below the Lower Bound** is considered a **low-end outlier**.
+* Any data point **above the Upper Bound** is considered a **high-end outlier**.
+
+
+### 💡 **Why Multiply by 1.5?**
+
+The factor **1.5** is a standard threshold that statisticians use to detect **moderate outliers**. It’s a balance:
+
+* Not too small — avoids labeling normal variation as outliers.
+* Not too large — still catches points that are *unusually far* from the rest of the data.
+
+This is not a strict rule but a **convention**. For detecting **extreme outliers**, sometimes **3 × IQR** is used instead.
+
+
+### 🧠 **Example**
+
+Suppose you have:
+
+* Q1 = 20
+* Q3 = 40
+* IQR = Q3 - Q1 = 20
+
+Now calculate the bounds:
+
+[
+\text{Lower Bound} = 20 - (1.5 \times 20) = 20 - 30 = -10
+]
+[
+\text{Upper Bound} = 40 + (1.5 \times 20) = 40 + 30 = 70
+]
+
+So:
+
+* Any value **< -10** or **> 70** is considered an **outlier**.
+
+
+### 📊 **Why Is This Useful in Data Analysis?**
+
+* Helps you **clean data** by identifying errors or rare events.
+* Makes your analysis more **accurate**, especially when using averages or models.
+* Keeps **extreme values** from distorting summaries like the mean or standard deviation.
+
+
+***
+
 # **Kurtosis and Its Types**
 
 **Kurtosis** is a statistical measure that describes the *tailedness* or *sharpness* of the peak of a data distribution. It helps us understand the frequency of extreme values (outliers) compared to a normal distribution.
