@@ -409,6 +409,61 @@ Standard deviation is the **square root of the variance**. It gives a **measure 
 
 
 ***
+
+# ✅ **What is Skewness?**
+
+**Skewness** is a measure of **asymmetry** in a dataset's distribution.
+
+* It tells you **whether the data leans more to the left or right** of the mean.
+* A perfectly symmetrical distribution (like a normal distribution) has **zero skewness**.
+
+---
+
+### 📊 **Types of Skewness & Interpretation**
+
+| Type                                 | Skewness Value | Shape             | Interpretation                                               |
+| ------------------------------------ | -------------- | ----------------- | ------------------------------------------------------------ |
+| **Zero Skewness**                    | = 0            | Symmetrical       | Mean = Median = Mode. Data is evenly distributed.            |
+| **Positive Skewness** (Right-Skewed) | > 0            | Tail on the right | Mean > Median. A few **large values** pull the average up.   |
+| **Negative Skewness** (Left-Skewed)  | < 0            | Tail on the left  | Mean < Median. A few **small values** pull the average down. |
+
+---
+
+### 🔍 **How to Interpret Skewness Values (with ranges)**
+
+| Skewness Value                   | Interpretation          |
+| -------------------------------- | ----------------------- |
+| Between -0.5 and 0.5             | Approximately symmetric |
+| Between -1 and -0.5 or 0.5 and 1 | Moderately skewed       |
+| Less than -1 or greater than 1   | Highly skewed           |
+
+---
+
+### 📌 **Real-Life Examples**
+
+#### 1. **Positive Skewness (Right-Skewed):**
+
+* **Income distribution**: Most people earn average wages, but a few very high earners pull the mean up.
+* **Example**:
+  Salaries: [25k, 30k, 35k, 40k, 120k]
+  ➤ Mean is high because of 120k, but most earn 25k–40k.
+
+#### 2. **Negative Skewness (Left-Skewed):**
+
+* **Age of retirement**: Most people retire around 60–65, but a few retire very early.
+* **Example**:
+  Retirement ages: [40, 60, 62, 64, 65]
+  ➤ Mean is pulled down by the person retiring at 40.
+
+#### 3. **Zero Skewness (Symmetrical):**
+
+* **Heights of adults** in a population usually follow a normal distribution with little skewness.
+
+---
+
+
+***
+
 # **Kurtosis and Its Types**
 
 **Kurtosis** is a statistical measure that describes the *tailedness* or *sharpness* of the peak of a data distribution. It helps us understand the frequency of extreme values (outliers) compared to a normal distribution.
