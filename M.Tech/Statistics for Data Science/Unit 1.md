@@ -154,9 +154,8 @@ So:
 
 Let’s take this **sorted dataset**:
 
-[
-\text{Data} = [5,\ 7,\ 8,\ 10,\ 12,\ 13,\ 14,\ 17,\ 18]
-]
+{Data = [5,\ 7,\ 8,\ 10,\ 12,\ 13,\ 14,\ 17,\ 18]
+
 
 #### Step 1: Find Q2 (Median)
 
@@ -199,9 +198,9 @@ Q3 = average of 2nd and 3rd values → (14 + 17) / 2 = **15.5**
 
 The **Interquartile Range (IQR)** is a measure of statistical dispersion, or how spread out the values in a dataset are. It focuses on the **middle 50% of the data** and is calculated as:
 
-[
-\text{IQR} = Q_3 - Q_1
-]
+
+IQR = Q3 - Q1
+
 
 Where:
 
