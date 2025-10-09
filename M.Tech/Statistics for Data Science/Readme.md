@@ -1,4 +1,4 @@
-# ** Statistics**
+# **Statistics**
 
 **Statistics** is the branch of mathematics that deals with **collecting, organizing, analyzing, interpreting, and presenting data** to make informed decisions.
 It provides methods to summarize large amounts of data in a meaningful way and to draw conclusions or make predictions based on that data.
