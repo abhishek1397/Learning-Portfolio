@@ -6,6 +6,11 @@
 
 ### Types of Kurtosis:
 
+![Types of Kurtosis](https://github.com/user-attachments/assets/1ae90b4b-8e20-4ced-b285-c3231a55d1d0)
+---
+![Kurtosis](https://github.com/user-attachments/assets/845a5977-79e1-49ad-a754-6db592a57fb4)
+
+
 1. **Mesokurtic (Normal Distribution)**:
 
    * **Kurtosis Value**: 3 (same as the normal distribution).
@@ -54,3 +59,4 @@ A **measure of kurtosis** refers to a specific way of calculating kurtosis based
 * **Measure of Kurtosis** is the statistical calculation (like **excess kurtosis**) used to quantify that property.
 
 So, while **kurtosis** describes the tail behavior, **measure of kurtosis** is the actual metric that quantifies it!
+
