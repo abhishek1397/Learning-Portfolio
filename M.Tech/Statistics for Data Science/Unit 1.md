@@ -1,3 +1,132 @@
+# **Measures of Central Tendency**
+
+### **Definition**
+Measures of central tendency are statistical tools used to identify the **central or typical value** around which other data points cluster in a dataset.
+The three most commonly used measures are **Mean**, **Median**, and **Mode**.
+
+They help summarize large data sets with a **single representative value**.
+
+## **1. Mean (Arithmetic Average)**
+
+### **Definition**
+The **mean** is the arithmetic average of all values in a dataset.
+It is calculated by **adding all the observations** and **dividing by the total number of observations**.
+
+![](https://latex.codecogs.com/svg.image?\text{Mean}=\frac{\sum&space;X}{N}{\color{Cyan}})
+
+* ( \sum X ) = Sum of all data values
+* ( N ) = Number of observations
+
+### **Example**
+
+Dataset: 10, 20, 30, 40, 50
+
+[
+\text{Mean} = \frac{10 + 20 + 30 + 40 + 50}{5} = \frac{150}{5} = 30
+]
+
+**Interpretation:**
+The average (mean) value of this dataset is **30**.
+
+### **When to Use the Mean**
+
+* When data is **continuous** and **normally distributed** (no extreme outliers).
+* When **all values** contribute equally to the average.
+* Best for **quantitative** data such as test scores, height, weight, or temperature.
+
+### **When Not to Use**
+
+* When there are **outliers** (extremely high or low values), as they can **distort** the mean.
+  Example: Mean income can be misleading if a few very rich individuals are included.
+
+
+## **2. Median (Middle Value)**
+
+### **Definition**
+The **median** is the **middle value** of an ordered dataset.
+If the number of observations is:
+
+* **Odd**, the median is the middle value.
+* **Even**, the median is the average of the two middle values.
+
+### **Example**
+
+Dataset: 5, 10, 15, 20, 100
+Ordered data → 5, 10, 15, 20, 100
+The middle (3rd) value is **15**, so the **median = 15**.
+
+If dataset: 5, 10, 15, 20, 25, 100
+[
+\text{Median} = \frac{15 + 20}{2} = 17.5
+]
+
+### **When to Use the Median**
+
+* When data contains **outliers or skewed distributions**.
+* When analyzing **income, property prices, or survival times**, where extreme values exist.
+* For **ordinal data** (ranked data like satisfaction ratings: poor, fair, good, excellent).
+
+### **When Not to Use**
+
+* When data is **symmetrical** and has **no outliers** — mean would be better.
+* When data is **nominal** (no natural order).
+
+
+## **3. Mode (Most Frequent Value)**
+
+### **Definition**
+The **mode** is the value that occurs **most frequently** in a dataset.
+A dataset can be:
+
+* **Unimodal** – one mode
+* **Bimodal** – two modes
+* **Multimodal** – more than two modes
+
+### **Example**
+
+Dataset: 3, 7, 7, 8, 10, 10, 10, 12
+The number **10** appears most often → **Mode = 10**
+
+### **When to Use the Mode**
+
+* When data is **categorical or nominal** (e.g., color, brand, gender).
+  Example: Most preferred brand = Mode.
+* When you want to know the **most common** or **frequent** response.
+
+### **When Not to Use**
+
+* When all values occur with equal frequency (no mode).
+* When data is **continuous and spread out** with few repeating values.
+
+
+## **Comparison and Appropriate Usage**
+
+| **Measure** | **Definition**        | **Example (Data: 10, 20, 30, 40, 100)**              | **When to Use**                                  | **When Not to Use**                        |
+| ----------- | --------------------- | ---------------------------------------------------- | ------------------------------------------------ | ------------------------------------------ |
+| **Mean**    | Average of all values | (10 + 20 + 30 + 40 + 100)/5 = **40**                 | For **symmetric** distributions without outliers | When data has **extreme values**           |
+| **Median**  | Middle value          | Ordered data → 10, 20, 30, 40, 100 → **Median = 30** | For **skewed** or **ordinal** data               | When data is symmetric and mean works fine |
+| **Mode**    | Most frequent value   | If data = 10, 10, 20, 30, 40 → **Mode = 10**         | For **categorical** or **nominal** data          | When all values are unique                 |
+
+
+## **Illustrative Summary**
+
+| **Type of Data**                         | **Best Measure** | **Reason**                              |
+| ---------------------------------------- | ---------------- | --------------------------------------- |
+| Salary data with a few very high earners | Median           | Less affected by extreme values         |
+| Exam scores of a balanced class          | Mean             | Represents overall performance          |
+| Favorite food of students                | Mode             | Categorical data — most common response |
+
+
+### **In Summary**
+
+* **Mean** → Mathematical average → Best for **normal data**
+* **Median** → Middle value → Best for **skewed data or outliers**
+* **Mode** → Most frequent → Best for **categorical data**
+
+> Together, these measures provide a **comprehensive understanding of data’s central tendency** and are often used jointly to detect **data skewness** and **distribution shape**.
+
+***
+
 # **Kurtosis and Its Types**
 
 **Kurtosis** is a statistical measure that describes the *tailedness* or *sharpness* of the peak of a data distribution. It helps us understand the frequency of extreme values (outliers) compared to a normal distribution.
