@@ -304,7 +304,111 @@ So:
 
 
 ***
+# **Measure of Dispersion**
 
+## **1. Variance (σ² or s²):**
+
+Variance measures how **spread out** the data is from the mean (average).
+
+* **Formula (population variance):**
+  [
+  \sigma^2 = \frac{\sum (x_i - \mu)^2}{N}
+  ]
+  Where:
+
+  * ( x_i ) = individual data points
+  * ( \mu ) = population mean
+  * ( N ) = number of data points
+
+* **Sample variance** uses ( n - 1 ) in the denominator instead of ( N ).
+
+## **2. Standard Deviation (σ or s):**
+
+Standard deviation is the **square root of the variance**. It gives a **measure of spread** in the **same units as the data**.
+
+* **Formula:**
+  [
+  \sigma = \sqrt{\sigma^2}
+  ]
+
+
+
+### 🎯 **Importance in Data Analysis**
+
+| Feature                    | Why It Matters                                                     |
+| -------------------------- | ------------------------------------------------------------------ |
+| **Identifies variability** | Shows how much data fluctuates around the mean.                    |
+| **Detects outliers**       | High variance/standard deviation may indicate extreme values.      |
+| **Comparisons**            | Helps compare data sets even with the same mean.                   |
+| **Statistical Modeling**   | Core part of many models like regression, hypothesis testing, etc. |
+
+
+### 🔍 **Key Differences**
+
+| Feature              | Variance                                | Standard Deviation                |
+| -------------------- | --------------------------------------- | --------------------------------- |
+| **Definition**       | Average squared deviation from the mean | Square root of variance           |
+| **Units**            | Squared units of the data               | Same units as the data            |
+| **Interpretability** | Harder to interpret                     | Easier and more intuitive         |
+| **Use in formulas**  | Used internally in many models          | Used in reporting & communication |
+
+
+### 🤔 **When to Use**
+
+* Use **variance** when:
+
+  * Working with mathematical/statistical models
+  * Needing precise calculations of variability
+  * Doing theoretical analysis
+
+* Use **standard deviation** when:
+
+  * Presenting results to non-technical audiences
+  * Comparing data spread in same unit as original data
+  * Understanding dispersion intuitively
+
+
+### 📌 **Real-Life Examples**
+
+#### **1. Education:**
+
+* A teacher wants to compare test performance between two classes:
+
+  * Class A: mean = 70, SD = 5
+  * Class B: mean = 70, SD = 15
+    ➤ Class B has more variability – students are more spread out in performance.
+
+#### **2. Finance:**
+
+* Investors use standard deviation to measure **risk**.
+
+  * A stock with a high standard deviation is more volatile (risky).
+  * A stock with low standard deviation is more stable.
+
+#### **3. Manufacturing:**
+
+* In quality control, variance helps assess consistency in product dimensions.
+
+  * High variance = more defect probability.
+
+#### **4. Sports:**
+
+* Analyzing a player’s performance:
+
+  * Low SD in scores → consistent player
+  * High SD → sometimes scores high, sometimes very low
+
+
+### 🧠 Summary
+
+| Concept                | Use                        | Units          | Example                       |
+| ---------------------- | -------------------------- | -------------- | ----------------------------- |
+| **Variance**           | Mathematical analysis      | Squared units  | Quality control in factory    |
+| **Standard Deviation** | Interpretation, comparison | Original units | Comparing student test scores |
+
+
+
+***
 # **Kurtosis and Its Types**
 
 **Kurtosis** is a statistical measure that describes the *tailedness* or *sharpness* of the peak of a data distribution. It helps us understand the frequency of extreme values (outliers) compared to a normal distribution.
