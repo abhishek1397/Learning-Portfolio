@@ -12,10 +12,8 @@ They help summarize large data sets with a **single representative value**.
 The **mean** is the arithmetic average of all values in a dataset.
 It is calculated by **adding all the observations** and **dividing by the total number of observations**.
 
+![equation](https://latex.codecogs.com/svg.image?\bg_black&fg_white&dpi=110&space;\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i)
 
-![equation](https://latex.codecogs.com/png.image?\dpi{110}&space;\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i)
-
- 
 
 * ( \sum X ) = Sum of all data values
 * ( N ) = Number of observations
