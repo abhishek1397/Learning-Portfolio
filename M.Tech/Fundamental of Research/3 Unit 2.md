@@ -81,26 +81,77 @@
 
 ## 4. **Problem Identification & Constructing the Problem Statement**
 
-### A. **Problem Identification**
 
-(As per **Ackoff’s model**, p. 24–25)
-A true research problem must have:
 
-1. **Identifiable Subject**: Who is affected?
-2. **Environment (N)**: Contains uncontrolled variables (Yj).
-3. **Alternative Actions**: At least two courses (C1, C2).
-4. **Multiple Outcomes**: At least two possible results (O1, O2).
-5. **Uncertainty**: Probabilities differ between actions (P(O1|C1) ≠ P(O1|C2)).
+### **A. Problem Identification**
 
-### B. **Constructing the Problem Statement**
+Problem identification is the **first and most critical step** in the research process. It involves recognizing a **real-world issue** that requires investigation and solution — especially one that is **relevant to industry practices or societal development**.
 
-* **Contextualization**: Define current vs. desired state.
-* **Clarity**: Specify the exact issue and knowledge gap.
-* **Relevance**: Who is affected? Why does it matter?
-* **Objectives**: State what the research aims to achieve.
-* **Human-Centered Framing**: Focus on user needs, not just technical problems.
-* **Scope**: Broad enough for innovation; narrow enough for feasibility.
-* **Governance Role**: Helps align stakeholders, prevent scope creep, and manage risk.
+#### 1. **As per Ackoff’s Model (Adapted to Real-World Contexts):**
+
+A *true research problem* (industry/society-oriented) must include:
+
+| Ackoff’s Criterion               | Description                                                | Industry / Societal Interpretation                                                        |
+| -------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Identifiable Subject**         | Who is affected by the problem?                            | Customers, employees, organizations, citizens, or communities.                            |
+| **Environment (N)**              | The setting that contains uncontrolled variables.          | Market conditions, policies, technologies, or social factors beyond control.              |
+| **Alternative Actions (C1, C2)** | At least two possible courses of action.                   | Different strategies, technologies, or policy interventions available.                    |
+| **Multiple Outcomes (O1, O2)**   | Each action can lead to distinct results.                  | Possible business, economic, or social outcomes (profit/loss, efficiency, welfare, etc.). |
+| **Uncertainty**                  | Different actions have different probabilities of success. | Market risk, implementation uncertainty, or social acceptance risk.                       |
+
+---
+
+### **B. Constructing the Problem Statement**
+
+A **problem statement** precisely defines what the research seeks to address and why it matters in an **industry or societal context**.
+
+#### Key Elements:
+
+1. **Contextualization:**
+
+   * Describe the *current situation* (status quo) and the *desired state* (goal).
+   * Example: “Despite rapid digitalization, small rural businesses struggle to adopt e-commerce platforms.”
+
+2. **Clarity and Specificity:**
+
+   * Clearly articulate *what exactly* is wrong or missing.
+   * Example: “There is a lack of affordable and localized digital payment solutions.”
+
+3. **Relevance and Impact:**
+
+   * Show **who is affected** (workers, firms, communities) and **why it matters**.
+   * Example: “Improving access can enhance rural employment and regional growth.”
+
+4. **Objectives:**
+
+   * Specify *what the research intends to achieve*.
+   * Example: “To design a low-cost, cloud-based model for rural e-commerce integration.”
+
+5. **Human-Centered Framing:**
+
+   * Focus on *user or societal needs* rather than just technical or theoretical aspects.
+   * Example: “Empowering rural entrepreneurs through simplified digital tools.”
+
+6. **Scope and Feasibility:**
+
+   * Keep it *broad enough* to innovate but *narrow enough* to be realistic.
+   * Example: “Focusing on one state or industry segment.”
+
+7. **Governance Role:**
+
+   * The problem statement should align stakeholders (industry partners, government, academia) and minimize “scope creep” during execution.
+
+---
+
+### **🧠 Example: Industry & Societal Research Problem**
+
+**Topic:** Sustainable Packaging in the Food Industry
+
+* **Current State:** Widespread use of plastic packaging leads to environmental pollution.
+* **Desired State:** Adoption of biodegradable materials.
+* **Problem Statement:**
+  *“Despite increased awareness of environmental damage, the Indian food industry continues to rely on non-biodegradable packaging due to high cost and limited consumer acceptance. This research aims to design a cost-effective, sustainable packaging model that meets both industry efficiency and societal environmental needs.”*
+
 
 ---
 
