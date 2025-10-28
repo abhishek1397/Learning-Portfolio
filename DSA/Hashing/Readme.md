@@ -6,7 +6,7 @@ It maps a **key** (like a name or number) to an **index** in a hash table using 
 
 > ⚙️ **Hashing = Hash Function + Collision Handling**
 
----
+
 
 ## 🔹 **1. Hash Function**
 
@@ -27,7 +27,7 @@ A good hash function should:
 | **Folding Method**        | Divide the key into parts, add them together, then mod by table size.      | `key = 123456 → (12+34+56) % m`                   |
 | **Multiplication Method** | Multiply key by a constant (0 < A < 1), take fractional part × table size. | `h(k) = floor(m × (k × A mod 1))`                 |
 
----
+
 
 ## ⚠️ **2. Collision**
 
@@ -43,7 +43,7 @@ h(22) = 2
 
 Both keys 12 and 22 want to go to index 2 → **collision!**
 
----
+
 
 ## 🔧 **3. Collision Resolution Techniques**
 
@@ -60,7 +60,7 @@ If a collision occurs, find another **open (empty)** slot.
 | **Quadratic Probing** | Check slots in quadratic order.                             | `h(k)+1², h(k)+2², h(k)+3², ...` |
 | **Double Hashing**    | Use a second hash function to determine step size.          | `h1(k) + i * h2(k)`              |
 
----
+
 
 ### 🔸 B. **Separate Chaining**
 
@@ -71,7 +71,7 @@ All elements that hash to the same index are stored in that list.
 ✅ No need to mark deleted slots
 ❌ Requires extra memory for linked lists
 
----
+
 
 ## 🧩 **Visual Summary**
 
@@ -112,4 +112,3 @@ All elements that hash to the same index are stored in that list.
 
 ---
 
-Would you like me to show **code examples** for all three probing techniques — *linear*, *quadratic*, and *double hashing* — side by side for comparison?
