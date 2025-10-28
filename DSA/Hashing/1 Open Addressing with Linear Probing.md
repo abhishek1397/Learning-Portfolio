@@ -1,5 +1,106 @@
 # ✅ **Hash Table** using **open addressing with linear probing**
 
+## 🧠 What is *Open Addressing*?
+
+**Open addressing** is a collision-resolution strategy used in hash tables.
+
+When two keys hash to the same index (a **collision**), instead of using a linked list (as in **separate chaining**), the algorithm looks for another **open (empty)** slot in the **same table array** to store the new key.
+
+So, **all elements are stored inside the same array**, and no extra data structures are needed.
+
+
+## 🔁 What is *Linear Probing*?
+
+**Linear probing** is one specific method of *open addressing* that resolves collisions by checking the **next available slot sequentially** (in a straight line).
+
+### 🔹 Formula
+
+f `h(k)` is the hash function and a collision occurs,
+we check the following indices:
+
+```
+h(k), (h(k) + 1) % capacity, (h(k) + 2) % capacity, ...
+```
+
+We wrap around using `% capacity` so we stay inside the table.
+
+##### 🧩 Example
+
+Let’s say we have a hash table of size `10` and we’re using the hash function:
+
+```
+h(k) = k % 10
+```
+
+##### Step 1: Insert 12
+
+```
+h(12) = 2
+```
+
+→ Slot 2 is empty → store `12` there.
+
+| Index | 0 | 1 | 2  | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| ----- | - | - | -- | - | - | - | - | - | - | - |
+| Value |   |   | 12 |   |   |   |   |   |   |   |
+
+
+##### Step 2: Insert 22
+
+```
+h(22) = 2
+```
+
+→ Slot 2 is occupied (collision!)
+→ Try next slot: index `3`
+→ Slot 3 is empty → store `22`.
+
+| Index | 0 | 1 | 2  | 3  | 4 | 5 | 6 | 7 | 8 | 9 |
+| ----- | - | - | -- | -- | - | - | - | - | - | - |
+| Value |   |   | 12 | 22 |   |   |   |   |   |   |
+
+
+##### Step 3: Insert 32
+
+```
+h(32) = 2
+```
+
+→ 2 occupied → try 3 (occupied) → try 4 (empty) → store `32`.
+
+| Index | 0 | 1 | 2  | 3  | 4  | 5 | 6 | 7 | 8 | 9 |
+| ----- | - | - | -- | -- | -- | - | - | - | - | - |
+| Value |   |   | 12 | 22 | 32 |   |   |   |   |   |
+
+
+### 🔍 Searching with Linear Probing
+
+To find a key (say `32`):
+
+1. Compute `h(32) = 2`
+2. Check index 2 → not `32`
+3. Check index 3 → not `32`
+4. Check index 4 → found it ✅
+
+
+### ❌ Deleting with Linear Probing
+
+When you delete a key, you **can’t just mark the slot empty**, because it might break the search chain.
+So instead, you mark it as **“deleted”** (often with a special marker like `-2`).
+That way, searching continues through deleted spots until it either finds the key or hits a truly empty slot.
+
+
+## 📊 Summary Table
+| Concept                | Description                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| **Open Addressing**    | All data stored in the same array; collisions resolved by finding another open slot. |
+| **Linear Probing**     | Move linearly to the next slot until an empty one is found.                          |
+| **Collision Handling** | Sequentially probe `(index + 1) % capacity`.                                         |
+| **Advantages**         | Simple, cache-friendly, no extra memory for linked lists.                            |
+| **Disadvantages**      | Can cause “clustering” (many items grouped together).                                |
+
+---
+
 ```cpp
 
 #include <iostream>
