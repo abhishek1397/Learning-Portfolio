@@ -280,9 +280,9 @@ ht.display();
 # 🛑 Why Infinite Loops Can Happen
 Quadratic probing uses the formula:
 
-\[
-\text{probeIndex} = (h(k) + i^2) \% \text{capacity}
-\]
+
+#### probeIndex = (h(k) + i^2) % capacity
+
 
 If the table is full or the probing sequence fails to find an empty or deleted slot, the loop might continue indefinitely unless we explicitly limit the number of probes.
 
