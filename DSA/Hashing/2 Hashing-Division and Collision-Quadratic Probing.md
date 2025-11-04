@@ -276,3 +276,53 @@ ht.display();
 
 ---
 
+
+# 🛑 Why Infinite Loops Can Happen
+Quadratic probing uses the formula:
+
+\[
+\text{probeIndex} = (h(k) + i^2) \% \text{capacity}
+\]
+
+If the table is full or the probing sequence fails to find an empty or deleted slot, the loop might continue indefinitely unless we explicitly limit the number of probes.
+
+---
+
+### ✅ How to Prevent Infinite Loops
+To avoid infinite loops, the code should:
+
+- **Limit the number of probes to the table's capacity**.
+- **Break out** of the loop if all slots have been checked.
+
+This is already handled in the code you saw earlier:
+
+```cpp
+int i = 0;
+while (i < capacity) {
+    int probeIndex = (index + i * i) % capacity;
+    if (table[probeIndex] == EMPTY || table[probeIndex] == DELETED) {
+        table[probeIndex] = key;
+        currentSize++;
+        return;
+    }
+    i++;
+}
+```
+
+Here’s what’s happening:
+
+- The loop runs at most `capacity` times.
+- If no slot is found after `capacity` probes, it prints:
+  ```cpp
+  cout << "No empty slot found for key " << key << endl;
+  ```
+
+This ensures the program **never runs infinitely**, even if the table is full or the probing sequence fails to find a usable slot.
+
+---
+
+### 💡 Additional Tips
+- Can improve robustness by checking the **load factor** before inserting and resizing the table if needed.
+- Use a **prime number** for the table size to ensure better coverage of slots during quadratic probing.
+
+
