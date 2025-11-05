@@ -1,5 +1,173 @@
 # C++ program for Quick Sort
 
+## 🧩 High-Level Flow of the Program
+
+```
+main()
+ │
+ ├──► printArray()      → prints original array
+ │
+ ├──► quickSort()       → recursive sorting function
+ │        │
+ │        ├──► partition() → chooses pivot, rearranges elements
+ │        │       └── returns pivot index (pi)
+ │        │
+ │        ├──► quickSort(left side)  → recursively sort smaller elements
+ │        └──► quickSort(right side) → recursively sort larger elements
+ │
+ └──► printArray()      → prints sorted array
+```
+
+---
+
+## 🧠 Step-by-Step Bird’s View of Execution
+
+### 🔹 1️⃣ **main()**
+
+* Creates an array: `{10, 7, 8, 9, 1, 5}`
+* Calculates size `n`
+* Prints original array via `printArray()`
+* Calls:
+
+  ```cpp
+  quickSort(arr, 0, n - 1);
+  ```
+* After sorting, prints the final array.
+
+---
+
+### 🔹 2️⃣ **quickSort(arr, low, high)**
+
+Recursive function responsible for sorting.
+
+#### Inside quickSort:
+
+1. Check if the current subarray is valid (`low < high`)
+2. Partition the array:
+
+   ```cpp
+   int pi = partition(arr, low, high);
+   ```
+
+   * This rearranges the subarray and returns the **pivot index**.
+3. Recursively sort:
+
+   * Left subarray (`low → pi-1`)
+   * Right subarray (`pi+1 → high`)
+
+So conceptually:
+
+```
+quickSort(arr, low, high)
+    ├── partition() → divides array
+    ├── quickSort(left)
+    └── quickSort(right)
+```
+
+---
+
+### 🔹 3️⃣ **partition(arr, low, high)**
+
+This is the core step.
+
+#### Process:
+
+1. Picks the **pivot** = `arr[high]`
+2. Keeps index `i` to track the smaller elements’ boundary.
+3. Loops `j` from `low` → `high-1`:
+
+   * If `arr[j] <= pivot`:
+     increment `i` and `swap(arr[i], arr[j])`
+4. Finally, put pivot in correct position:
+
+   ```cpp
+   swap(arr[i + 1], arr[high]);
+   ```
+5. Return `i + 1` → the final pivot index.
+
+After partition:
+
+* Elements left of pivot → smaller
+* Elements right of pivot → larger
+
+---
+
+### 🔹 4️⃣ **printArray(arr, size)**
+
+Simple utility to display array contents.
+
+---
+
+## ⚙️ Example Flow (Dry-Run Visualization)
+
+For array `{10, 7, 8, 9, 1, 5}`
+
+```
+quickSort(arr, 0, 5)
+ │
+ ├─► partition(0, 5)
+ │     pivot = 5
+ │     → places pivot at index 1
+ │     returns 1
+ │
+ ├─► quickSort(0, 0)   (left side)  → only one element → stop
+ │
+ └─► quickSort(2, 5)   (right side)
+       │
+       ├─► partition(2, 5)
+       │     pivot = 10
+       │     places pivot at index 5
+       │     returns 5
+       │
+       ├─► quickSort(2, 4)
+       │       ├─► partition(2, 4)
+       │       │     pivot = 9
+       │       │     places pivot at index 4
+       │       ├─► quickSort(2,3)
+       │       └─► quickSort(5,4) stop
+       │
+       └─► quickSort(6,5) stop
+```
+
+Finally → Sorted array: `{1, 5, 7, 8, 9, 10}`
+
+---
+
+## 🧩 Functional Hierarchy Diagram
+
+```
+main()
+ ├── printArray()              # Show original
+ ├── quickSort(arr,0,n-1)
+ │      ├── partition()
+ │      │       └── swap()    # Built-in, swaps elements
+ │      ├── quickSort(left)
+ │      │      ├── partition()
+ │      │      └── ...
+ │      └── quickSort(right)
+ │             ├── partition()
+ │             └── ...
+ └── printArray()              # Show sorted
+```
+
+---
+
+
+main()
+ │
+ ├──► printArray()      → prints original array
+ │
+ ├──► quickSort()       → recursive sorting function
+ │        │
+ │        ├──► partition() → chooses pivot, rearranges elements
+ │        │       └── returns pivot index (pi)
+ │        │
+ │        ├──► quickSort(left side)  → recursively sort smaller elements
+ │        └──► quickSort(right side) → recursively sort larger elements
+ │
+ └──► printArray()      → prints sorted array
+
+
 ```cpp
 #include <iostream>
 using namespace std;
