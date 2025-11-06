@@ -1,5 +1,74 @@
 # ✅ **Hash Table using Division Method + Separate Chaining**
 
+## 🧭 Bird’s Eye View: Hashing (with Collision Handling — Separate Chaining)
+
+```
+main()
+ │
+ ▼
+HashTable ht(size)
+ │
+ ├──► Step 1: Initialize Hash Table
+ │       └── allocates → array of Node* (linked list heads)
+ │       └── sets all indices → nullptr
+ │
+ ├──► Step 2: Insert Keys
+ │       └── insert(key)
+ │             │
+ │             ├──► compute index = hashFunction(key)
+ │             │        └── index = key % capacity
+ │             │
+ │             ├──► check if key already exists at index
+ │             │        └── traverse linked list at table[index]
+ │             │
+ │             ├──► if key not found:
+ │             │        └── create new Node(key)
+ │             │        └── link new node at head of list (separate chaining)
+ │             │
+ │             └──► print "Inserted key at index"
+ │
+ ├──► Step 3: Display Hash Table
+ │       └── display()
+ │             │
+ │             ├──► iterate over each index
+ │             ├──► print index number
+ │             ├──► traverse linked list at that index
+ │             └──► print each key → (e.g., 12 -> 22 -> NULL)
+ │
+ ├──► Step 4: Search Key
+ │       └── search(key)
+ │             │
+ │             ├──► compute index = hashFunction(key)
+ │             ├──► traverse linked list at table[index]
+ │             ├──► if key found → return true
+ │             └──► else → return false
+ │
+ ├──► Step 5: Remove Key
+ │       └── remove(key)
+ │             │
+ │             ├──► compute index = hashFunction(key)
+ │             ├──► traverse linked list at table[index]
+ │             │
+ │             ├──► if found:
+ │             │        ├── adjust pointers (unlink node)
+ │             │        ├── delete node
+ │             │        └── print "Key removed"
+ │             │
+ │             └──► else:
+ │                      └── print "Key not found"
+ │
+ └──► Step 6: Destructor (Cleanup)
+         └── ~HashTable()
+              │
+              ├──► for each index:
+              │        └── traverse linked list → delete all nodes
+              └──► delete[] table
+```
+
+---
+
+
+
 ```cpp
 #include <iostream>
 using namespace std;
