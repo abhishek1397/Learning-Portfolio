@@ -71,6 +71,48 @@ Same as linear probing: mark deleted slots with a special marker (e.g., -2) to p
 | Disadvantages       | May not probe all slots unless capacity is prime                            |
 
 ---
+🧩 Functional Hierarchy Diagram — Hash Table
+main()
+ ├── HashTable ht
+ │      └── HashTable()              # constructor
+ │
+ ├── ht.insert()
+ │      ├── hashFunction()
+ │      └── quadratic probing loop
+ │
+ ├── ht.insert()
+ │      ├── hashFunction()
+ │      └── quadratic probing loop
+ │
+ ├── ht.insert()
+ │      ├── hashFunction()
+ │      └── quadratic probing loop
+ │
+ ├── ht.insert()
+ │      ├── hashFunction()
+ │      └── quadratic probing loop
+ │
+ ├── ht.display()
+ │      └── print table
+ │
+ ├── ht.search()
+ │      ├── hashFunction()
+ │      └── probing loop
+ │
+ ├── ht.search()
+ │      ├── hashFunction()
+ │      └── probing loop
+ │
+ ├── ht.remove()
+ │      ├── hashFunction()
+ │      └── probing loop
+ │
+ ├── ht.display()
+ │      └── print table
+ │
+ └── ~HashTable()                   # destructor
+        └── delete[] table
+
 
 ### 💻 C++ Code: Hash Table with Quadratic Probing
 
