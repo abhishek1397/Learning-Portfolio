@@ -1,302 +1,260 @@
-# **ALL important tree types, operations, traversals, and theory**, 
-
-# ✅ **1. Tree Basics**
-
-* Definition of a Tree
-* Terminology:
-
-  * Node, Edge, Root, Leaf
-  * Height, Depth, Level
-  * Degree of node
-  * Subtree
-  * Siblings
-  * Path, Ancestor, Descendant
-  * Balanced vs Unbalanced trees
-  * Complete, Perfect, Full trees
-* Representation:
-
-  * Using classes/structs
-  * Using arrays (Heap representation)
+# ✅ **Tree Concepts**
 
 ---
 
-# ✅ **2. Binary Trees**
+## ✅ **1. Tree Basics**
 
-### ➤ Structure & Basic Operations
-
-* Creating a binary tree
-* Insert, delete (in a general binary tree)
-* Types of binary trees:
-
-  * Full Binary Tree
-  * Complete Binary Tree
-  * Perfect Binary Tree
-  * Degenerate Tree
-  * Skewed Tree (left/right)
-
-### ➤ Traversals
-
-#### **Depth-First Traversals (DFS)**
-
-* Preorder (Root → Left → Right)
-* Inorder (Left → Root → Right)
-* Postorder (Left → Right → Root)
-
-#### **DFS (iterative using stack)**
-
-* Iterative inorder
-* Iterative preorder
-* Iterative postorder
-
-#### **Breadth-First Traversal (BFS)**
-
-* Level order traversal (using queue)
-
-#### **Variants**
-
-* Reverse Level Order
-* Zig-Zag Traversal
-* Boundary Traversal
-* Vertical Order Traversal
-* Diagonal Traversal
-* Top View
-* Bottom View
-* Left View
-* Right View
+* [ ] Definition of a Tree
+* [ ] Node, Edge, Root, Leaf
+* [ ] Height, Depth, Level
+* [ ] Degree of node
+* [ ] Subtree
+* [ ] Ancestor, Descendant
+* [ ] Balanced vs Unbalanced
+* [ ] Complete / Perfect / Full Trees
+* [ ] Tree representation (pointer, array)
 
 ---
 
-# ✅ **3. Binary Search Trees (BST)**
+## ✅ **2. Binary Trees**
 
-* BST properties
-* Insertion
-* Deletion (3 cases)
-* Searching
-* Successor & Predecessor
-* Finding minimum / maximum
-* BST validation
-* Balanced vs unbalanced BST
-* BST-to-array & array-to-BST
+### Structure
 
----
+* [ ] Binary tree properties
+* [ ] Types of binary trees
 
-# ✅ **4. AVL Tree**
+  * [ ] Full
+  * [ ] Complete
+  * [ ] Perfect
+  * [ ] Degenerate
+  * [ ] Skewed
+* [ ] Insert, delete, search
 
-* AVL tree properties
-* Balance factor
-* Rotations:
+### Traversals
 
-  * LL Rotation
-  * RR Rotation
-  * LR Rotation
-  * RL Rotation
-* Insertion with rebalancing
-* Deletion with rebalancing
+#### DFS
 
----
+* [ ] Preorder
+* [ ] Inorder
+* [ ] Postorder
+* [ ] Iterative preorder
+* [ ] Iterative inorder
+* [ ] Iterative postorder
 
-# ✅ **5. Red-Black Tree**
+#### BFS
 
-* Properties
-* Color rules
-* Rotations
-* Fixing double red
-* Fixing double black
-* Insertion cases
-* Deletion cases
-* Why RB trees are used in:
+* [ ] Level order traversal
 
-  * std::map
-  * std::set
+#### Variants
+
+* [ ] Reverse level order
+* [ ] Zig-zag traversal
+* [ ] Boundary traversal
+* [ ] Vertical order traversal
+* [ ] Diagonal traversal
+* [ ] Top view
+* [ ] Bottom view
+* [ ] Left view
+* [ ] Right view
 
 ---
 
-# ✅ **6. Heap Trees**
+## ✅ **3. Binary Search Trees (BST)**
 
-### ➤ Binary Heap
-
-* Min-Heap
-* Max-Heap
-* Array representation
-* Heapify (up and down)
-* Insert in heap
-* Delete in heap
-* Extract Min / Extract Max
-* Build Heap from array (O(n))
-
-### ➤ Application
-
-* Priority Queue
-* Dijkstra
-* Heap Sort
+* [ ] BST properties
+* [ ] Insert
+* [ ] Delete
+* [ ] Search
+* [ ] Successor & Predecessor
+* [ ] Min/Max in BST
+* [ ] Validate BST
+* [ ] Balanced vs Unbalanced BST
 
 ---
 
-# ✅ **7. Trie (Prefix Tree)**
+## ✅ **4. AVL Tree**
 
-* Trie structure
-* Insert word
-* Search word
-* Delete word
-* Prefix search
-* Auto-complete
-* Storing dictionary
-* Longest prefix matching
-
----
-
-# ✅ **8. Segment Tree**
-
-* Range Sum Query
-* Range Minimum Query
-* Lazy Propagation
-* Building segment tree
-* Query & update operations
+* [ ] AVL properties
+* [ ] Balance factor
+* [ ] LL rotation
+* [ ] RR rotation
+* [ ] LR rotation
+* [ ] RL rotation
+* [ ] Insert with rebalancing
+* [ ] Delete with rebalancing
 
 ---
 
-# ✅ **9. Fenwick Tree (Binary Indexed Tree — BIT)**
+## ✅ **5. Red-Black Tree**
 
-* Fenwick structure
-* Building BIT
-* Prefix sum
-* Update operations
-* Applications in CP
-
----
-
-# ✅ **10. N-ary Trees (General Trees)**
-
-* Representation using adjacency list
-* Traversals (DFS & BFS)
-* K-ary tree
-* M-ary tree
-* Applications in OS, file systems
+* [ ] Properties
+* [ ] Coloring rules
+* [ ] Rotations
+* [ ] Fix double-red
+* [ ] Fix double-black
+* [ ] Insert cases
+* [ ] Delete cases
+* [ ] Why RB trees are used in map/set
 
 ---
 
-# ✅ **11. B-Tree**
+## ✅ **6. Heap Trees**
 
-Used in **databases** and **file systems**.
+### Binary Heap
 
-* B-tree properties
-* Minimum degree (t)
-* Insert
-* Delete
-* Search
-* Split child
-* Why used in DBMS
+* [ ] Min-Heap
+* [ ] Max-Heap
+* [ ] Array representation
+* [ ] Heapify (up/down)
+* [ ] Insert
+* [ ] Delete
+* [ ] Extract Min/Max
+* [ ] Build heap (O(n))
 
----
+### Applications
 
-# ✅ **12. B+ Tree**
-
-* Leaf-node chaining
-* Used in MySQL, PostgreSQL indexes
-* Insert
-* Delete
-* Search
-* Range queries
+* [ ] Priority queues
+* [ ] Heap sort
+* [ ] Dijkstra
 
 ---
 
-# ✅ **13. Splay Trees**
+## ✅ **7. Trie (Prefix Tree)**
 
-* Zig, Zig-Zig, Zig-Zag operations
-* Splaying during:
-
-  * Insert
-  * Search
-  * Delete
-
----
-
-# ✅ **14. Treap (Tree + Heap)**
-
-* Priority + BST key
-* Insert
-* Delete
-* Randomized balancing
+* [ ] Trie structure
+* [ ] Insert word
+* [ ] Search word
+* [ ] Delete word
+* [ ] Prefix matching
+* [ ] Auto-complete
+* [ ] Longest prefix match
 
 ---
 
-# ✅ **15. Binary Indexed Segment Trees (Hybrid)**
+## ✅ **8. Segment Tree**
 
-* Persistent segment tree
-* Merge sort tree
-* Fenwick+Segment tree hybrid
-
----
-
-# ✅ **16. Disjoint Set Union (DSU) Trees**
-
-* Union-Find
-* Path compression
-* Union by rank
-* Applications in graphs
+* [ ] Range Sum Query
+* [ ] Range Minimum Query
+* [ ] Build tree
+* [ ] Update
+* [ ] Lazy propagation
 
 ---
 
-# ✅ **17. Graph Trees**
+## ✅ **9. Fenwick Tree (BIT)**
 
-(Not data structure trees, but tree concepts inside graph theory)
-
-* Tree in a graph
-* Spanning tree
-* Minimum Spanning Tree
-
-  * Kruskal (uses DSU)
-  * Prim
-* DFS tree
-* BFS tree
+* [ ] Structure
+* [ ] Build BIT
+* [ ] Prefix sum
+* [ ] Update operation
 
 ---
 
-# ✅ **18. Specialized Trees**
+## ✅ **10. N-ary Trees**
 
-* Cartesian Tree
-* K-D Tree (machine learning, spatial search)
-* Interval Tree
-* Range Tree
-* Suffix Tree
-* Radix Tree
-* AA Tree
-* Binary Space Partitioning Tree (Games/Graphics)
-* Trellis
+* [ ] General tree representation
+* [ ] K-ary tree
+* [ ] M-ary tree
+* [ ] BFS & DFS in N-ary trees
 
 ---
 
-# ✅ **19. Memory / Implementation Concepts**
+## ✅ **11. B-Tree**
 
-* Parent pointer tree
-* Child-sibling representation
-* Threaded binary tree
-* Expression trees
-
-  * Build tree
-  * Evaluate expression
-  * Convert infix, postfix, prefix
-
----
-
-# ✅ **20. Tree-Based Algorithms for Interviews**
-
-* Lowest Common Ancestor (LCA)
-
-  * Using parent array
-  * Binary lifting
-  * Euler Tour + RMQ
-* Diameter of a tree
-* Height and depth computing
-* Mirror tree
-* Subtree sum problems
-* Tree isomorphism
-* Topological tree problems
-* Convert sorted array → BST
-* Flatten binary tree
-* Kth smallest in BST
-* Recover BST with swapped nodes
+* [ ] B-tree properties
+* [ ] Minimum degree (t)
+* [ ] Insert
+* [ ] Delete
+* [ ] Search
+* [ ] Split child
+* [ ] DBMS usage
 
 ---
 
+## ✅ **12. B+ Tree**
 
+* [ ] Leaf-node chaining
+* [ ] Insert
+* [ ] Delete
+* [ ] Search
+* [ ] Range queries
+* [ ] Indexing usage (MySQL, PostgreSQL)
+
+---
+
+## ✅ **13. Splay Tree**
+
+* [ ] Zig rotation
+* [ ] Zig-Zig
+* [ ] Zig-Zag
+* [ ] Insert
+* [ ] Search
+* [ ] Delete
+
+---
+
+## ✅ **14. Treap**
+
+* [ ] Priority + BST key
+* [ ] Insert
+* [ ] Delete
+* [ ] Randomized balancing
+
+---
+
+## ✅ **15. Advanced Trees**
+
+* [ ] Segment-Tree variants
+* [ ] Persistent trees
+* [ ] Merge-sort tree
+* [ ] K-D tree
+* [ ] Interval tree
+* [ ] Range tree
+* [ ] Suffix tree
+* [ ] Radix tree
+* [ ] AA tree
+* [ ] BSP tree (graphics)
+
+---
+
+## ✅ **16. DSU (Disjoint Set Trees)**
+
+* [ ] Union-Find structure
+* [ ] Path compression
+* [ ] Union by rank
+* [ ] Cycle detection in graphs
+
+---
+
+## ✅ **17. Graph Tree Concepts**
+
+* [ ] Spanning tree
+* [ ] DFS tree
+* [ ] BFS tree
+* [ ] Minimum spanning tree
+
+  * [ ] Kruskal
+  * [ ] Prim
+
+---
+
+## ✅ **18. Tree Algorithms (Interview Focus)**
+
+* [ ] Lowest Common Ancestor (LCA)
+
+  * [ ] Parent array
+  * [ ] Binary lifting
+  * [ ] Euler tour + RMQ
+* [ ] Tree diameter
+* [ ] Height & depth
+* [ ] Mirror tree
+* [ ] Subtree sum
+* [ ] Tree isomorphism
+* [ ] Flatten binary tree to linked list
+* [ ] Kth smallest in BST
+* [ ] Recover BST
+* [ ] Convert array → BST
+* [ ] Convert BST → sorted list
+* [ ] Expression tree
+
+---
