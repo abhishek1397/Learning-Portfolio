@@ -72,6 +72,8 @@ Same as linear probing: mark deleted slots with a special marker (e.g., -2) to p
 
 ---
 🧩 Functional Hierarchy Diagram — Hash Table
+
+```
 main()
  ├── HashTable ht
  │      └── HashTable()              # constructor
@@ -112,7 +114,7 @@ main()
  │
  └── ~HashTable()                   # destructor
         └── delete[] table
-
+```
 
 ### 💻 C++ Code: Hash Table with Quadratic Probing
 
