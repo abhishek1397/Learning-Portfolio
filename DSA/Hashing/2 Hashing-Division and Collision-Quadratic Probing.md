@@ -73,45 +73,49 @@ Same as linear probing: mark deleted slots with a special marker (e.g., -2) to p
 
 ```
 main()
- ├── HashTable ht
- │      └── HashTable()              # constructor
  │
- ├── ht.insert()
- │      ├── hashFunction()
- │      └── quadratic probing loop
+ ▼
+HashTable ht   // Creates a HashTable object
  │
- ├── ht.insert()
- │      ├── hashFunction()
- │      └── quadratic probing loop
+ ├──► ht.insert(12)   
+ │       └── hashFunction(12) → index = 12 % capacity
+ │       └── probeIndex = (index + i * i) % capacity → checks if the slot is empty or deleted
+ │       └── inserts key 12 at probeIndex if available
  │
- ├── ht.insert()
- │      ├── hashFunction()
- │      └── quadratic probing loop
+ ├──► ht.insert(22)   
+ │       └── hashFunction(22) → index = 22 % capacity
+ │       └── probeIndex = (index + i * i) % capacity → checks if the slot is empty or deleted
+ │       └── inserts key 22 at probeIndex if available
  │
- ├── ht.insert()
- │      ├── hashFunction()
- │      └── quadratic probing loop
+ ├──► ht.insert(32)   
+ │       └── hashFunction(32) → index = 32 % capacity
+ │       └── probeIndex = (index + i * i) % capacity → checks if the slot is empty or deleted
+ │       └── inserts key 32 at probeIndex if available
  │
- ├── ht.display()
- │      └── print table
+ ├──► ht.insert(42)   
+ │       └── hashFunction(42) → index = 42 % capacity
+ │       └── probeIndex = (index + i * i) % capacity → checks if the slot is empty or deleted
+ │       └── inserts key 42 at probeIndex if available
  │
- ├── ht.search()
- │      ├── hashFunction()
- │      └── probing loop
+ ├──► ht.display()      // Shows the current state of the hash table
+ │       └── Iterates over table and prints values (empty, deleted, or actual key)
  │
- ├── ht.search()
- │      ├── hashFunction()
- │      └── probing loop
+ ├──► ht.search(22)
+ │       └── hashFunction(22) → index = 22 % capacity
+ │       └── probeIndex = (index + i * i) % capacity → checks if the key is found or not
+ │       └── returns true if key 22 is found
  │
- ├── ht.remove()
- │      ├── hashFunction()
- │      └── probing loop
+ ├──► ht.search(25)    // Search for a key that doesn't exist
+ │       └── hashFunction(25) → index = 25 % capacity
+ │       └── probeIndex = (index + i * i) % capacity → key not found, returns false
  │
- ├── ht.display()
- │      └── print table
+ ├──► ht.remove(22)
+ │       └── hashFunction(22) → index = 22 % capacity
+ │       └── probeIndex = (index + i * i) % capacity → finds key 22
+ │       └── marks the slot at probeIndex as DELETED
+ │       └── currentSize-- (decreases the size of the hash table)
  │
- └── ~HashTable()                   # destructor
-        └── delete[] table
+ └──► ht.display()      // Shows updated table after deletion
 ```
 
 ### 💻 C++ Code: Hash Table with Quadratic Probing
