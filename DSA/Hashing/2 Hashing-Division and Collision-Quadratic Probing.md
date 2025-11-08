@@ -1,4 +1,4 @@
-# ✅ Hash Table using Open Addressing with Quadratic Probing
+# ✅ Hash Table using Division Method with Quadratic Probing
 
 ---
 
