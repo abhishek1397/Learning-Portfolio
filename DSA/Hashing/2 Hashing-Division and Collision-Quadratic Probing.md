@@ -13,9 +13,7 @@ Quadratic probing is a type of open addressing where the interval between probes
 ### 🔹 Formula
 If \( h(k) \) is the hash function and a collision occurs, we probe:
 
-\[
-h(k),\ (h(k) + 1^2) \% capacity,\ (h(k) + 2^2) \% capacity,\ (h(k) + 3^2) \% capacity,\ \ldots
-\]
+![Formula](https://github.com/user-attachments/assets/3d07e01c-4cf9-4d74-a079-d670a7127703)
 
 This reduces clustering compared to linear probing.
 
