@@ -2,26 +2,6 @@
 
 ## 🧩 High-Level Flow of the Program
 
-```
-main()
- │
- ├──► printArray()      → prints original array
- │
- ├──► quickSort()       → recursive sorting function
- │        │
- │        ├──► partition() → chooses pivot, rearranges elements
- │        │       └── returns pivot index (pi)
- │        │
- │        ├──► quickSort(left side)  → recursively sort smaller elements
- │        └──► quickSort(right side) → recursively sort larger elements
- │
- └──► printArray()      → prints sorted array
-```
-
----
-
-## 🧠 Step-by-Step Bird’s View of Execution
-
 ### 🔹 1️⃣ **main()**
 
 * Creates an array: `{10, 7, 8, 9, 1, 5}`
@@ -151,21 +131,6 @@ main()
 ```
 
 ---
-
-
-main()
- │
- ├──► printArray()      → prints original array
- │
- ├──► quickSort()       → recursive sorting function
- │        │
- │        ├──► partition() → chooses pivot, rearranges elements
- │        │       └── returns pivot index (pi)
- │        │
- │        ├──► quickSort(left side)  → recursively sort smaller elements
- │        └──► quickSort(right side) → recursively sort larger elements
- │
- └──► printArray()      → prints sorted array
 
 
 ```cpp
