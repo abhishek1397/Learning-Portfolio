@@ -222,6 +222,132 @@ int main() {
 
 ```
 
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class HashTable {
+private:
+    int* table;
+    int capacity;
+    const int EMPTY = -1;
+    const int DELETED = -2;
+
+public:
+    HashTable(int size = 10) {
+        capacity = size;
+        table = new int[capacity];
+        for (int i = 0; i < capacity; i++)
+            table[i] = EMPTY;
+    }
+
+    ~HashTable() {
+        delete[] table;
+    }
+
+    int hashFunction(int key) {
+        return key % capacity;
+    }
+
+    // Insert using linear probing (allows duplicates)
+    void insert(int key) {
+        int index = hashFunction(key);
+
+        for (int i = 0; i < capacity; i++) {
+            int probe = (index + i) % capacity;
+
+            if (table[probe] == EMPTY || table[probe] == DELETED) {
+                table[probe] = key;
+                return;
+            }
+        }
+
+        cout << "Hash Table Full. Cannot insert " << key << endl;
+    }
+
+    // Search key (returns true if any instance is found)
+    bool search(int key) {
+        int index = hashFunction(key);
+
+        for (int i = 0; i < capacity; i++) {
+            int probe = (index + i) % capacity;
+
+            if (table[probe] == EMPTY)
+                return false; // Key not present
+
+            if (table[probe] == key)
+                return true;
+        }
+
+        return false;
+    }
+
+    // Remove only ONE occurrence
+    void remove(int key) {
+        int index = hashFunction(key);
+
+        for (int i = 0; i < capacity; i++) {
+            int probe = (index + i) % capacity;
+
+            if (table[probe] == EMPTY) {
+                cout << "Key " << key << " not found" << endl;
+                return;
+            }
+
+            if (table[probe] == key) {
+                table[probe] = DELETED;
+                cout << "Deleted key: " << key << endl;
+                return;
+            }
+        }
+
+        cout << "Key " << key << " not found" << endl;
+    }
+
+    void display() {
+        cout << "\nHash Table:\n";
+        for (int i = 0; i < capacity; i++) {
+            if (table[i] == EMPTY)
+                cout << i << " --> [EMPTY]\n";
+            else if (table[i] == DELETED)
+                cout << i << " --> [DELETED]\n";
+            else
+                cout << i << " --> " << table[i] << "\n";
+        }
+    }
+};
+
+int main() {
+    HashTable ht(10);
+
+    ht.insert(12);
+    ht.insert(22);
+    ht.insert(32);
+    ht.insert(42);
+    ht.insert(22); // duplicate
+    ht.insert(32); // duplicate
+
+    ht.display();
+
+    cout << "\nSearching for 22: " 
+         << (ht.search(22) ? "Found" : "Not Found") << endl;
+
+    cout << "Searching for 25: " 
+         << (ht.search(25) ? "Found" : "Not Found") << endl;
+
+    ht.remove(22);
+    ht.remove(32);
+
+    cout << "\nAfter deletions:\n";
+    ht.display();
+
+    return 0;
+}
+
+
+```
+
 ### 🧠 Overview of the Code
 
 The class `HashTable` manages an integer hash table with these main features:
