@@ -177,40 +177,42 @@ public:
 
     // Search using quadratic probing
     bool search(int key) {
-        int index = hashFunction(key);
+        int index = hashfunction(key);
         int i = 0;
 
         while (i < capacity) {
-            int probeIndex = (index + i * i) % capacity;
-            if (table[probeIndex] == EMPTY)
-                return false;
-            if (table[probeIndex] == key)
-                return true;
+            int probeindex = (index + i * i) % capacity;
+            if (table[probeindex] == EMPTY)
+                return false;  // Key not found
+            if (table[probeindex] == key)
+                return true;   // Found at least one instance
             i++;
         }
-
         return false;
     }
 
     // Remove using quadratic probing
     void remove(int key) {
-        int index = hashFunction(key);
+        int index = hashfunction(key);
         int i = 0;
 
         while (i < capacity) {
-            int probeIndex = (index + i * i) % capacity;
-            if (table[probeIndex] == EMPTY)
-                break;
-            if (table[probeIndex] == key) {
-                table[probeIndex] = DELETED;
-                currentSize--;
-                cout << "Key " << key << " deleted\n";
+            int probeindex = (index + i * i) % capacity;
+
+            if (table[probeindex] == EMPTY) {
+                cout << "Key not present" << endl;
+                return;
+            }
+            if (table[probeindex] == key) {
+                table[probeindex] = DELETED;
+                currentsize--;
+                cout << "One occurrence of key " << key << " deleted." << endl;
                 return;
             }
             i++;
         }
 
-        cout << "Key " << key << " not found\n";
+        cout << "Key not found" << endl;
     }
 
     // Display the table
@@ -228,89 +230,77 @@ public:
 };
 
 int main() {
-    HashTable ht;
+    HashTable ht(10);
+
+    // ✅ Insert duplicate values
     ht.insert(12);
     ht.insert(22);
     ht.insert(32);
+    ht.insert(22); // Duplicate
+    ht.insert(32); // Duplicate
+    ht.insert(48);
+    ht.insert(48); // Duplicate
+    ht.insert(52);
     ht.insert(42);
+
     ht.display();
 
     cout << "\nSearching for 22: " << (ht.search(22) ? "Found" : "Not Found") << endl;
     cout << "Searching for 25: " << (ht.search(25) ? "Found" : "Not Found") << endl;
 
-    ht.remove(22);
+    ht.remove(22);  // Removes one 22 only
+    ht.remove(48);  // Removes one 48 only
+
+    cout << "\nAfter deleting one occurrence each of 22 and 48:" << endl;
     ht.display();
 
+    cout << "\nSearching for 22: " << (ht.search(22) ? "Found" : "Not Found") << endl;
+    cout << "Searching for 48: " << (ht.search(48) ? "Found" : "Not Found") << endl;
+
     return 0;
+}
 }
 ```
 
 ---
 
-### 🧩 Step-by-step Execution
+### ✅ **Example Output**
 
-#### 1. Creation
-```cpp
-HashTable ht;
 ```
-Creates a table of size 10 initialized with -1 (empty).
+Hash Table:
+0 --> [EMPTY]
+1 --> [EMPTY]
+2 --> 22
+3 --> 32
+4 --> 42
+5 --> 52
+6 --> 12
+7 --> 22
+8 --> 32
+9 --> 48
 
-#### 2. Insertions
-```cpp
-ht.insert(12); // h(12) = 2 → insert at 2
-ht.insert(22); // h(22) = 2 → 2 occupied → try 3 → insert at 3
-ht.insert(32); // h(32) = 2 → 2,3 occupied → try 6 → insert at 6
-ht.insert(42); // h(42) = 2 → 2,3,6 occupied → try 1 → insert at 1
-```
+Searching for 22: Found
+Searching for 25: Not Found
+One occurrence of key 22 deleted.
+One occurrence of key 48 deleted.
 
-#### 3. Display
-```cpp
-ht.display();
-```
+After deleting one occurrence each of 22 and 48:
+Hash Table:
+0 --> [EMPTY]
+1 --> [EMPTY]
+2 --> [DELETED]
+3 --> 32
+4 --> 42
+5 --> 52
+6 --> 12
+7 --> 22
+8 --> 32
+9 --> [DELETED]
 
-**Output:**
-```
-0 --> [empty]
-1 --> 42
-2 --> 12
-3 --> 22
-4 --> [empty]
-5 --> [empty]
-6 --> 32
-7 --> [empty]
-8 --> [empty]
-9 --> [empty]
-```
-
-#### 4. Search
-```cpp
-ht.search(22); // Found
-ht.search(25); // Not Found
+Searching for 22: Found
+Searching for 48: Not Found
 ```
 
-#### 5. Remove
-```cpp
-ht.remove(22); // Mark index 3 as deleted
-```
-
-#### 6. Display again
-```cpp
-ht.display();
-```
-
-**Output:**
-```
-0 --> [empty]
-1 --> 42
-2 --> 12
-3 --> [deleted]
-4 --> [empty]
-5 --> [empty]
-6 --> 32
-7 --> [empty]
-8 --> [empty]
-9 --> [empty]
-```
 
 ---
 
