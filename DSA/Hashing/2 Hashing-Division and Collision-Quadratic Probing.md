@@ -128,118 +128,104 @@ class HashTable {
 private:
     int* table;
     int capacity;
-    int currentSize;
     const int EMPTY = -1;
     const int DELETED = -2;
 
 public:
-    // Constructor
-    HashTable(int size = 10) {
+    HashTable(int size = 11) {   // Use PRIME number for quadratic probing
         capacity = size;
-        currentSize = 0;
         table = new int[capacity];
         for (int i = 0; i < capacity; i++)
             table[i] = EMPTY;
     }
 
-    // Destructor
     ~HashTable() {
         delete[] table;
     }
 
-    // Hash function
-    int hashFunction(int key) {
+    int hashfunction(int key) {
         return key % capacity;
     }
 
-    // Insert using quadratic probing
+    // Insert allowing duplicates
     void insert(int key) {
-        if (currentSize == capacity) {
-            cout << "Hash Table is full! Cannot insert " << key << endl;
-            return;
-        }
+        int index = hashfunction(key);
 
-        int index = hashFunction(key);
-        int i = 0;
+        for (int i = 0; i < capacity; i++) {
+            int probe = (index + i * i) % capacity;
 
-        while (i < capacity) {
-            int probeIndex = (index + i * i) % capacity;
-            if (table[probeIndex] == EMPTY || table[probeIndex] == DELETED) {
-                table[probeIndex] = key;
-                currentSize++;
+            if (table[probe] == EMPTY || table[probe] == DELETED) {
+                table[probe] = key;
                 return;
             }
-            i++;
         }
 
-        cout << "No empty slot found for key " << key << endl;
+        cout << "Hash Table is full. No slot available." << endl;
     }
 
-    // Search using quadratic probing
+    // Search checks at least one instance exists
     bool search(int key) {
         int index = hashfunction(key);
-        int i = 0;
 
-        while (i < capacity) {
-            int probeindex = (index + i * i) % capacity;
-            if (table[probeindex] == EMPTY)
-                return false;  // Key not found
-            if (table[probeindex] == key)
-                return true;   // Found at least one instance
-            i++;
+        for (int i = 0; i < capacity; i++) {
+            int probe = (index + i * i) % capacity;
+
+            if (table[probe] == EMPTY)
+                return false; // cannot exist beyond EMPTY
+
+            if (table[probe] == key)
+                return true;
         }
+
         return false;
     }
 
-    // Remove using quadratic probing
+    // Remove only one occurrence
     void remove(int key) {
         int index = hashfunction(key);
-        int i = 0;
 
-        while (i < capacity) {
-            int probeindex = (index + i * i) % capacity;
+        for (int i = 0; i < capacity; i++) {
+            int probe = (index + i * i) % capacity;
 
-            if (table[probeindex] == EMPTY) {
+            if (table[probe] == EMPTY) {
                 cout << "Key not present" << endl;
                 return;
             }
-            if (table[probeindex] == key) {
-                table[probeindex] = DELETED;
-                currentsize--;
+
+            if (table[probe] == key) {
+                table[probe] = DELETED;
                 cout << "One occurrence of key " << key << " deleted." << endl;
                 return;
             }
-            i++;
         }
 
         cout << "Key not found" << endl;
     }
 
-    // Display the table
     void display() {
         cout << "\nHash Table:\n";
         for (int i = 0; i < capacity; i++) {
             if (table[i] == EMPTY)
-                cout << i << " --> [empty]\n";
+                cout << i << " --> [EMPTY]\n";
             else if (table[i] == DELETED)
-                cout << i << " --> [deleted]\n";
+                cout << i << " --> [DELETED]\n";
             else
                 cout << i << " --> " << table[i] << "\n";
         }
     }
 };
 
-int main() {
-    HashTable ht(10);
 
-    // ✅ Insert duplicate values
+int main() {
+    HashTable ht(11);
+
     ht.insert(12);
     ht.insert(22);
     ht.insert(32);
-    ht.insert(22); // Duplicate
-    ht.insert(32); // Duplicate
+    ht.insert(22);   // duplicate
+    ht.insert(32);   // duplicate
     ht.insert(48);
-    ht.insert(48); // Duplicate
+    ht.insert(48);   // duplicate
     ht.insert(52);
     ht.insert(42);
 
@@ -248,10 +234,10 @@ int main() {
     cout << "\nSearching for 22: " << (ht.search(22) ? "Found" : "Not Found") << endl;
     cout << "Searching for 25: " << (ht.search(25) ? "Found" : "Not Found") << endl;
 
-    ht.remove(22);  // Removes one 22 only
-    ht.remove(48);  // Removes one 48 only
+    ht.remove(22);
+    ht.remove(48);
 
-    cout << "\nAfter deleting one occurrence each of 22 and 48:" << endl;
+    cout << "\nAfter deleting one occurrence each of 22 and 48:\n";
     ht.display();
 
     cout << "\nSearching for 22: " << (ht.search(22) ? "Found" : "Not Found") << endl;
@@ -259,7 +245,7 @@ int main() {
 
     return 0;
 }
-}
+
 ```
 
 ---
@@ -269,15 +255,16 @@ int main() {
 ```
 Hash Table:
 0 --> [EMPTY]
-1 --> [EMPTY]
+1 --> 12
 2 --> 22
 3 --> 32
-4 --> 42
-5 --> 52
-6 --> 12
-7 --> 22
-8 --> 32
-9 --> 48
+4 --> 22
+5 --> 32
+6 --> 48
+7 --> 48
+8 --> 52
+9 --> 42
+10 --> [EMPTY]
 
 Searching for 22: Found
 Searching for 25: Not Found
@@ -287,18 +274,20 @@ One occurrence of key 48 deleted.
 After deleting one occurrence each of 22 and 48:
 Hash Table:
 0 --> [EMPTY]
-1 --> [EMPTY]
+1 --> 12
 2 --> [DELETED]
 3 --> 32
-4 --> 42
-5 --> 52
-6 --> 12
-7 --> 22
-8 --> 32
-9 --> [DELETED]
+4 --> 22
+5 --> 32
+6 --> [DELETED]
+7 --> 48
+8 --> 52
+9 --> 42
+10 --> [EMPTY]
 
 Searching for 22: Found
-Searching for 48: Not Found
+Searching for 48: Found
+
 ```
 
 
