@@ -344,6 +344,67 @@ return 0;
 
 * The program returns `0`, which indicates successful execution.
 
+
+##Quick sort using mid element as Pivot
+```cpp
+#include <iostream>
+using namespace std;
+
+// Partition using Hoare scheme with middle element as pivot
+int partition(int arr[], int low, int high) {
+    int pivot = arr[low + (high - low) / 2];  
+    int i = low - 1;
+    int j = high + 1;
+
+    while (true) {
+        do {
+            i++;
+        } while (arr[i] < pivot);
+
+        do {
+            j--;
+        } while (arr[j] > pivot);
+
+        if (i >= j)
+            return j;
+
+        swap(arr[i], arr[j]);
+    }
+}
+
+// QuickSort using Hoare partition
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int p = partition(arr, low, high);
+
+        quickSort(arr, low, p);
+        quickSort(arr, p + 1, high);
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+int main() {
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Original array: ";
+    printArray(arr, n);
+
+    quickSort(arr, 0, n - 1);
+
+    cout << "Sorted array: ";
+    printArray(arr, n);
+
+    return 0;
+}
+```
+
+,,
 ### Quick Sort Overview:
 
 * **Quick Sort** is a **divide-and-conquer** algorithm. It works by selecting a "pivot" element, then partitioning the array such that elements smaller than the pivot are on the left, and elements larger than the pivot are on the right. The process is recursively repeated on the subarrays formed by partitioning.
