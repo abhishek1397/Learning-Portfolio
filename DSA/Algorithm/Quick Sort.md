@@ -345,7 +345,7 @@ return 0;
 * The program returns `0`, which indicates successful execution.
 
 
-##Quick sort using mid element as Pivot
+## Quick sort using mid element as Pivot
 ```cpp
 #include <iostream>
 using namespace std;
