@@ -55,4 +55,112 @@
 
 ---
 
+Excellent — here’s a **complete summary of the formulas** for all **three main types of *t*-tests**, with clear explanations and symbols. 👇
+
+---
+
+## 🔹 **1️⃣ One-Sample *t*-Test**
+
+### 🎯 Purpose:
+
+To test whether the **mean of a single sample** differs from a **known or hypothesized population mean (μ₀)**.
+
+### 🧮 Formula:
+
+[
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}
+]
+
+### 📘 Where:
+
+* ( \bar{x} ) = sample mean
+* ( \mu_0 ) = hypothesized (population) mean
+* ( s ) = sample standard deviation
+* ( n ) = sample size
+
+### 📈 Degrees of Freedom:
+
+[
+df = n - 1
+]
+
+---
+
+## 🔹 **2️⃣ Independent Samples *t*-Test**
+
+### 🎯 Purpose:
+
+To test whether the **means of two independent groups** are significantly different.
+
+---
+
+### Case A: **Equal variances assumed (pooled t-test)**
+
+[
+t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+]
+where
+[
+s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}}
+]
+
+**df:**
+[
+df = n_1 + n_2 - 2
+]
+
+---
+
+### Case B: **Unequal variances (Welch’s t-test)**
+
+[
+t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}
+]
+
+**df (approximate):**
+[
+df = \frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}{\frac{(s_1^2 / n_1)^2}{n_1 - 1} + \frac{(s_2^2 / n_2)^2}{n_2 - 1}}
+]
+
+---
+
+## 🔹 **3️⃣ Paired Samples *t*-Test (Dependent t-test)**
+
+### 🎯 Purpose:
+
+To test whether the **mean difference** between *paired observations* (e.g., before–after) is significantly different from zero.
+
+### 🧮 Formula:
+
+[
+t = \frac{\bar{d}}{s_d / \sqrt{n}}
+]
+
+### 📘 Where:
+
+* ( \bar{d} ) = mean of the differences (after − before)
+* ( s_d ) = standard deviation of the differences
+* ( n ) = number of pairs
+
+### 📈 Degrees of Freedom:
+
+[
+df = n - 1
+]
+
+---
+
+## 🔹 **Summary Table**
+
+| Type of t-Test                        | Formula                                                                            | df                | When to Use                                       |
+| ------------------------------------- | ---------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------- |
+| **One-sample**                        | ( t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} )                                       | ( n - 1 )         | Compare sample mean to a known mean               |
+| **Independent (equal var)**           | ( t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} )     | ( n_1 + n_2 - 2 ) | Compare two independent groups (equal variance)   |
+| **Independent (unequal var / Welch)** | ( t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} ) | Formula above     | Compare two independent groups (unequal variance) |
+| **Paired (dependent)**                | ( t = \frac{\bar{d}}{s_d / \sqrt{n}} )                                             | ( n - 1 )         | Compare before–after or matched pairs             |
+
+---
+
+Would you like me to show how to **calculate one of them step-by-step with an example dataset** (e.g., independent or paired)?
+
 Would you like me to draw a simple diagram showing how the **right-tail rejection region** looks for this example? It really helps make the concept of “t in the right tail → reject H₀” crystal clear.
