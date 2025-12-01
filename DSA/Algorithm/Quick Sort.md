@@ -419,3 +419,99 @@ int main() {
 
 That's a detailed explanation of how this Quick Sort algorithm works!
 
+
+
+### Example problem statement
+
+#### **Problem Statement**
+
+Implement a program in C++ that:
+
+* Defines a `Student` class with two attributes: `name` and `grade`.
+* Stores multiple Student objects in an array.
+* Sorts the array based on student grades using the **Quick Sort algorithm**.
+* Prints the sorted list of students.
+
+The objective is to demonstrate the use of:
+
+* Object-oriented programming (classes & objects)
+* Custom comparison logic
+* Quick Sort implementation on user-defined data types
+### **C++ Program: Student Class + Quick Sort + Print**
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int grade;
+};
+
+// Partition function for quicksort
+int partition(Student arr[], int low, int high) {
+    int pivot = arr[high].grade;
+    int i = low - 1;
+
+    for(int j = low; j < high; j++) {
+        if(arr[j].grade <= pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+
+// Quick sort implementation
+void quickSort(Student arr[], int low, int high) {
+    if(low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+
+    Student students[n];  // array of student objects
+
+    cout << endl << "Enter student name and grade:" << endl;
+    for(int i = 0; i < n; i++) {
+        cin >> students[i].name >> students[i].grade;
+    }
+
+    quickSort(students, 0, n - 1);
+
+    cout << endl << "Sorted List (by grade):" << endl;
+    for(int i = 0; i < n; i++) {
+        cout << students[i].name << " - " << students[i].grade << endl;
+    }
+
+    return 0;
+}
+```
+
+---
+
+### Example Run
+
+```
+Enter number of students: 4
+John 85
+Amit 92
+Riya 78
+Sara 88
+
+Sorted List (by grade):
+Riya - 78
+John - 85
+Sara - 88
+Amit - 92
+```
+
