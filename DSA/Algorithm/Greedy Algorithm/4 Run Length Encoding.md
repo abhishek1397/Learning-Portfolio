@@ -54,16 +54,16 @@ int main(){
 #include <cstdio>
 using namespace std;
 
-void runlengthencode(const char* input, char* output){
-    int n = strlen(input);
-    int visited[256] = {0};  
-    int k = 0;
+string runlengthencode(const string& input){
+    int n = input.length();
+    int visited[256] = {0};
+    string output = "";
 
     for(int i = 0; i < n; i++){
         
         char ch = input[i];
 
-        if(visited[(unsigned char)ch] == 1) 
+        if(visited[(unsigned char)ch] == 1)
             continue;
 
         int count = 0;
@@ -75,32 +75,30 @@ void runlengthencode(const char* input, char* output){
 
         visited[(unsigned char)ch] = 1;
 
-        output[k++] = ch;
+        output += ch;
 
         char countstr[10];
         sprintf(countstr, "%d", count);
 
         for(int j = 0; countstr[j] != '\0'; j++){
-            output[k++] = countstr[j];
+            output += countstr[j];
         }
     }
 
-    output[k] = '\0';
+    return output;
 }
 
 int main(){
-    char input[100];
-    char output[200];
+    string input;
 
     cout << "Enter a string to encode: ";
-    cin.getline(input,100);
-    
-    runlengthencode(input, output);
+    getline(cin, input);
 
-    cout << "Run-Length Encoded string: " << output << endl;
+    string encoded = runlengthencode(input);
+
+    cout << "Run-Length Encoded string: " << encoded << endl;
 
     return 0;
 }
-
 
 ```
