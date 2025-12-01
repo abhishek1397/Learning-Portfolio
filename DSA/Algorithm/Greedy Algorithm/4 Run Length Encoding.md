@@ -1,89 +1,106 @@
 # Run length Encoding
 
 ```cpp
-Codeshare logo
- ShareSign UpLog In
-1
-run length coding
-2
-​
-3
 #include <iostream>
-4
 #include <cstring>
-5
+#include <cstdio>
 using namespace std;
-6
-​
-7
+
 void runlengthencode(const char* input, char* output){
-8
-  int n = strlen(input);
-9
-  int k=0;
-10
-  for(int i=0;i<n;i++){
-11
-    int count =1;
-12
-    while(i<n-1 && input[i]  == input[i+1]){
-13
-      count++;
-14
-      i++;
-15
+    int n = strlen(input);
+    int k = 0;
+
+    for(int i = 0; i < n; i++){
+        int count = 1;
+
+        while(i < n - 1 && input[i] == input[i + 1]){
+            count++;
+            i++;
+        }
+
+        output[k++] = input[i];
+
+        char countstr[10];
+        sprintf(countstr, "%d", count);
+
+        for(int j = 0; countstr[j] != '\0'; j++){
+            output[k++] = countstr[j];
+        }
     }
-16
-    
-17
-    output[k++]=input[i];
-18
-    char countstr[10];
-19
-    sprintf(countstr, "%d", count);
-20
-    for(int j=0;countstr[j]!='\0';j++){
-21
-      output[k++] = countstr[j];
-22
-    }
-23
-  }
-24
-  output[k] ='\0';
-25
-    
-26
+
+    output[k] = '\0';
 }
-27
-​
-28
+
 int main(){
-29
-  char input[100];
-30
-  char output[200];
-31
-  
-32
-  cout<<"Enter a string to encode: ";
-33
-  cin>>input;
-34
-  runlengthencode(input,output);
-35
-  cout<<"Run-Length Encoded string: "<<output<<endl;
-36
-  return 0;
-37
+    char input[100];
+    char output[200];
+
+    cout << "Enter a string to encode: ";
+    cin.getline(input,100);
+
+    runlengthencode(input, output);
+
+    cout << "Run-Length Encoded string: " << output << endl;
+
+    return 0;
+}
+```
+
+## Updated Code:
+
+```cpp
+#include <iostream>
+#include <cstring>
+#include <cstdio>
+using namespace std;
+
+void runlengthencode(const char* input, char* output){
+    int n = strlen(input);
+    int visited[256] = {0};  
+    int k = 0;
+
+    for(int i = 0; i < n; i++){
+        
+        char ch = input[i];
+
+        if(visited[(unsigned char)ch] == 1) 
+            continue;
+
+        int count = 0;
+        for(int j = 0; j < n; j++){
+            if(input[j] == ch){
+                count++;
+            }
+        }
+
+        visited[(unsigned char)ch] = 1;
+
+        output[k++] = ch;
+
+        char countstr[10];
+        sprintf(countstr, "%d", count);
+
+        for(int j = 0; countstr[j] != '\0'; j++){
+            output[k++] = countstr[j];
+        }
+    }
+
+    output[k] = '\0';
 }
 
+int main(){
+    char input[100];
+    char output[200];
 
+    cout << "Enter a string to encode: ";
+    cin.getline(input,100);
+    
+    runlengthencode(input, output);
 
+    cout << "Run-Length Encoded string: " << output << endl;
 
-
-px
-Hide Ads
+    return 0;
+}
 
 
 ```
