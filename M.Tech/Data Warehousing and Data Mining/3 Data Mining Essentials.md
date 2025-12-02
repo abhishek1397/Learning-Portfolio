@@ -17,6 +17,8 @@
 
 ### **II. The Knowledge Discovery (KDD) Process**
 
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/90e6036d-d26c-413b-8261-6beb0dee6964" />
+
 Data mining is an essential step within the broader KDD process. The process involves several stages:
 
 1.  **Data Cleaning:** Removing noise and inconsistent data.
@@ -25,6 +27,8 @@ Data mining is an essential step within the broader KDD process. The process inv
 4.  **Data Mining:** The core step of extracting patterns.
 5.  **Pattern Evaluation:** Identifying interesting patterns representing knowledge.
 6.  **Knowledge Presentation:** Visualization and representation of results.
+
+![kdd proces](https://github.com/user-attachments/assets/5c2c69d7-ca12-4daf-b4cd-2b1a790addb0)
 
 > **Note:** From a Machine Learning / Statistics perspective, the overall workflow is often summarized as:
    > **Pre-processing** (integration, normalization) → **Data Mining** → **Post-processing** (pattern evaluation, visualization)
