@@ -42,21 +42,40 @@ Data mining is a confluence of multiple disciplines, including Machine Learning,
 *   **Unstructured Data:** Text, web documents, and multimedia,.
 
 **2. Data Mining Functions (What patterns are mined?)**
-*   **Generalization:** Summarizing detailed data into broader concepts (e.g., grouping specific ages into age ranges) to simplify analysis.
+*   **Generalization:**
+   *   Summarizing detailed data into broader concepts (e.g., grouping specific ages into age ranges) to simplify analysis.
+
 *   **Association and Correlation Analysis:**
     *   Finding frequent patterns or itemsets (e.g., items often bought together like Diaper $\rightarrow$ Beer).
     *   **Key Distinction:** Strong association does not always imply correlation or causality.
+
 *   **Classification:**
     *   Constructing models based on training data (supervised) to distinguish classes for future prediction.
     *   **Examples:** Fraud detection, classifying countries by climate.
+
 *   **Cluster Analysis:**
     *   Grouping data without known class labels (unsupervised).
     *   **Principle:** Maximize intra-cluster similarity (items in a group are similar) and minimize inter-cluster similarity (items in different groups are different).
+
 *   **Outlier Analysis:**
     *   Detecting data that deviates from the norm (noise or exceptions).
     *   **Applications:** Fraud detection and rare event detection.
+
 *   **Time and Ordering:** Trend analysis, sequential pattern mining, and periodicity analysis.
+
 *   **Structure/Network Analysis:** Analyzing social networks, link mining, and web community analysis.
+
+ Function                      | Description                                 | Examples                           |
+| ----------------------------- | ------------------------------------------- | ---------------------------------- |
+| **Characterization**          | Summarizes patterns or attributes of groups | Customer profiling                 |
+| **Discrimination**            | Compares group behaviors or features        | High-value vs. low-value customers |
+| **Association/Correlation**   | Finds relationships and frequent itemsets   | Diaper → Beer                      |
+| **Classification**            | Predicts labeled outcomes (supervised)      | Fraud detection                    |
+| **Clustering**                | Groups unlabeled data based on similarity   | Segmenting customers               |
+| **Outlier Detection**         | Identifies anomalies or rare patterns       | Intrusion detection                |
+| **Trend/Sequential Analysis** | Reveals temporal patterns and evolution     | Purchase sequences, forecasting    |
+
+
 
 ---
 
@@ -81,7 +100,11 @@ Data mining is a confluence of multiple disciplines, including Machine Learning,
 To visualize the **Knowledge Discovery (KDD)** process, think of **Gold Mining**:
 
 *   **Data Cleaning/Integration (The Dirt):** You don't just dig anywhere; you gather raw earth from specific areas. You must sift out the rocks and debris (cleaning) and combine dirt from different piles (integration).
+
 *   **Data Selection (The Pan):** You take a scoop of that dirt that fits in your pan—you don't process the whole mountain at once.
+
 *   **Data Mining (The Sifting):** This is the active technique of shaking and washing the dirt to separate the heavy gold flakes from the sand. This is the "algorithm" doing the work.
+
 *   **Pattern Evaluation (The Inspection):** Not everything that glitters is gold. You examine what you found to see if it's real gold (valuable knowledge) or just "fool's gold" (random noise).
+
 *   **Knowledge Presentation (The Jewelry):** Finally, you melt the gold down and turn it into a ring or coin so others can appreciate its value.
