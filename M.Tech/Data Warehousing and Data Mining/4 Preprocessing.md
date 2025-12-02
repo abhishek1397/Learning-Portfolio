@@ -81,6 +81,16 @@ Reducing data volume while maintaining analytical quality.
     *   **Log-Linear Models:** Approximating multidimensional probability distributions,.
     *   **Histograms:** Dividing data into buckets and storing the sum/average.
 
+| Type                             | Examples / Notes                                       |
+| -------------------------------- | ------------------------------------------------------ |
+| **Data Cube Aggregation**        | Summarization across hierarchical levels (base → apex) |
+| **Dimensionality Reduction**     | PCA, SVD                                               |
+| **Numerosity Reduction**         | Sampling, regression, clustering                       |
+| **Discretization**               | Convert numeric → categorical                          |
+| **Concept Hierarchy Generation** | Convert low-level details → higher-level concepts      |
+|                                  |                                                        |
+
+
 ---
 
 ### **VI. Discretization and Concept Hierarchies**
