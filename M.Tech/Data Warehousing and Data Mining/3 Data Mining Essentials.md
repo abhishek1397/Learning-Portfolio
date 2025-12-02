@@ -26,7 +26,8 @@ Data mining is an essential step within the broader KDD process. The process inv
 5.  **Pattern Evaluation:** Identifying interesting patterns representing knowledge.
 6.  **Knowledge Presentation:** Visualization and representation of results.
 
-*Note: From a Machine Learning/Statistics perspective, this is often summarized as Pre-processing (integration, normalization) $\rightarrow$ Data Mining $\rightarrow$ Post-processing (pattern evaluation, visualization).*
+> **Note:** From a Machine Learning / Statistics perspective, the overall workflow is often summarized as:
+      **Pre-processing** (integration, normalization) → **Data Mining** → **Post-processing** (pattern evaluation, visualization)
 
 ---
 
