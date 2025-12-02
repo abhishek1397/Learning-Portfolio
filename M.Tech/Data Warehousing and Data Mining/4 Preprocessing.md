@@ -1,4 +1,4 @@
- **I. Why Preprocess Data?**
+# **I. Why Preprocess Data?**
 
 **The Problem: "Dirty" Data**
 Real-world data is often imperfect and unsuitable for immediate mining due to three main issues:
