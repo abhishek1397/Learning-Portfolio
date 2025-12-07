@@ -3,7 +3,7 @@
 
 ## **Definition**
 
-A ** Binary Heap** is a **complete binary tree** that satisfies the **heap property**:
+A **Binary Heap** is a **complete binary tree** that satisfies the **heap property**:
 
 * **Min-Heap:** Every parent node ≤ its children → smallest element at root.
 * **Max-Heap:** Every parent node ≥ its children → largest element at root.
@@ -50,6 +50,13 @@ Because the tree is **complete**, nodes are filled **level-by-level from left to
 | **Peek / Get Min/Max** | Return root element                                            | **O(1)**             |
 | **Heapify**            | Convert array into heap                                        | **O(n)** (bottom-up) |
 | **Search**             | Not efficient due to no ordering (except levels)               | **O(n)**             |
+
+| Operation on | Heap | 
+|--------------|------|
+|![Min-Max heap](https://github.com/user-attachments/assets/e38da509-6382-43a4-8875-4e03ad3a16b4)  | ![Min-Max heap](https://github.com/user-attachments/assets/14590465-f8b8-425c-8c7a-bcab3a20833c) |
+|![Min-Max heap](https://github.com/user-attachments/assets/cfddef3d-fba4-4133-8b4f-d050f9d594fe) | ![Min-Max heap](https://github.com/user-attachments/assets/36bac48a-4b2a-424c-a6fa-befa565967c7)  |
+| ![Min-Max](https://github.com/user-attachments/assets/a5941bd5-7a08-499f-b79e-68496ceca40a) | |
+
 
 ---
 
