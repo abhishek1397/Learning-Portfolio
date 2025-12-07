@@ -83,9 +83,6 @@ Used to restore balance after insertion/deletion.
 
 *Deletion may be more complex because it can trigger multiple balancing steps.*
 
-### Insertion
-
-
 ---
 
 ## **Traversal**
