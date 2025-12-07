@@ -12,8 +12,7 @@ Balance Factor = Height(left subtree) - Height(right subtree)
 | AVL Tree | Not an AVL Tree |
 |----------|-----------------|
 | ![Example-of-an-AVL-Tree-11](https://github.com/user-attachments/assets/1098bb28-108c-4e7f-800e-2cf3bb33644e) | ![Example-of-an-AVL-Tree-22](https://github.com/user-attachments/assets/b905f347-31b7-4f6c-b935-ed6f104b2e50) |
-
-
+|![insert-ava1](https://github.com/user-attachments/assets/55f25609-88f6-49dd-8072-615e295973d4) |![Example-of-an-AVL-Tree_-2](https://github.com/user-attachments/assets/0fb0f8ca-1503-4128-9ed1-5fd0cd44a55c) |
 
 
 If the balance factor violates this range after insertion/deletion, the tree performs **rotations** to restore balance.
@@ -63,6 +62,14 @@ Used to restore balance after insertion/deletion.
 | ![Right-Left-Rotation-1](https://github.com/user-attachments/assets/4ae343f6-804c-4b8b-87ff-cea1252323ba) | ![Right-Left-Rotation-2](https://github.com/user-attachments/assets/a2a42ff0-b706-4b7d-ba22-d83b3ea568df) | ![Right-Left-Rotation-3](https://github.com/user-attachments/assets/4c386d12-a88b-49d0-b3c9-75bd79bb2e06) |
 |![Right-Left-Rotation-4](https://github.com/user-attachments/assets/ddc3f3dd-ec4f-4c93-a40a-fe639eacc4ef) | ![Right-Left-Rotation-5](https://github.com/user-attachments/assets/699fed1a-c6e3-45c5-a568-3d493615fbaa) | |
 
+---
+### Let's Practise Rotation:
+| No | Cheating :)|
+|--|--|
+|![right_left_rotation_27](https://github.com/user-attachments/assets/27c50483-d040-4153-a6a4-987823ff0db8) | ![right_left_rotation_28](https://github.com/user-attachments/assets/acb8ee8a-deb4-479c-85ea-0558ac9ebcbe) |
+| ![right_left_rotation_29](https://github.com/user-attachments/assets/a10b6413-70e5-4049-86fe-ca0b52deaeac) | ![right_left_rotation_30](https://github.com/user-attachments/assets/d99551e7-8daf-48a1-8dd3-58efb891d8d1) |
+
+
 
 ---
 
@@ -75,6 +82,9 @@ Used to restore balance after insertion/deletion.
 | **Delete** | BST deletion + possible multiple rotations | **O(log n)**    |
 
 *Deletion may be more complex because it can trigger multiple balancing steps.*
+
+### Insertion
+
 
 ---
 
