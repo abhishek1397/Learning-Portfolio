@@ -159,4 +159,5 @@ Binomial Heap is slower in some operations but supports **efficient merge in O(l
 
 ---
 
-
+# Note:
+here we need to add notes of insertion, deletion and extraction of minimum element from binomial heap
