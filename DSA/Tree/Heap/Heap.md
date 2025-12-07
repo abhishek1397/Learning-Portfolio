@@ -62,5 +62,74 @@ Insert each element one-by-one → heapify up.
 Convert given array into heap using repeated heapify-down from last non-leaf node.
 ⏱ Complexity: **O(n)** (more efficient)
 
+---
+
+### **Applications of Heap**
+
+1. **Priority Queues**
+
+   * The most common use of heaps.
+   * A priority queue retrieves elements based on **priority instead of insertion order.**
+   * Heaps ensure:
+
+     * **Insert:** `O(log n)`
+     * **Extract-Min / Extract-Max:** `O(log n)`
+   * Used in:
+
+     * Task scheduling
+     * Operating system interrupts
+     * Event-driven simulators
+
+---
+
+2. **Sorting (Heap Sort)**
+
+   * Heap Sort is implemented using a **Max-Heap**.
+   * Steps:
+
+     * Build a heap from the array
+     * Repeatedly extract the max element and rebuild the heap
+   * Time Complexity:
+
+     * Worst, Average, Best: **O(n log n)**
+   * Requires no extra memory → **In-place sorting algorithm.**
+
+---
+
+3. **Graph Algorithms**
+   Heaps are used for efficient priority queue operations in:
+
+   * **Dijkstra’s Shortest Path**
+   * **Prim’s Minimum Spanning Tree**
+   * **A* Pathfinding Algorithm**
+
+   These algorithms repeatedly select the smallest-weight edge or shortest tentative distance, which a **min-heap** supports efficiently.
+
+---
+
+4. **Lossless Data Compression**
+
+   * Used in **Huffman Coding**.
+   * A **min-heap** stores characters based on frequency.
+   * The algorithm repeatedly extracts the two smallest nodes to build the Huffman tree.
+   * Enables efficient prefix coding used in:
+
+     * ZIP files
+     * PNG images
+     * Text compression systems
+
+---
+
+### Summary Table
+
+| Application Area | Why Heap is Needed                          | Type Used    |
+| ---------------- | ------------------------------------------- | ------------ |
+| Priority Queue   | Fast insert and extract priority            | Min/Max Heap |
+| Heap Sort        | Guarantees O(n log n) sorting               | Max-Heap     |
+| Graph Algorithms | Fast retrieval of minimum weight            | Min-Heap     |
+| Huffman Coding   | Repeated extraction of least frequent nodes | Min-Heap     |
+
+---
+
 
 
