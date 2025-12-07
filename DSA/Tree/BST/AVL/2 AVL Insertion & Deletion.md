@@ -28,7 +28,7 @@ Balance Factor = Height(left) - Height(right)
 |![right_left_rotation_7](https://github.com/user-attachments/assets/ae92756d-7a8d-4c76-944a-8f3020a0d2ba) | ![right_left_rotation_8](https://github.com/user-attachments/assets/c901495a-d9a1-45cc-b36e-2993a1d15dd7)|
 |![right_left_rotation_9](https://github.com/user-attachments/assets/99cddee8-e4fc-4322-8e2a-2e6a4761cc1b) |![right_left_rotation_10](https://github.com/user-attachments/assets/6cd5bbcb-902b-4ca1-971e-f4730a2116c9) |
 |![right_left_rotation_11](https://github.com/user-attachments/assets/85bb4726-f446-4c2f-b72f-bcd447d785fa) | ![right_left_rotation_12](https://github.com/user-attachments/assets/aa2fd96d-04c8-4b67-8489-8f213746b7bd)|
-|![right_left_rotation_13](https://github.com/user-attachments/assets/505bd4f8-2757-4f3c-ad83-121b421022ff) |![right_left_rotation_14](https://github.com/user-attachments/assets/228eb8c8-3c94-4a11-8931-b8cbac7ff26a) |
+| ![right_left_rotation_14](https://github.com/user-attachments/assets/228eb8c8-3c94-4a11-8931-b8cbac7ff26a)| ![right_left_rotation_13](https://github.com/user-attachments/assets/505bd4f8-2757-4f3c-ad83-121b421022ff)|
 
 
 ---
@@ -48,6 +48,38 @@ AVL is more strictly balanced → faster searches.
 Red-Black Tree performs fewer rotations → faster updates.
 
 ---
+
+
+# **Deletion in AVL Tree**
+
+Deletion in an AVL Tree follows the same process as deletion in a **Binary Search Tree (BST)**, but additional steps are performed afterward to ensure the tree remains balanced.
+
+### **Steps to Follow for Deletion**
+
+1. **Perform Standard BST Deletion**
+
+   * If the node is a **leaf**, remove it directly.
+   * If the node has **one child**, replace it with its child.
+   * If the node has **two children**, replace it with its **in-order successor** (or predecessor) and delete that successor.
+
+2. **Travel Back Up the Tree (Bottom-Up)**
+   After deletion, move upward toward the root, updating the **height** of each ancestor node.
+
+3. **Calculate Balance Factor**
+   For every visited node:
+
+| | |
+|--|--|
+| ![AVL-Tree-1](https://github.com/user-attachments/assets/508536e3-699e-40aa-920a-971fbe028bf0) |![AVL-Tree-2](https://github.com/user-attachments/assets/29221023-2a9e-4640-bf2e-4ed4de432c93) |
+|![AVL-Tree-3](https://github.com/user-attachments/assets/9a538056-ed32-4924-ad4c-5b148bf4a8ca) |![AVL-Tree-4](https://github.com/user-attachments/assets/25a3c800-7083-4de3-8a26-7c91ce4cbbe1) |
+|![AVL-Tree-5](https://github.com/user-attachments/assets/0c10242e-6463-4bde-85ba-d3e3fe6c475f) |![AVL-Tree-6](https://github.com/user-attachments/assets/397fa71e-846b-4d2e-b3b5-f4d529f18dc7) |
+
+
+
+
+
+
+
 
 ## **Applications**
 
