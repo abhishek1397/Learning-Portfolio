@@ -1,6 +1,6 @@
 # **HEAP DATA STRUCTURE**
 
-### **Definition**
+## **Definition**
 
 A **Heap** is a **complete binary tree** that satisfies the **heap property**:
 
@@ -16,7 +16,7 @@ Because the tree is **complete**, nodes are filled **level-by-level from left to
 
 
 
-### **Key Characteristics**
+## **Key Characteristics**
 
 * Stored using **arrays** (not pointers).
 * Parent and child index relationships (0-based indexing):
@@ -27,7 +27,7 @@ Because the tree is **complete**, nodes are filled **level-by-level from left to
 
 ---
 
-### **Types of Heaps**
+## **Types of Heaps**
 
 | Type                          | Description                         | Use Case                         |
 | ----------------------------- | ----------------------------------- | -------------------------------- |
@@ -38,7 +38,7 @@ Because the tree is **complete**, nodes are filled **level-by-level from left to
 
 ---
 
-### **Basic Operations on Heap**
+## **Basic Operations on Heap**
 
 | Operation              | Description                                                    | Time Complexity      |
 | ---------------------- | -------------------------------------------------------------- | -------------------- |
@@ -50,21 +50,21 @@ Because the tree is **complete**, nodes are filled **level-by-level from left to
 
 ---
 
-### **Heap Construction Methods**
+## **Heap Construction Methods**
 
-#### **Top-Down (Repeated Insert):**
+### **Top-Down (Repeated Insert):**
 
 Insert each element one-by-one → heapify up.
 ⏱ Complexity: **O(n log n)**
 
-#### **Bottom-Up (Heapify):**
+### **Bottom-Up (Heapify):**
 
 Convert given array into heap using repeated heapify-down from last non-leaf node.
 ⏱ Complexity: **O(n)** (more efficient)
 
 ---
 
-### **Applications of Heap**
+## **Applications of Heap**
 
 1. **Priority Queues**
 
