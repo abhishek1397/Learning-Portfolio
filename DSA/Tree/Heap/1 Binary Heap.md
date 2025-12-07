@@ -1,21 +1,17 @@
-# **HEAP DATA STRUCTURE**
+# **BINARY HEAP DATA STRUCTURE**
+
 
 ## **Definition**
 
-A **Heap** is a **complete binary tree** that satisfies the **heap property**:
+A ** Binary Heap** is a **complete binary tree** that satisfies the **heap property**:
 
 * **Min-Heap:** Every parent node ≤ its children → smallest element at root.
 * **Max-Heap:** Every parent node ≥ its children → largest element at root.
 
 Because the tree is **complete**, nodes are filled **level-by-level from left to right**.
-
-| Valid Heap | Invalid Heap |
-| ----------------------------- | ----------------------------------- | 
-|![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737867907/min-heap-1.webp)  | ![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737995053/min-heap-2.webp)          |
-|![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737567635/max-heap-1.webp)  | ![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737719243/max-heap-2.webp)         |
-
-
-
+ 
+![Heap](https://media.geeksforgeeks.org/wp-content/uploads/20250324101433667420/Representation-of-a-Binary-Heap.webp)
+ 
 ## **Key Characteristics**
 
 * Stored using **arrays** (not pointers).
@@ -24,6 +20,7 @@ Because the tree is **complete**, nodes are filled **level-by-level from left to
   * **Parent of i** → `(i - 1) / 2`
   * **Left child** → `2i + 1`
   * **Right child** → `2i + 2`
+
 
 ---
 
@@ -35,6 +32,12 @@ Because the tree is **complete**, nodes are filled **level-by-level from left to
 | **Max-Heap**                  | Root holds maximum element          | Heap Sort, Scheduling            |
 | **d-ary Heap**                | Node has d children                 | Faster priority queue operations |
 | **Binomial / Fibonacci Heap** | Supports efficient merge operations | Advanced PQ operations           |
+
+| Valid Heap | Invalid Heap |
+| ----------------------------- | ----------------------------------- | 
+|![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737867907/min-heap-1.webp)  | ![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737995053/min-heap-2.webp)          |
+|![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737567635/max-heap-1.webp)  | ![Min-Max heap](https://media.geeksforgeeks.org/wp-content/uploads/20241105101737719243/max-heap-2.webp)         |
+
 
 ---
 
