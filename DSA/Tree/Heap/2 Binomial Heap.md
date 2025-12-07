@@ -95,6 +95,8 @@ A Binomial Heap with 13 nodes. It is a collection of 3 Binomial Trees of orders 
  30               80  85  65 
                   |
                  100
+A Binomial Heap with 12 nodes. It is a collection of 2. Binomial Trees of orders 2 and 3 from left to right. 
+
 ```
 
 ---
