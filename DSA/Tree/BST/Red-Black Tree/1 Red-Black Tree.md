@@ -4,6 +4,8 @@
 
 A **Red-Black Tree** is a **self-balancing Binary Search Tree (BST)** where each node has an additional color attribute (red or black). The tree maintains balance through enforced coloring rules, ensuring that its height remains **O(log n)** even in the worst case.
 
+![Red-black-Tree-banner](https://github.com/user-attachments/assets/e15ae241-a238-4464-8a93-eb7d61241ccd)
+
 ---
 
 ## **Properties of Red-Black Tree**
@@ -18,6 +20,12 @@ A valid Red-Black Tree must satisfy the following rules:
 
 > These properties ensure that no path is more than twice as long as another, keeping the tree balanced.
 
+![New-Project-8](https://github.com/user-attachments/assets/02cfb508-1dcd-466c-a15c-a57c31f943f5)
+> The Correct Red-Black Tree in above image ensures that every path from the root to a leaf node has the same number of black nodes. In this case,​ there is one (excluding the root node).
+
+> The Incorrect Red Black Tree does not follow the red-black properties as two red nodes are adjacent to each other. Another problem is that one of the paths to a leaf node has zero black nodes, whereas the other two contain a black node.
+
+
 ---
 
 ## **Why Red-Black Trees?**
@@ -25,9 +33,9 @@ A valid Red-Black Tree must satisfy the following rules:
 Binary Search Trees can degrade to a linear chain (**O(n)** height) if unbalanced.
 Red-Black Trees preserve height as:
 
-[
-h \le 2 \log_2(n+1)
-]
+```
+h < log_2(n+1)
+```
 
 So operations always run in:
 
@@ -56,6 +64,7 @@ Red-Black Trees avoid long skewed chains because any sequence of nodes cannot ha
 Example rule preventing imbalance:
 
 > A chain of **three consecutive nodes** cannot exist without violating the red property.
+<img width="1100" height="401" alt="3NodedRedBlacktree" src="https://github.com/user-attachments/assets/06b4071a-d056-4e52-9a7a-516bda46b6cb" />
 
 ---
 
@@ -147,7 +156,22 @@ A left rotation pivots the tree **leftward**, moving a node **down to the left**
 3. Update parent pointers of both `x` and `y`.
 4. Make `y` the parent of `x`.
 5. Set `x` as the **left child** of `y`.
+```Before Rotation:
 
+    x                                              
+     \                                             
+      y                                                         
+     / \                                                     
+    a   b                                                     
+
+After Left Rotation:
+
+      y
+     / \
+    x   b
+     \
+      a
+  ```
 
 ---
 
@@ -163,7 +187,23 @@ A right rotation is the mirror of a left rotation. Node `x` moves **down to the 
 4. Make `y` the parent of `x`.
 5. Set `x` as the **right child** of `y`.
 
-(Pseudocode mirrors the left rotation logic.)
+```
+Befor Right Rotation:    
+
+      x
+     /
+    y
+   / \
+  a   b
+
+After Right Rotation:
+
+    y
+   / \
+  a   x
+     /
+    b
+```
 
 ---
 
