@@ -1,15 +1,12 @@
 # **M-Way Search Tree**
 
-<img width="950" height="550" alt="image" src="https://github.com/user-attachments/assets/215a59b2-9d0a-4a26-a06e-681c1371cd24" />
-
-## **Definition**
+### **Definition**
 
 An **M-Way Search Tree** (also called a **Multi-Way Search Tree of order m**) is a generalization of a Binary Search Tree (BST) in which each node may contain **multiple keys** and can have **up to m child pointers**.
 It reduces tree height by increasing branching, improving search performance for large datasets.
 
----
 
-## **Node Structure and Constraints**
+### **Node Structure and Constraints**
 
 For a tree of order **m**, each node satisfies:
 
@@ -46,9 +43,7 @@ then the ordering rule must hold:
 
 This rule ensures correct ordered searching.
 
----
-
-## **Properties**
+### **Properties**
 
 * Nodes may store multiple keys, meaning each node forms multiple comparison points.
 * Searching inside a node involves comparing the target with stored sorted keys.
@@ -56,10 +51,11 @@ This rule ensures correct ordered searching.
 * Logical ordering is maintained similar to a BST, but with multiple branching options.
 
 
-
-## **Height and Efficiency**
+### **Height and Efficiency**
 
 Height comparison for storing **N keys**:
+
+<img width="950" height="550" alt="image" src="https://github.com/user-attachments/assets/215a59b2-9d0a-4a26-a06e-681c1371cd24" />
 
 ```
 Binary Search Tree:    O(log base 2 of N)
@@ -68,10 +64,8 @@ M-Way Search Tree:     O(log base m of N)
 
 A larger branching factor reduces height, making searches faster—especially important when mapping nodes to disk blocks or memory pages.
 
----
 
-
-## **Limitations**
+### **Limitations**
 
 * No automatic balancing in the basic form.
 * Poor input sequences can produce **skewed trees**, increasing height to:
@@ -82,9 +76,8 @@ O(N)
 
 * Additional balancing logic is required in practical systems.
 
----
 
-## **Relation to Balanced Multi-Way Structures**
+### **Relation to Balanced Multi-Way Structures**
 
 Balanced structures derived from M-Way Search Trees:
 
@@ -129,10 +122,9 @@ m − 1 keys  and  m children
    * If the node contains fewer than `m−1 keys`:
 
      * Insert the key into the node in sorted position.
-   * If the node is already full:
-
-     * Create a new child node and insert the key there.
-     * (Balanced m-way variants like B-Trees perform node splitting, but a basic m-way tree does not enforce balancing.)
+     * If the node is already full:
+       * Create a new child node and insert the key there.
+       * (Balanced m-way variants like B-Trees perform node splitting, but a basic m-way tree does not enforce balancing.)
 
 ### **Example Behavior**
 
