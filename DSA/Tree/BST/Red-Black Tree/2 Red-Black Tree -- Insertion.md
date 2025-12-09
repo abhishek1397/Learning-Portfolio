@@ -49,16 +49,16 @@ If the uncle is black, one of the four rotation cases applies (similar to AVL tr
 | Case Type            | When It Happens                                          | Fix                            |
 | -------------------- | -------------------------------------------------------- | ------------------------------ |
 | **Left-Left (LL)**   | Parent is left child, new node is left child of parent   | Right Rotation                 |
-||<img width="502" height="200" alt="output244" src="https://github.com/user-attachments/assets/a5c62f24-fd8b-49f5-84fe-5356c12dc879" />||
+||<img width="993" height="370" alt="output244" src="https://github.com/user-attachments/assets/a5c62f24-fd8b-49f5-84fe-5356c12dc879" />||
 ||||
 | **Left-Right (LR)**  | Parent is left child, new node is right child of parent  | Left Rotation → Right Rotation |
 ||<img width="993" height="370" alt="output245copy" src="https://github.com/user-attachments/assets/e32887c9-822d-4f07-adb0-e0ff4cd8b994" />||
 ||||
 | **Right-Right (RR)** | Parent is right child, new node is right child of parent | Left Rotation                  |
-||<img width="524" height="165" alt="output246" src="https://github.com/user-attachments/assets/e6cb8f8f-6db8-489f-8752-a2a2ffce2279" />||
+||<img width="993" height="370" alt="output246" src="https://github.com/user-attachments/assets/e6cb8f8f-6db8-489f-8752-a2a2ffce2279" />||
 ||||
 | **Right-Left (RL)**  | Parent is right child, new node is left child of parent  | Right Rotation → Left Rotation |
-||<img width="484" height="179" alt="output247" src="https://github.com/user-attachments/assets/c78b4eb2-1b35-4477-8a39-79ac371020ae" />||
+||<img width="993" height="370" alt="output247" src="https://github.com/user-attachments/assets/c78b4eb2-1b35-4477-8a39-79ac371020ae" />||
 
 
 #### **Recoloring Rule After Rotation:**
@@ -73,19 +73,19 @@ If the uncle is black, one of the four rotation cases applies (similar to AVL tr
 ## Example: Creating a red-black tree with elements 3, 21, 32 and 15 in an empty tree.
 ||
 |--|
-|<img width="454" height="92" alt="output248" src="https://github.com/user-attachments/assets/52982e0f-c2c8-4c7b-b980-fdb4f88a993f" />|
+|<img width="680" height="340" alt="output248" src="https://github.com/user-attachments/assets/52982e0f-c2c8-4c7b-b980-fdb4f88a993f" />|
 |When the first element is inserted it is inserted as a root node and as root node has black colour so it acquires the colour black.|
 ||
-|<img width="451" height="142" alt="output249" src="https://github.com/user-attachments/assets/b4423477-ca5b-4232-8320-b87c8570d2c8" />|
+|<img width="680" height="370" alt="output249" src="https://github.com/user-attachments/assets/b4423477-ca5b-4232-8320-b87c8570d2c8" />|
 |The new element is always inserted with a red colour and as 21 > 3 so it becomes the part of the right subtree of the root node.|
 ||
-|<img width="449" height="300" alt="output250" src="https://github.com/user-attachments/assets/d35c7c9f-d9cd-4a9d-8da8-4a5a22ba249c" />|
+|<img width="680" height="370" alt="output250" src="https://github.com/user-attachments/assets/d35c7c9f-d9cd-4a9d-8da8-4a5a22ba249c" />|
 |Now, as we insert 32 we see there is a red father-child pair which violates the Red-Black tree rule so we have to rotate it. Moreover, we see the conditions of RR rotation (considering the null node of the root node as black) so after rotation as the root node can’t be Red so we have to perform recolouring in the tree resulting in the tree shown above. |
 ||
-|<img width="660" height="451" alt="Annotation20210501131749-660x451" src="https://github.com/user-attachments/assets/96440e65-29f5-4ac1-9491-fe94e0af2eb3" />|
+|<img width="680" height="370" alt="Annotation20210501131749-660x451" src="https://github.com/user-attachments/assets/96440e65-29f5-4ac1-9491-fe94e0af2eb3" />|
 ||
 |Final Tree Structure:|
-|<img width="482" height="170" alt="output252" src="https://github.com/user-attachments/assets/e3ac87ab-7dc6-4c56-bf31-1d3a68e7d213" />|
+|<img width="680" height="370" alt="output252" src="https://github.com/user-attachments/assets/e3ac87ab-7dc6-4c56-bf31-1d3a68e7d213" />|
 |
 
 ## **Algorithm (Summary)**
