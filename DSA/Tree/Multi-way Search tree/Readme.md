@@ -1,6 +1,6 @@
 # **M-Way Search Tree**
 
-<img width="950" height="550" alt="5-way-search-tree" src="https://github.com/user-attachments/assets/d79fd68e-9908-4297-bb66-efc7807b3d7c" />
+<img width="950" height="550" alt="image" src="https://github.com/user-attachments/assets/215a59b2-9d0a-4a26-a06e-681c1371cd24" />
 
 ## **Definition**
 
@@ -18,6 +18,13 @@ For a tree of order **m**, each node satisfies:
 * Minimum **1 key** (for non-root nodes; depends on implementation)
 * Keys are stored in **sorted ascending order**
 * Each key divides child pointers into ordered ranges
+
+<img width="1355" height="736" alt="image" src="https://github.com/user-attachments/assets/c5a28cc6-6d4b-41d9-afcd-bf882ea8e273" />
+
+---
+
+<img width="1353" height="705" alt="image" src="https://github.com/user-attachments/assets/18d208ca-a545-4bc8-9e72-3085c3b62f4f" />
+
 
 If a node contains keys:
 
@@ -81,11 +88,12 @@ O(N)
 
 Balanced structures derived from M-Way Search Trees:
 
-| Structure   | Characteristic                                                     |
-| ----------- | ------------------------------------------------------------------ |
-| **B-Tree**  | Self-balancing; all leaves at same depth                           |
-| **B⁺-Tree** | Actual data stored only in leaves; leaves linked for range queries |
-| **B*-Tree** | Improves node-space utilization and reduces frequency of splits    |
+| Tree Type   | Derived From   | Balancing Strategy                                 | Common Usage                  |
+| ----------- | -------------- | -------------------------------------------------- | ----------------------------- |
+| **B-Tree**  | M-Way Tree     | Height-balanced; keys stored at all internal nodes | Filesystems, indexing         |
+| **B⁺-Tree** | B-Tree         | All keys stored in leaf nodes; leaves linked       | Databases (MySQL, PostgreSQL) |
+| **B*-Tree** | B-Tree Variant | Higher node utilization; delayed splitting         | Disk-based storage systems    |
+
 
 These variants maintain order while guaranteeing stable performance for insertion, deletion, and searching.
 
