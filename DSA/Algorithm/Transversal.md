@@ -66,6 +66,58 @@ int main() {
 
 # DFS
 
+## Using Stack:
+```cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+
+#define V 5
+
+void DFS_iterative(int graph[][V], int start) {
+    bool visited[V] = {false};
+    stack<int> st;
+
+    st.push(start);
+
+    while (!st.empty()) {
+        int node = st.top();
+        st.pop();
+
+        if (!visited[node]) {
+            cout << node << " ";
+            visited[node] = true;
+        }
+
+        // Push neighbors in reverse order so smallest index is processed first
+        for (int i = V - 1; i >= 0; i--) {
+            if (graph[node][i] == 1 && !visited[i]) {
+                st.push(i);
+            }
+        }
+    }
+}
+
+int main() {
+
+    int graph[V][V] = {
+        {0, 0, 1, 0, 1},
+        {0, 1, 0, 1, 0},
+        {0, 0, 0, 1, 0},
+        {1, 0, 1, 1, 1},
+        {0, 1, 0, 0, 0}
+    };
+
+    cout << "Iterative DFS: ";
+    DFS_iterative(graph, 0);
+
+    return 0;
+}
+
+
+```
+
+## Using recursion
 ```cpp
 #include <iostream>
 using namespace std;
