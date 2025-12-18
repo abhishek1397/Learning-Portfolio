@@ -164,3 +164,27 @@ Research ethics are moral principles guiding the conduct of research to ensure i
 Think of research like **cooking a complex meal**:
 *   **Data Interpretation** is tasting the dish as you cook. You check if it's too salty (outliers), if the flavors blend well (correlations), and if it tastes like the recipe intended (hypothesis testing).
 *   **Research Writing** is printing the menu and serving the dish. You must arrange it nicely (structure/formatting), describe the ingredients truthfully (ethics/citations), and tell the story of how you made it so others can appreciate—or replicate—the recipe.
+
+
+
+# UGC Policy on Plagiarism: Penalties and Consequences
+The University Grants Commission (UGC) "Promotion of Academic Integrity and Prevention of Plagiarism in Higher Educational Institutions) Regulations, 2018" establishes clear levels of plagiarism and corresponding penalties to ensure academic accountability and reproducibility. The regulations classify plagiarism based on the percentage of similarity found in a submitted work: 
+
+## Penalties for Students (Theses/Dissertations)
+|Plagiarism Level |	Similarity Percentage|	Penalty
+|--|--|
+|Level 0	|Up to 10%	|No penalty (minor similarities)|
+|Level 1	|Above 10% to 40%	|Required to submit a revised script within a maximum period of six months|
+|Level 2	|Above 40% to 60%|	Debarred from submitting a revised script for a period of one year|
+|Level 3	|Above 60%	|The student's registration for that program shall be cancelled|
+
+** Repeated Offenses: A student who repeats an act of plagiarism will receive a penalty one level higher than the previous offense.
+** Post-Degree Discovery: If plagiarism is proven after a degree or credit has been awarded, the degree/credit can be put in abeyance for a stipulated period. 
+
+#   Accountability and Reproducibility
+
+The regulations promote accountability through mechanisms such as:
+*   Mandating the use of plagiarism detection software.
+*   Requiring signed undertakings from students and certificates from supervisors confirming originality.
+*   Establishing Departmental and Institutional Academic Integrity Panels (DAIP and IAIP) to investigate allegations and recommend penalties.
+*   Archiving all M.Phil. and Ph.D. theses in the national "Shodh Ganga e-repository" for public access and verification, ensuring reproducibility and transparency. 
