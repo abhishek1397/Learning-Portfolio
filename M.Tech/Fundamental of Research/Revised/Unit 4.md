@@ -172,7 +172,7 @@ The University Grants Commission (UGC) "Promotion of Academic Integrity and Prev
 
 ## Penalties for Students (Theses/Dissertations)
 |Plagiarism Level |	Similarity Percentage|	Penalty
-|--|--|
+|--|--|--|
 |Level 0	|Up to 10%	|No penalty (minor similarities)|
 |Level 1	|Above 10% to 40%	|Required to submit a revised script within a maximum period of six months|
 |Level 2	|Above 40% to 60%|	Debarred from submitting a revised script for a period of one year|
@@ -181,7 +181,7 @@ The University Grants Commission (UGC) "Promotion of Academic Integrity and Prev
 ** Repeated Offenses: A student who repeats an act of plagiarism will receive a penalty one level higher than the previous offense.
 ** Post-Degree Discovery: If plagiarism is proven after a degree or credit has been awarded, the degree/credit can be put in abeyance for a stipulated period. 
 
-#   Accountability and Reproducibility
+##   Accountability and Reproducibility
 
 The regulations promote accountability through mechanisms such as:
 *   Mandating the use of plagiarism detection software.
