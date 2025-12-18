@@ -38,6 +38,45 @@ Interpretation is the process of making sense of collected data, drawing meaning
     *   **Types:** **Direct** (copy-paste without citation), **Self-Plagiarism** (reusing one's own published work without disclosure), and **Image Plagiarism**.
     *   **Avoidance:** Cite sources properly, use quotation marks for direct quotes, paraphrase, and use detection tools.
 
+**4. Reference Styles
+*   Answer: Reference styles provide a standardized format for citing sources used in academic writing, ensuring consistency and proper attribution.
+*   Adhering to a specific style (e.g., APA, MLA, Chicago) is crucial for academic credibility and avoiding plagiarism.
+*   Each style dictates the required format for both in-text citations and the full bibliography or reference list at the end of the document
+*   Consistency across a paper allows readers to easily locate the original sources and verify the information presented.
+
+**5. Coherence of Ideas
+*   Answer: Coherence of ideas refers to the logical flow and clear connection between sentences, paragraphs, and larger sections of a document, ensuring the writing is easy to follow.
+*   It involves using transitional words and phrases (e.g., "however," "therefore," "in addition") to bridge concepts smoothly.
+*   A coherent paper maintains a clear, consistent focus on the main argument or thesis statement throughout all sections
+*   Ensuring logical flow helps the reader understand how each piece of evidence or analysis contributes to the overall argument or narrative.
+
+**6. Use of Theory
+*   Answer: The use of theory in research involves integrating established theoretical frameworks to guide the study, analyze data, and support the research and analysis
+*   Theory provides a lens through which researchers can interpret findings and provide deeper meaning beyond mere description of data
+*   Integrating theory helps to position the research within the existing body of academic literature, identifying research gaps and contributing to the broader field of knowledge
+*   The chosen framework often guides methodology, research questions, and the structure of the argument itself.
+
+![Gantt proposal](https://images.doclify.net/gleek-web/d/7348da39-a2aa-4a53-8170-01d412ef1cb5.png)
+
+**   Research proposal 
+*   is a detailed, structured plan that outlines a proposed research project to justify its need and feasibility to supervisors, an ethics committee, or a funding body. It serves as a blueprint for the research, demonstrating that the researcher has a clear topic, understands the existing literature, and has a sound methodology. 
+
+Key components typically found in a research proposal include:
+
+Core Components
+Title:    A concise, descriptive title that captures the main focus of the study.
+Abstract/Summary:    A brief overview of the research problem, objectives, methodology, and expected outcomes (usually around 150-300 words).
+Introduction/Background:    This section sets the context for the study, introduces the topic, defines key terms, and explains why the research problem is important and timely.
+Problem Statement and Research Questions/Hypotheses:    A clear articulation of the specific problem the research will address and the core questions the study aims to answer or the hypotheses it will test.
+Literature Review:    A critical analysis of existing scholarly work relevant to the topic, identifying what is already known, what gaps exist in the current knowledge, and how the proposed research will fill those gaps.
+Research Design and Methodology:    This is a crucial section detailing the practical steps for conducting the research. It covers the overall approach (qualitative, quantitative, or mixed), data collection methods (e.g., surveys, interviews, experiments), data analysis techniques, population/sampling, and ethical considerations.
+Significance and Expected Contributions:    An explanation of the potential impact of the research, including how the results might refine theory, inform policy, improve practice, or lay a foundation for future studies.
+Timeline/Work Plan:    A realistic schedule outlining the phases of the project, such as literature review, ethics approval, data collection, analysis, and writing.
+Bibliography/References:    A list of all sources cited in the proposal, formatted according to a specific style guide (e.g., APA, MLA, Chicago). 
+Optional/Context-Dependent Components
+Budget:    If seeking funding, a detailed breakdown of estimated costs for resources, equipment, travel, and personnel is required.
+Appendices: Supplementary materials like consent forms, questionnaires, or supporting letters can be included here. 
+
 **4. Research Funding**
 *   **Why it Matters:** Research is expensive (equipment, materials, travel, salaries/stipends). Funding provides career enhancement, credibility, and networks for future projects.
 *   **Sources in India:**
