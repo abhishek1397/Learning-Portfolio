@@ -1,5 +1,7 @@
 # Advanced Research Methodology: Paradigms, Measurement, and Core Inferences
 
+![](https://www.scribbr.com/wp-content/uploads/2022/04/Inductive-vs-deductive-reasoning.webp)
+
 ## I. Paradigms of Inquiry: Qualitative vs. Quantitative Research
 
 Research paradigms are distinguished by their epistemological assumptions, objectives, data types, and analytical strategies. Two dominant paradigms—**Quantitative** and **Qualitative**—serve as the foundation for scientific inquiry.
