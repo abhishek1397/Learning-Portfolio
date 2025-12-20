@@ -73,6 +73,95 @@ The direction of the Alternative Hypothesis ($H_1$) determines where the critica
 
 ***
 
+
+Based on the provided sources and our conversation history regarding hypothesis testing, here are comprehensive notes covering the **Z-Test** and **T-Test**.
+
+### **1. Types of Hypothesis Tests (Directionality)**
+The direction of the test depends on the claim being made in the Alternative Hypothesis ($H_1$).
+
+*   **Two-Tailed Test (Non-Directional)**
+    *   **Goal:** Checks for differences in *either* direction (is the sample significantly different from the population?).
+    *   **Hypotheses:** $H_0: \mu = \mu_0$ (No difference) vs. $H_1: \mu \neq \mu_0$ (Different).
+    *   **Critical Region:** Split between both tails of the distribution.
+*   **One-Tailed Test (Directional)**
+    *   **Left-Tailed Test (LTT):** Tests if the mean is **smaller** (terms: reduced, decreased, below). Hypothesis: $\mu < \text{value}$.
+    *   **Right-Tailed Test (RTT):** Tests if the mean is **larger** (terms: exceed, increased, greater than). Hypothesis: $\mu > \text{value}$.
+
+---
+
+### **2. The Z-Test**
+**When to use:** To determine if there is a significant difference between a sample mean and a population mean, typically when the sample size is large or population standard deviation is known.
+
+#### **Formula**
+$$Z = \frac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}$$
+*   $\bar{X}$: Sample mean
+*   $\mu_0$: Hypothesized population mean
+*   $\sigma$: Population standard deviation
+*   $n$: Sample size
+
+#### **Example A: Right-Tailed Z-Test (Plant Height)**
+*   **Scenario:** Testing if average height $> 35$ cm.
+*   **Data:** $n=100$, $\bar{X}=36$, $\sigma=5$, $\alpha=0.05$.
+*   **Calculation:** $Z = \frac{36 - 35}{5 / \sqrt{100}} = \frac{1}{0.5} = 2$.
+*   **Critical Value:** For $\alpha=0.05$ (Right-tail), Critical $Z = 1.645$.
+*   **Decision:** Since $2 > 1.645$, **Reject $H_0$**. The height is significantly greater than 35 cm.
+
+#### **Example B: Two-Tailed Z-Test (Plant Height)**
+*   **Scenario:** Testing if average height $\neq 35$ cm.
+*   **Data:** Same data as above ($n=100$, $\bar{X}=36$, etc.).
+*   **Critical Value:** For $\alpha=0.05$ (Two-tail), Critical $Z = \pm 1.96$.
+*   **Decision:** Since $2 > 1.96$, **Reject $H_0$**. The height is significantly different from 35 cm.
+
+---
+
+### **3. The T-Test (One-Sample)**
+**When to use:**
+1.  Comparing a sample to a target/population.
+2.  Sample size is small ($n < 30$).
+3.  Population standard deviation ($\sigma$) is unknown (using sample deviation $s$ instead).
+
+#### **Formula**
+$$t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}$$
+*   **Degrees of Freedom (df):** $n - 1$.
+
+#### **Example C: Right-Tailed T-Test (Small Sample)**
+*   **Scenario:** Testing if plant height $> 35$ cm.
+*   **Data:** $n=25$ (Small sample), $\bar{X}=36$, $s=5$, $\alpha=0.05$.
+*   **Calculation:** $t = \frac{36 - 35}{5 / \sqrt{25}} = \frac{1}{1} = 1.00$.
+*   **Critical Value:** At $df=24$ and $\alpha=0.05$, Critical $t = 1.711$.
+*   **Decision:** Since $1.00 < 1.711$, **Fail to Reject $H_0$**. (Note the difference from Example A: With a smaller sample, the same mean difference was not statistically significant).
+
+#### **Example D: Two-Tailed T-Test (Student Scores)**
+*   **Scenario:** Testing if class average differs from 70 ($H_1: \mu \neq 70$).
+*   **Data:** $n=10$, $\bar{X}=71.2$, $s=2.3$.
+*   **Calculation:** $t = \frac{71.2 - 70}{2.3 / \sqrt{10}} = \frac{1.2}{0.728} \approx 1.65$.
+*   **Decision:** With $df=9$, Critical $t = 2.262$. Since $1.65 < 2.262$, **Fail to Reject $H_0$**.
+
+---
+
+### **4. Two-Tailed T-Test (Two Independent Groups)**
+**When to use:** To compare the means of two independent groups (e.g., Class A vs. Class B) to see if one is significantly different from the other without a predicted outcome.
+
+*   **Assumptions:** Data should follow a normal distribution; samples must be independent; variances should be equal (though specific tests like Welch's exist for unequal variances).
+
+#### **Example E: Comparing Class Heights**
+*   **Hypotheses:** $H_0: \text{Mean A} = \text{Mean B}$ vs. $H_1: \text{Mean A} \neq \text{Mean B}$.
+*   **Data:**
+    *   Class A: $n=30$, Mean=170, SD=10.
+    *   Class B: $n=25$, Mean=175, SD=12.
+*   **Calculation:** $t \approx -1.66$.
+*   **Decision:**
+    *   $df \approx 47$ (calculated for unequal variances).
+    *   Critical $t \approx \pm 2.012$.
+    *   Since $|-1.66| < 2.012$, **Fail to Reject $H_0$**. There is no significant difference between the classes.
+
+---
+
+### **5. Summary of Decision Rules**
+Drawing on the "Fence" analogy from our conversation history and the mathematical rules in the text:
+
+*   **Reject $H_0$:** If the calculated statistic (Z or t) falls **outside** the critical values (into the rejection region/over the fence). This suggests significant difference.
+*   **Fail to Reject $H_0$:** If the calculated statistic falls **between** the critical values. This suggests the difference is likely due to chance.
 ### **Analogy for Understanding**
 To solidify the concept of the **Critical Value Method**, the text suggests thinking of it as a **"Fence"**:
 
