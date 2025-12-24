@@ -224,8 +224,8 @@ This overlap strategy enables **constant-time querying**.
 
 ## Problem recap
 
-* Array size: (1 \le N \le 10^5)
-* Queries: (1 < Q \le 10^5)
+* Array size: 1≤N≤105
+* Queries:1<Q≤105
 * Each query: find **maximum** in range ([L, R])
 * Array (1-indexed for simplicity):
 
