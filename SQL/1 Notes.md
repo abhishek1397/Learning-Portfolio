@@ -36,3 +36,17 @@
   `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;`  
 - `WITH ROLLBACK IMMEDIATE` rolls back all incomplete transactions and closes existing connections, after which you can safely run `DROP DATABASE`.  
 - System databases (like `master`, `model`, `msdb`, `tempdb`) **cannot** be dropped.
+
+
+## Summary table of graphical vs T‑SQL
+
+| Operation | Graphical (SSMS) steps | T‑SQL command |
+| --- | --- | --- |
+| Create database | Right‑click **Databases** → **New Database** → enter name → **OK** [1] | `CREATE DATABASE DatabaseName;` [1] |
+| Rename database | Right‑click database → **Rename** → type new name → Enter [1] | `ALTER DATABASE OldDatabaseName MODIFY NAME = NewDatabaseName;` **or** `EXEC sp_renameDB 'OldDatabaseName','NewDatabaseName';` [1] |
+| Drop database (not in use) | Right‑click database → **Delete** → **OK** [1] | `DROP DATABASE DatabaseName;` [1] |
+| Prepare busy database for drop | (Delete dialog → option to close existing connections) [1] | `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;` then `DROP DATABASE DatabaseName;` [1] |
+
+
+---
+
