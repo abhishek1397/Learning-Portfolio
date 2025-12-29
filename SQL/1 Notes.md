@@ -1,4 +1,4 @@
-# Lecture - 1
+# Lecture - 1 Creating, altering and dropping a database
 
 ## Creating a database
 
@@ -42,11 +42,75 @@
 
 | Operation | Graphical (SSMS) steps | T‑SQL command |
 | --- | --- | --- |
-| Create database | Right‑click **Databases** → **New Database** → enter name → **OK** [1] | `CREATE DATABASE DatabaseName;` [1] |
-| Rename database | Right‑click database → **Rename** → type new name → Enter [1] | `ALTER DATABASE OldDatabaseName MODIFY NAME = NewDatabaseName;` **or** `EXEC sp_renameDB 'OldDatabaseName','NewDatabaseName';` [1] |
-| Drop database (not in use) | Right‑click database → **Delete** → **OK** [1] | `DROP DATABASE DatabaseName;` [1] |
-| Prepare busy database for drop | (Delete dialog → option to close existing connections) [1] | `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;` then `DROP DATABASE DatabaseName;` [1] |
+| Create database | Right‑click **Databases** → **New Database** → enter name → **OK**  | `CREATE DATABASE DatabaseName;`  |
+| Rename database | Right‑click database → **Rename** → type new name → Enter ] | `ALTER DATABASE OldDatabaseName MODIFY NAME = NewDatabaseName;` **or** `EXEC sp_renameDB 'OldDatabaseName','NewDatabaseName';`  |
+| Drop database (not in use) | Right‑click database → **Delete** → **OK**  | `DROP DATABASE DatabaseName;`  |
+| Prepare busy database for drop | (Delete dialog → option to close existing connections)  | `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;` then `DROP DATABASE DatabaseName;`  |
 
 
 ---
+
+# Lecture 2  Creating and Working with tables
+
+The aim is to create **tblPerson** and **tblGender** tables and enforce primary and foreign key constraints.
+
+## Creating tables
+
+- Tables in SQL Server can be created either graphically in SSMS or using T‑SQL queries.
+- To create `tblPerson` graphically in SSMS:  
+  - Right‑click **Tables** in Object Explorer → **New Table** → define Column Name, Data Type, Allow Nulls and save as `tblPerson`.
+
+<img width="512" height="281" alt="image" src="https://github.com/user-attachments/assets/e462fb3d-6d1c-4524-8a1c-54ef2dc44ccd" />
+
+## Creating tblGender with primary key
+
+- `tblGender` is created using T‑SQL with an ID primary key and a Gender column:
+  ```sql
+  CREATE TABLE tblGender(
+      ID INT NOT NULL PRIMARY KEY,
+      Gender NVARCHAR(50)
+  );
+  ```
+- The **primary key** uniquely identifies each row and does not allow null values.
+
+## Foreign key in tblPerson
+
+- In `tblPerson`, `GenderID` is a **foreign key** referencing the `ID` column of `tblGender`.
+- A foreign key links one table to another and is used to enforce database integrity.
+
+## Adding foreign key graphically
+
+- Steps in SSMS to add the foreign key on `tblPerson.GenderID`:
+  - Right‑click `tblPerson` → **Design**.  
+  - Right‑click **GenderId** column → **Relationships**.  
+  - In **Foreign Key Relationships** dialog, click **Add**.  
+  - Expand **Tables and Column Specification** (click the +).  
+  - Click the ellipsis (…) in that row.  
+  - Choose `tblGender` as **Primary key table** and `ID` as its column.  
+  - Choose `GenderId` as the foreign key column on the right.  
+  - Click **OK**, close the dialog, then save the table.
+
+  <img width="531" height="193" alt="image" src="https://github.com/user-attachments/assets/5e45fb6e-c5d7-47a8-bf3a-24b8c44268ce" />
+
+
+## Adding foreign key using T‑SQL
+
+- To add the foreign key on an existing `tblPerson` table:
+  ```sql
+  ALTER TABLE tblPerson
+  ADD CONSTRAINT tblPerson_GenderId_FK
+      FOREIGN KEY (GenderId) REFERENCES tblGender(ID);
+  ```
+- General pattern:[4][1]
+  ```sql
+  ALTER TABLE ForeignKeyTable
+  ADD CONSTRAINT ForeignKeyTable_ForeignKeyColumn_FK
+      FOREIGN KEY (ForeignKeyColumn)
+      REFERENCES PrimaryKeyTable(PrimaryKeyColumn);
+  ```
+
+## Role of foreign keys
+
+- A foreign key in one table points to the primary key of another table, ensuring only valid, existing values are stored in the foreign key column.
+- The foreign key constraint prevents inserting values into the foreign key column that do not exist in the referenced primary key table, thus maintaining referential integrity.
 
