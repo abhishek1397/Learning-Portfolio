@@ -114,3 +114,59 @@ The aim is to create **tblPerson** and **tblGender** tables and enforce primary 
 - A foreign key in one table points to the primary key of another table, ensuring only valid, existing values are stored in the foreign key column.
 - The foreign key constraint prevents inserting values into the foreign key column that do not exist in the referenced primary key table, thus maintaining referential integrity.
 
+---
+
+# Lecture 3 Default constraint in sql server
+
+Default constraints insert a default value into a column when no value is specified during INSERT (including NULL).
+
+## Adding default constraint to existing column
+
+- General syntax:  
+  ```sql
+  ALTER TABLE {TABLE_NAME}
+  ADD CONSTRAINT {CONSTRAINT_NAME}
+  DEFAULT {DEFAULT_VALUE} FOR {EXISTING_COLUMN_NAME};
+  ```
+
+- Example on `tblPerson`:  
+  ```sql
+  ALTER TABLE tblPerson
+  ADD CONSTRAINT DF_tblPerson_GenderId
+  DEFAULT 1 FOR GenderId;
+  ```
+
+## Adding new column with default constraint
+
+- General syntax:  
+  ```sql
+  ALTER TABLE {TABLE_NAME}
+  ADD {COLUMN_NAME} {DATA_TYPE} {NULL | NOT NULL}
+  CONSTRAINT {CONSTRAINT_NAME} DEFAULT {DEFAULT_VALUE};
+  ```
+
+## INSERT behavior with default constraint
+
+| INSERT statement | GenderId result | Explanation |
+|------------------|-----------------|-------------|
+| `INSERT INTO tblPerson(ID,Name,Email) VALUES(5,'Sam','s@s.com')` | 1 | No GenderId specified → uses default value 1 |
+| `INSERT INTO tblPerson(ID,Name,Email,GenderId) VALUES(6,'Dan','d@d.com',NULL)` | NULL | Explicit NULL overrides default constraint |
+
+## Dropping a constraint
+
+- Syntax:  
+  ```sql
+  ALTER TABLE {TABLE_NAME}
+  DROP CONSTRAINT {CONSTRAINT_NAME};
+  ```
+
+## Summary table: Default constraint commands
+
+| Operation | T-SQL Command |
+|-----------|---------------|
+| Add default to existing column | `ALTER TABLE tblPerson ADD CONSTRAINT DF_tblPerson_GenderId DEFAULT 1 FOR GenderId;` |
+| Add new column with default | `ALTER TABLE tblPerson ADD EmailStatus VARCHAR(10) NOT NULL CONSTRAINT DF_EmailStatus DEFAULT 'Active';` |
+| Drop constraint | `ALTER TABLE tblPerson DROP CONSTRAINT DF_tblPerson_GenderId;` |
+
+---
+
