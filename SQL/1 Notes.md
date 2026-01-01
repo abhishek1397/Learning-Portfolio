@@ -300,8 +300,6 @@ DROP CONSTRAINT CK_tblPerson_Age;
 
 # Lecture 6  **Identity Column in SQL Server**
 
-## Identity Column in SQL Server (Part 7)
-
 An **IDENTITY column** in SQL Server is used to **automatically generate unique numeric values** for a column when new rows are inserted into a table.
 This is commonly used for **primary key columns**.
 
@@ -445,3 +443,110 @@ DBCC CHECKIDENT (tblPerson, RESEED, 0);
 
 ---
 
+# Lecture 7 **how to get the last generated identity value in SQL Server **
+
+
+
+## How to Get the Last Generated Identity Column Value in SQL Server (Part 8)
+
+In previous sections, we learned that **identity column values are automatically generated** by SQL Server.
+Often, after inserting a row, we need to **retrieve the identity value** that was just created.
+
+SQL Server provides **three main ways** to get the last generated identity value:
+
+1. `SCOPE_IDENTITY()`
+2. `@@IDENTITY`
+3. `IDENT_CURRENT('TableName')`
+
+
+
+### Example Queries
+
+```sql
+SELECT SCOPE_IDENTITY();
+SELECT @@IDENTITY;
+SELECT IDENT_CURRENT('tblPerson');
+```
+
+Although these functions look similar, they behave **very differently**.
+
+
+## Understanding the Differences
+
+### 1. SCOPE_IDENTITY()
+
+* Returns the **last identity value**
+* Generated in the **same session (connection)**
+* Generated in the **same scope**
+  (same stored procedure, function, or batch)
+
+✅ This is the **recommended and safest** way to get the last identity value.
+
+
+### 2. @@IDENTITY
+
+* Returns the **last identity value**
+* Generated in the **same session**
+* **Across any scope**
+
+⚠️ This can return **unexpected values** if triggers are involved.
+
+
+
+### 3. IDENT_CURRENT('TableName')
+
+* Returns the **last identity value for a specific table**
+* Across **any session**
+* Across **any scope**
+
+⚠️ Not safe for concurrent inserts because another user may insert a row at the same time.
+
+
+
+## Trigger Example (Why Differences Matter)
+
+Assume:
+
+* `tblPerson1` has an identity column
+* `tblPerson2` has an identity column
+* A **trigger on tblPerson1** inserts a row into `tblPerson2`
+
+When you insert into `tblPerson1`:
+
+* `SCOPE_IDENTITY()` → identity value from **tblPerson1**
+* `@@IDENTITY` → identity value from **tblPerson2** (trigger-generated)
+* `IDENT_CURRENT('tblPerson1')` → last identity for tblPerson1 (any session)
+
+This is why `@@IDENTITY` can be **dangerous** in real-world applications.
+
+
+
+## In Brief
+
+* **SCOPE_IDENTITY()**
+  → Same session, same scope ✅ (Best choice)
+
+* **@@IDENTITY**
+  → Same session, all scopes ⚠️
+
+* **IDENT_CURRENT('TableName')**
+  → Any session, any scope ⚠️
+
+
+
+## Summary Table – Commands Used
+
+| Method         | SQL Command                          | Scope      | Session      | Recommended |
+| -------------- | ------------------------------------ | ---------- | ------------ | ----------- |
+| SCOPE_IDENTITY | `SELECT SCOPE_IDENTITY();`           | Same scope | Same session | ✅ Yes       |
+| @@IDENTITY     | `SELECT @@IDENTITY;`                 | Any scope  | Same session | ❌ No        |
+| IDENT_CURRENT  | `SELECT IDENT_CURRENT('tblPerson');` | Any scope  | Any session  | ❌ No        |
+
+### Key Takeaways
+
+* Always use **`SCOPE_IDENTITY()`** after INSERT statements
+* Avoid **`@@IDENTITY`** when triggers exist
+* `IDENT_CURRENT()` is useful for monitoring, not for inserts
+* Correct identity retrieval prevents **data mismatch bugs**
+
+---
