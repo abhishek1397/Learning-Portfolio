@@ -443,11 +443,8 @@ DBCC CHECKIDENT (tblPerson, RESEED, 0);
 
 ---
 
-# Lecture 7 **how to get the last generated identity value in SQL Server **
+# Lecture 7  How to Get the Last Generated Identity Column Value in SQL Server 
 
-
-
-## How to Get the Last Generated Identity Column Value in SQL Server (Part 8)
 
 In previous sections, we learned that **identity column values are automatically generated** by SQL Server.
 Often, after inserting a row, we need to **retrieve the identity value** that was just created.
