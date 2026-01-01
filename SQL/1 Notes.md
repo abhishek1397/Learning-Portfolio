@@ -170,7 +170,7 @@ Default constraints insert a default value into a column when no value is specif
 
 ---
 
-# Lecture 5 Cascading referential integrity constraint
+# Lecture 4 Cascading referential integrity constraint
 
 Cascading referential integrity controls what happens to related rows when a referenced key is updated or deleted.
 
@@ -202,3 +202,47 @@ Cascading referential integrity controls what happens to related rows when a ref
 
 ---
 
+# Lecture 5 CHECK Constraint in SQL Server
+
+**Definition:**  
+A **CHECK constraint** is used in SQL Server to **limit the range of values** that can be entered into a column. It ensures that only data satisfying a specified condition is accepted.
+
+**Use Case Example:**  
+If a table has an integer column `AGE`, generally valid values should be between 0 and 150. However, by default, the column may accept invalid data (such as negative numbers or values over 150).  
+To enforce this rule, we can apply a **CHECK constraint**.
+
+**Creating a CHECK Constraint (Using Query):**  
+```sql
+ALTER TABLE tblPerson
+ADD CONSTRAINT CK_tblPerson_Age CHECK (Age > 0 AND Age < 150);
+```
+This constraint ensures that the value of `Age` must be **greater than 0 and less than 150**.
+
+**General Syntax:**
+```sql
+ALTER TABLE {TABLE_NAME}
+ADD CONSTRAINT {CONSTRAINT_NAME} CHECK ({BOOLEAN_EXPRESSION});
+```
+
+**How It Works:**  
+- The **BOOLEAN expression** is evaluated each time an insert or update is attempted.  
+- If the expression returns **TRUE**, the data is allowed.  
+- If it returns **FALSE**, the data is rejected.  
+- If the column allows **NULLs**, inserting a NULL bypasses the CHECK because the expression evaluates to **UNKNOWN**, which SQL Server permits.
+
+**Dropping a CHECK Constraint:**  
+```sql
+ALTER TABLE tblPerson
+DROP CONSTRAINT CK_tblPerson_Age;
+```
+
+### **Summary Table: CHECK Constraint Commands**
+
+| **Operation**             | **SQL Command**                                                                 | **Purpose**                                   |
+|----------------------------|----------------------------------------------------------------------------------|-----------------------------------------------|
+| Create CHECK constraint    | `ALTER TABLE tblPerson ADD CONSTRAINT CK_tblPerson_Age CHECK (Age > 0 AND Age < 150);` | Restricts AGE between 0 and 150               |
+| Syntax format (generic)    | `ALTER TABLE {TABLE_NAME} ADD CONSTRAINT {CONSTRAINT_NAME} CHECK ({BOOLEAN_EXPRESSION});` | Generic form for CHECK constraint creation    |
+| Allow NULL values behavior | `NULL` values pass the constraint as condition evaluates to `UNKNOWN`            | Shows how SQL Server handles NULL under CHECK |
+| Drop CHECK constraint      | `ALTER TABLE tblPerson DROP CONSTRAINT CK_tblPerson_Age;`                        | Removes the existing CHECK constraint         |
+
+***
