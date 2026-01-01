@@ -202,7 +202,7 @@ Cascading referential integrity controls what happens to related rows when a ref
 
 ---
 
-# Lecture 5 CHECK Constraint in SQL Server
+# Lecture 5 **CHECK Constraint in SQL Server**
 
 A **CHECK constraint** is used to **limit the range of values** that can be entered into a column.
 It enforces **data integrity** by allowing only values that satisfy a specified condition.
@@ -297,3 +297,151 @@ DROP CONSTRAINT CK_tblPerson_Age;
 | Drop CHECK constraint      | `ALTER TABLE tblPerson DROP CONSTRAINT CK_tblPerson_Age;`                        | Removes the existing CHECK constraint         |
 
 ***
+
+# Lecture 6  **Identity Column in SQL Server**
+
+## Identity Column in SQL Server (Part 7)
+
+An **IDENTITY column** in SQL Server is used to **automatically generate unique numeric values** for a column when new rows are inserted into a table.
+This is commonly used for **primary key columns**.
+
+
+### Creating a Table with an Identity Column
+
+```sql
+CREATE TABLE tblPerson
+(
+    PersonId INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(20)
+);
+```
+
+* `IDENTITY(1,1)`
+
+  * **Seed** = 1 (starting value)
+  * **Increment** = 1 (increase by 1)
+* Seed and increment values are **optional**
+* If not specified, both default to **1**
+
+
+### Inserting Data into an Identity Column Table
+
+Since `PersonId` is an identity column, **we do not supply its value explicitly**.
+
+```sql
+INSERT INTO tblPerson VALUES ('Sam');
+INSERT INTO tblPerson VALUES ('Sara');
+```
+
+Result:
+
+* Sam → `PersonId = 1`
+* Sara → `PersonId = 2`
+
+SQL Server automatically generates the values.
+
+
+
+### Explicitly Inserting into an Identity Column (Error Case)
+
+```sql
+INSERT INTO tblPerson VALUES (1, 'Todd');
+```
+
+❌ Error:
+
+> An explicit value for the identity column can only be specified when a column list is used and IDENTITY_INSERT is ON.
+
+By default, SQL Server **does not allow explicit values** for identity columns.
+
+
+### Correct Way (Let SQL Server Generate the Value)
+
+```sql
+INSERT INTO tblPerson VALUES ('Todd');
+```
+
+SQL Server assigns the next available identity value automatically.
+
+
+### Identity Gaps Explained
+
+If you:
+
+1. Insert a row
+2. Delete it
+3. Insert another row
+
+SQL Server **does not reuse identity values**.
+
+Example:
+
+* Insert → `PersonId = 2`
+* Delete row
+* Next insert → `PersonId = 3`
+
+Even though `PersonId = 2` no longer exists, SQL Server skips it.
+
+
+
+### Filling Identity Gaps (Explicit Insert)
+
+To explicitly insert a value into an identity column:
+
+#### Step 1: Turn ON `IDENTITY_INSERT`
+
+```sql
+SET IDENTITY_INSERT tblPerson ON;
+```
+
+#### Step 2: Specify Column List and Value
+
+```sql
+INSERT INTO tblPerson (PersonId, Name)
+VALUES (2, 'John');
+```
+
+⚠️ While `IDENTITY_INSERT` is ON:
+
+* You **must provide** a value for the identity column
+* Only **one table per session** can have `IDENTITY_INSERT` ON
+
+
+
+### Turn OFF `IDENTITY_INSERT`
+
+After filling the gaps:
+
+```sql
+SET IDENTITY_INSERT tblPerson OFF;
+```
+
+SQL Server resumes automatic identity value generation.
+
+
+### Resetting Identity Values Using DBCC CHECKIDENT
+
+If **all rows are deleted** and you want to reset the identity value:
+
+```sql
+DBCC CHECKIDENT (tblPerson, RESEED, 0);
+```
+
+* The next inserted row will get `PersonId = 1`
+* Reseeding to `0` means the next identity value starts from `1`
+
+
+## Summary Table – Commands Used
+
+| Purpose                           | SQL Command                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------------- |
+| Create table with identity column | `CREATE TABLE tblPerson (PersonId INT IDENTITY(1,1) PRIMARY KEY, Name NVARCHAR(20));` |
+| Insert without identity value     | `INSERT INTO tblPerson VALUES ('Sam');`                                               |
+| Explicit insert error example     | `INSERT INTO tblPerson VALUES (1, 'Todd');`                                           |
+| Turn ON identity insert           | `SET IDENTITY_INSERT tblPerson ON;`                                                   |
+| Insert explicit identity value    | `INSERT INTO tblPerson (PersonId, Name) VALUES (2, 'John');`                          |
+| Turn OFF identity insert          | `SET IDENTITY_INSERT tblPerson OFF;`                                                  |
+| Reset identity column             | `DBCC CHECKIDENT (tblPerson, RESEED, 0);`                                             |
+
+---
+
