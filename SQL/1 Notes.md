@@ -206,6 +206,7 @@ Cascading referential integrity controls what happens to related rows when a ref
 
 A **CHECK constraint** is used to **limit the range of values** that can be entered into a column.
 It enforces **data integrity** by allowing only values that satisfy a specified condition.
+  * **Constraint** is just **boolean expression** returning: **True** or **False**
 
 ### Example Scenario
 
@@ -219,6 +220,18 @@ Business rules:
 Since `Age` is an `INT`, SQL Server would normally allow negative values or very large numbers.
 To restrict this, we use a **CHECK constraint**.
 
+### CHECK Constraint in SSMS 
+
+1. Open **SSMS** and connect to the database.
+2. Expand **Tables**, right-click the target table, select **Design**.
+3. Right-click inside Table Designer → **Check Constraints…**
+4. Click **Add** to create a new constraint.
+5. Enter the condition in **Expression** (e.g., `Age > 0 AND Age < 150`).
+6. (Optional) Rename the constraint for clarity.
+7. Ensure enforcement options are **Yes** (existing data, inserts, updates).
+8. **Save** the table.
+
+**Outcome:** The database enforces the rule and blocks invalid inserts or updates.
 
 ### Creating a CHECK Constraint
 
