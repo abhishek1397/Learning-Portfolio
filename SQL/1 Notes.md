@@ -204,37 +204,71 @@ Cascading referential integrity controls what happens to related rows when a ref
 
 # Lecture 5 CHECK Constraint in SQL Server
 
-**Definition:**  
-A **CHECK constraint** is used in SQL Server to **limit the range of values** that can be entered into a column. It ensures that only data satisfying a specified condition is accepted.
+A **CHECK constraint** is used to **limit the range of values** that can be entered into a column.
+It enforces **data integrity** by allowing only values that satisfy a specified condition.
 
-**Use Case Example:**  
-If a table has an integer column `AGE`, generally valid values should be between 0 and 150. However, by default, the column may accept invalid data (such as negative numbers or values over 150).  
-To enforce this rule, we can apply a **CHECK constraint**.
+### Example Scenario
 
-**Creating a CHECK Constraint (Using Query):**  
+Assume we have a table `tblPerson` with an integer column `Age`.
+
+Business rules:
+
+* Age **cannot be less than 0**
+* Age **cannot be greater than 150**
+
+Since `Age` is an `INT`, SQL Server would normally allow negative values or very large numbers.
+To restrict this, we use a **CHECK constraint**.
+
+
+### Creating a CHECK Constraint
+
 ```sql
 ALTER TABLE tblPerson
-ADD CONSTRAINT CK_tblPerson_Age CHECK (Age > 0 AND Age < 150);
+ADD CONSTRAINT CK_tblPerson_Age
+CHECK (Age >= 0 AND Age <= 150);
 ```
-This constraint ensures that the value of `Age` must be **greater than 0 and less than 150**.
 
-**General Syntax:**
+✅ This ensures:
+
+* Only values between **0 and 150 (inclusive)** are allowed.
+
+
+### General Syntax for CHECK Constraint
+
 ```sql
 ALTER TABLE {TABLE_NAME}
-ADD CONSTRAINT {CONSTRAINT_NAME} CHECK ({BOOLEAN_EXPRESSION});
+ADD CONSTRAINT {CONSTRAINT_NAME}
+CHECK (BOOLEAN_EXPRESSION);
 ```
 
-**How It Works:**  
-- The **BOOLEAN expression** is evaluated each time an insert or update is attempted.  
-- If the expression returns **TRUE**, the data is allowed.  
-- If it returns **FALSE**, the data is rejected.  
-- If the column allows **NULLs**, inserting a NULL bypasses the CHECK because the expression evaluates to **UNKNOWN**, which SQL Server permits.
+* If the **BOOLEAN_EXPRESSION evaluates to TRUE**, the value is allowed.
+* If it evaluates to **FALSE**, the insert or update fails.
 
-**Dropping a CHECK Constraint:**  
+
+### CHECK Constraint and NULL Values
+
+If the `Age` column is **nullable**:
+
+* `NULL` values are allowed.
+* When `NULL` is checked, the expression evaluates to **UNKNOWN**.
+* SQL Server **allows UNKNOWN**, so the row is inserted successfully.
+
+Example:
+
+```sql
+INSERT INTO tblPerson (Age) VALUES (NULL);
+```
+
+✔ Allowed (unless the column is defined as `NOT NULL`).
+
+
+### Dropping a CHECK Constraint
+
 ```sql
 ALTER TABLE tblPerson
 DROP CONSTRAINT CK_tblPerson_Age;
 ```
+
 
 ### **Summary Table: CHECK Constraint Commands**
 
