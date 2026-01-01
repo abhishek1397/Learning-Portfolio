@@ -233,6 +233,10 @@ To restrict this, we use a **CHECK constraint**.
 
 **Outcome:** The database enforces the rule and blocks invalid inserts or updates.
 
+> **Note**
+> If a table column already contains invalid entries, the constraint will fail to apply.  
+> Delete the invalid entries first.
+
 ### Creating a CHECK Constraint
 
 ```sql
