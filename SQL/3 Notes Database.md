@@ -1,6 +1,6 @@
 # Lecture 1  DBMS syllabus + focus areas
  
-## 📘 DBMS – Lecture 1 (Quick Revision Notes)
+
 
 ### 1️⃣ What is DBMS & Why DBMS?
 
