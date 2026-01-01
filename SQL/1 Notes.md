@@ -170,3 +170,35 @@ Default constraints insert a default value into a column when no value is specif
 
 ---
 
+# Lecture 5 Cascading referential integrity constraint
+
+Cascading referential integrity controls what happens to related rows when a referenced key is updated or deleted.
+
+## Core idea
+
+- Two tables: parent (with primary key) and child (with foreign key pointing to that key).  
+- If a key in the parent is changed or deleted, SQL Server can: block it, propagate it, or replace it with NULL/default in the child.
+
+## Default behavior: No Action
+
+- **No Action** (or RESTRICT) is the default.  
+- When trying to `DELETE` or `UPDATE` a parent row that is referenced by child rows, SQL Server raises an error and rolls back the statement.  
+
+## CASCADE
+
+- **CASCADE** propagates the change to child rows.  
+- On `DELETE`: all child rows with matching foreign key values are also deleted.  
+- On `UPDATE`: all child foreign key values are updated to the new parent key value.  
+
+## SET NULL
+
+- **SET NULL** replaces the foreign key value in the child rows with `NULL`.  
+- On `DELETE` or `UPDATE` of the parent row, all referencing child rows get their foreign key column set to `NULL` (column must allow NULL).  
+
+## SET DEFAULT
+
+- **SET DEFAULT** replaces the foreign key value in the child rows with the column’s default value.  
+- On `DELETE` or `UPDATE` of the parent row, all referencing child rows get their foreign key column set to its defined default (column must have a default defined).
+
+---
+
