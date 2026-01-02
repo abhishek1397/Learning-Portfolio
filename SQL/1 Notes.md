@@ -639,3 +639,223 @@ DROP CONSTRAINT UQ_tblPerson_Email;
 ---
 
 
+# Lecture 9  **Select Statement** 
+
+
+## SELECT Statement – Part 10 (Notes)
+
+### What is a SELECT statement?
+
+* The **SELECT** statement is used to **retrieve data** from a table.
+* It specifies:
+
+  * **Which columns** to fetch
+  * **From which table**
+
+
+
+### Basic SELECT Statement Syntax
+
+```sql
+SELECT Column_List
+FROM Table_Name;
+```
+
+* `Column_List` → one or more column names separated by commas
+* `Table_Name` → the table from which data is retrieved
+
+
+
+### Selecting All Columns
+
+* You can use `*` to select **all columns** from a table.
+
+```sql
+SELECT *
+FROM Table_Name;
+```
+
+
+
+### Important Note on Performance ⚠️
+
+* Although `SELECT *` is valid:
+
+  * It retrieves **all columns**, even unnecessary ones
+  * Can reduce **performance**, especially on large tables
+* **Best practice:** Always specify the required columns explicitly
+
+Example:
+
+```sql
+SELECT FirstName, LastName, Email
+FROM Table_Name;
+```
+
+
+
+## Summary Table: SELECT Commands
+
+| Purpose                 | SQL Command                          |
+| ----------------------- | ------------------------------------ |
+| Select specific columns | `SELECT Column_List FROM Table_Name` |
+| Select all columns      | `SELECT * FROM Table_Name`           |
+| Recommended approach    | Use column list instead of `*`       |
+
+---
+
+#  Lecture 10  **GROUP BY**
+
+### Aggregate Functions in SQL Server
+
+Aggregate functions perform calculations on multiple rows and return a **single summary value**.
+
+Common aggregate functions:
+
+1. `COUNT()`
+2. `SUM()`
+3. `AVG()`
+4. `MIN()`
+5. `MAX()`
+
+
+### What is the GROUP BY clause?
+
+* The **GROUP BY** clause groups rows that have the **same values** in one or more columns.
+* It is **always used with aggregate functions**.
+* It converts detailed rows into **summary rows**.
+
+![Table](https://github.com/user-attachments/assets/3e4b3dcd-55a1-49a3-b276-9ef4bae01789)
+
+#### Example 1: Total Salaries by City
+
+### Requirement
+
+Get the **total salary paid in each city**.
+
+### Query
+
+```sql
+SELECT City, SUM(Salary) AS TotalSalary
+FROM tblEmployee
+GROUP BY City;
+```
+![](https://github.com/user-attachments/assets/53b52b3b-f2c6-49fd-b489-d9c03b838280)
+
+### Explanation
+
+* `SUM(Salary)` adds all salaries
+* `GROUP BY City` groups employees belonging to the same city
+
+
+
+### Important Note ⚠️
+
+If you omit the `GROUP BY` clause, SQL Server throws an error:
+
+> Column is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
+
+
+
+#### Example 2: Total Salaries by City and Gender
+
+### Requirement
+
+Get **total salaries** grouped by **City and Gender**.
+
+### Query
+
+```sql
+SELECT City, Gender, SUM(Salary) AS TotalSalary
+FROM tblEmployee
+GROUP BY City, Gender;
+```
+
+![](https://github.com/user-attachments/assets/ec93b911-c194-4418-a9c8-e00c9366aa22)
+
+### Key Point
+
+* You can **group by multiple columns**
+* Grouping happens first by `City`, then by `Gender`
+
+
+
+#### Example 3: Total Salaries and Employee Count by City and Gender
+
+### Requirement
+
+Get:
+
+* Total salaries
+* Total number of employees
+  Grouped by **City and Gender**
+
+### Query
+
+```sql
+SELECT City, Gender,
+       SUM(Salary) AS TotalSalary,
+       COUNT(ID) AS TotalEmployees
+FROM tblEmployee
+GROUP BY City, Gender;
+```
+![](https://github.com/user-attachments/assets/8d7a330f-3801-4ea1-8cb8-4b731313abd4)
+
+
+## Filtering Data in GROUP BY Queries
+
+### WHERE vs HAVING
+
+| Clause | Filters | When applied       |
+| ------ | ------- | ------------------ |
+| WHERE  | Rows    | Before aggregation |
+| HAVING | Groups  | After aggregation  |
+
+
+
+### Filtering Rows using WHERE (Before Aggregation)
+
+```sql
+SELECT City, SUM(Salary) AS TotalSalary
+FROM tblEmployee
+WHERE City = 'London'
+GROUP BY City;
+```
+
+
+
+### Filtering Groups using HAVING (After Aggregation)
+
+```sql
+SELECT City, SUM(Salary) AS TotalSalary
+FROM tblEmployee
+GROUP BY City
+HAVING City = 'London';
+```
+
+
+
+### Performance Note 💡
+
+* SQL Server optimizer chooses the most efficient execution plan
+* **Best practice:**
+
+  * Use `WHERE` to eliminate unnecessary rows **as early as possible**
+  * Use `HAVING` only when filtering on aggregate results
+
+
+## Summary Table: GROUP BY Commands
+
+| Purpose                      | SQL Command            |
+| ---------------------------- | ---------------------- |
+| Group rows                   | `GROUP BY Column_Name` |
+| Group by multiple columns    | `GROUP BY Col1, Col2`  |
+| Aggregate sum                | `SUM(Column)`          |
+| Count rows                   | `COUNT(Column)`        |
+| Filter rows before grouping  | `WHERE condition`      |
+| Filter groups after grouping | `HAVING condition`     |
+
+---
+
+
+
