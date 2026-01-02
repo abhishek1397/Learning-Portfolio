@@ -581,6 +581,16 @@ ALTER TABLE Table_Name
 ADD CONSTRAINT Constraint_Name UNIQUE (Column_Name);
 ```
 
+```sql
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT UC_Person UNIQUE (ID,LastName)
+);
+```
+
 
 
 ### UNIQUE Key vs PRIMARY Key
