@@ -727,13 +727,13 @@ Common aggregate functions:
 
 ![Table](https://github.com/user-attachments/assets/3e4b3dcd-55a1-49a3-b276-9ef4bae01789)
 
-#### Example 1: Total Salaries by City
+### Example 1: Total Salaries by City
 
-### Requirement
+#### Requirement
 
 Get the **total salary paid in each city**.
 
-### Query
+#### Query
 
 ```sql
 SELECT City, SUM(Salary) AS TotalSalary
@@ -742,7 +742,7 @@ GROUP BY City;
 ```
 ![](https://github.com/user-attachments/assets/53b52b3b-f2c6-49fd-b489-d9c03b838280)
 
-### Explanation
+#### Explanation
 
 * `SUM(Salary)` adds all salaries
 * `GROUP BY City` groups employees belonging to the same city
@@ -757,13 +757,13 @@ If you omit the `GROUP BY` clause, SQL Server throws an error:
 
 
 
-#### Example 2: Total Salaries by City and Gender
+### Example 2: Total Salaries by City and Gender
 
-### Requirement
+#### Requirement
 
 Get **total salaries** grouped by **City and Gender**.
 
-### Query
+#### Query
 
 ```sql
 SELECT City, Gender, SUM(Salary) AS TotalSalary
@@ -773,16 +773,16 @@ GROUP BY City, Gender;
 
 ![](https://github.com/user-attachments/assets/ec93b911-c194-4418-a9c8-e00c9366aa22)
 
-### Key Point
+#### Key Point
 
 * You can **group by multiple columns**
 * Grouping happens first by `City`, then by `Gender`
 
 
 
-#### Example 3: Total Salaries and Employee Count by City and Gender
+### Example 3: Total Salaries and Employee Count by City and Gender
 
-### Requirement
+#### Requirement
 
 Get:
 
@@ -790,7 +790,7 @@ Get:
 * Total number of employees
   Grouped by **City and Gender**
 
-### Query
+#### Query
 
 ```sql
 SELECT City, Gender,
@@ -857,5 +857,238 @@ HAVING City = 'London';
 
 ---
 
+# Lecture 11  Joins in SQL Server
 
+
+### What are Joins?
+
+* **Joins** are used to retrieve data from **two or more related tables**
+* Tables are usually related using **foreign key constraints**
+* Joins combine rows based on a **join condition**
+
+
+
+### Types of Joins in SQL Server
+
+1. **CROSS JOIN**
+2. **INNER JOIN**
+3. **OUTER JOIN**
+
+   * LEFT JOIN (LEFT OUTER JOIN)
+   * RIGHT JOIN (RIGHT OUTER JOIN)
+   * FULL JOIN (FULL OUTER JOIN)
+
+
+
+## Tables Used in Examples
+
+### tblDepartment
+
+* ID (Primary Key)
+* DepartmentName
+* Location
+* DepartmentHead
+
+![](https://github.com/user-attachments/assets/568be32d-07dd-4f5c-af16-6a0c6b0e6ba3)
+
+### tblEmployee
+
+* ID (Primary Key)
+* Name
+* Gender
+* Salary
+* DepartmentId (Foreign Key → tblDepartment.ID)
+
+![](https://github.com/user-attachments/assets/dc8353cb-1300-4ea3-932c-339b0052bef3)
+
+
+#### Create tblDepartment table
+
+```sql
+Create table tblDepartment  (
+  ID int primary key,
+  DepartmentName nvarchar(50),
+  Location nvarchar(50),
+  DepartmentHead nvarchar(50)   )
+  Go
+
+Insert into tblDepartment values (1, 'IT', 'London', 'Rick')
+Insert into tblDepartment values (2, 'Payroll', 'Delhi', 'Ron')
+Insert into tblDepartment values (3, 'HR', 'New York', 'Christie')
+Insert into tblDepartment values (4, 'Other Department', 'Sydney', 'Cindrella')
+Go
+```
+
+#### Create tblEmployee table
+
+```sql
+Create table tblEmployee (
+  ID int primary key,
+  Name nvarchar(50),
+  Gender nvarchar(50),
+  Salary int,
+  DepartmentId int foreign key references tblDepartment(Id))
+Go
+
+Insert into tblEmployee values (1, 'Tom', 'Male', 4000, 1)
+Insert into tblEmployee values (2, 'Pam', 'Female', 3000, 3)
+Insert into tblEmployee values (3, 'John', 'Male', 3500, 1)
+Insert into tblEmployee values (4, 'Sam', 'Male', 4500, 2)
+Insert into tblEmployee values (5, 'Todd', 'Male', 2800, 2)
+Insert into tblEmployee values (6, 'Ben', 'Male', 7000, 1)
+Insert into tblEmployee values (7, 'Sara', 'Female', 4800, 3)
+Insert into tblEmployee values (8, 'Valarie', 'Female', 5500, 1)
+Insert into tblEmployee values (9, 'James', 'Male', 6500, NULL)
+Insert into tblEmployee values (10, 'Russell', 'Male', 8800, NULL)
+
+Go
+```
+
+## General Syntax for Joins
+
+```sql
+SELECT ColumnList
+FROM LeftTable
+JOIN_TYPE RightTable
+ON JoinCondition;
+```
+
+
+
+## CROSS JOIN
+
+### Description
+
+* Produces a **Cartesian product**
+* Each row from the first table is combined with **every row** from the second table
+* **Does NOT use ON clause**
+
+### Example
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee
+CROSS JOIN tblDepartment;
+```
+
+### Result
+
+* If tblEmployee has **10 rows**
+* And tblDepartment has **4 rows**
+* Output = **40 rows**
+
+
+
+## INNER JOIN (JOIN)
+
+### Description
+
+* Returns **only matching rows** from both tables
+* Non-matching rows are **excluded**
+* `JOIN` and `INNER JOIN` mean the same
+* **Best practice:** Use `INNER JOIN` for clarity
+
+### Example
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee
+INNER JOIN tblDepartment
+ON tblEmployee.DepartmentId = tblDepartment.Id;
+```
+
+### Key Point
+
+* Employees with `NULL` DepartmentId (e.g., James, Russell) are **excluded**
+* Only **8 rows returned**
+
+
+
+## LEFT JOIN (LEFT OUTER JOIN)
+
+### Description
+
+* Returns:
+
+  * All matching rows
+  * Plus **non-matching rows from the LEFT table**
+* `OUTER` keyword is optional
+
+### Example
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee
+LEFT JOIN tblDepartment
+ON tblEmployee.DepartmentId = tblDepartment.Id;
+```
+
+### Key Point
+
+* Includes **James and Russell**
+* Missing department values appear as **NULL**
+
+
+
+## RIGHT JOIN (RIGHT OUTER JOIN)
+
+### Description
+
+* Returns:
+
+  * All matching rows
+  * Plus **non-matching rows from the RIGHT table**
+* `OUTER` keyword is optional
+
+### Example
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee
+RIGHT JOIN tblDepartment
+ON tblEmployee.DepartmentId = tblDepartment.Id;
+```
+
+## FULL JOIN (FULL OUTER JOIN)
+
+### Description
+
+* Returns **all rows from both tables**
+* Includes:
+
+  * Matching rows
+  * Non-matching rows from both sides
+* `OUTER` keyword is optional
+
+### Example
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee
+FULL JOIN tblDepartment
+ON tblEmployee.DepartmentId = tblDepartment.Id;
+```
+
+
+
+## Joins Summary Table
+
+| Join Type  | Purpose                                                |
+| ---------- | ------------------------------------------------------ |
+| CROSS JOIN | Returns Cartesian product of both tables               |
+| INNER JOIN | Returns only matching rows                             |
+| LEFT JOIN  | All matching rows + non-matching rows from left table  |
+| RIGHT JOIN | All matching rows + non-matching rows from right table |
+| FULL JOIN  | All rows from both tables, including non-matching      |
+
+
+
+### Real-World Tip 💡
+
+* **INNER JOIN** and **LEFT JOIN** are used most frequently
+* Prefer **LEFT JOIN** when you don’t want to lose data from the main table
+
+---
+
+# Lecture 12
 
