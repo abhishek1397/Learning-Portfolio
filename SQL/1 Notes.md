@@ -1002,6 +1002,7 @@ ON tblEmployee.DepartmentId = tblDepartment.Id;
 * Employees with `NULL` DepartmentId (e.g., James, Russell) are **excluded**
 * Only **8 rows returned**
 
+![](https://github.com/user-attachments/assets/0f18ef8b-3f8f-43c9-8468-7014a270eab3)
 
 
 ## LEFT JOIN (LEFT OUTER JOIN)
@@ -1028,6 +1029,7 @@ ON tblEmployee.DepartmentId = tblDepartment.Id;
 * Includes **James and Russell**
 * Missing department values appear as **NULL**
 
+![](https://github.com/user-attachments/assets/7495baa0-17ce-485f-9fa6-a01be76d503c)
 
 
 ## RIGHT JOIN (RIGHT OUTER JOIN)
@@ -1048,6 +1050,8 @@ FROM tblEmployee
 RIGHT JOIN tblDepartment
 ON tblEmployee.DepartmentId = tblDepartment.Id;
 ```
+![](https://github.com/user-attachments/assets/c539ee4d-e678-4206-84c6-666a9b596ca9)
+
 
 ## FULL JOIN (FULL OUTER JOIN)
 
@@ -1069,9 +1073,11 @@ FULL JOIN tblDepartment
 ON tblEmployee.DepartmentId = tblDepartment.Id;
 ```
 
+![](https://github.com/user-attachments/assets/7c0b8549-50dd-4984-af75-32e7443cd25e)
 
 
-## Joins Summary Table
+
+### Joins Summary Table
 
 | Join Type  | Purpose                                                |
 | ---------- | ------------------------------------------------------ |
@@ -1081,7 +1087,7 @@ ON tblEmployee.DepartmentId = tblDepartment.Id;
 | RIGHT JOIN | All matching rows + non-matching rows from right table |
 | FULL JOIN  | All rows from both tables, including non-matching      |
 
-
+![](https://github.com/user-attachments/assets/9243c629-e3f5-49df-85b3-134c6cb65ea1)
 
 ### Real-World Tip 💡
 
