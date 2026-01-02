@@ -547,3 +547,85 @@ This is why `@@IDENTITY` can be **dangerous** in real-world applications.
 * Correct identity retrieval prevents **data mismatch bugs**
 
 ---
+
+# Lecture 8  Unique Key Constraint 
+
+### What is a UNIQUE constraint?
+
+* A **UNIQUE constraint** enforces **uniqueness** in a column.
+* It **does not allow duplicate values** in the specified column.
+* It can be applied:
+
+  * Using **SQL Server Management Studio (SSMS) Designer**
+  * Using a **SQL query**
+
+
+
+### Adding a UNIQUE constraint using SSMS Designer
+
+Steps:
+
+1. Right-click the table → **Design**
+2. Right-click the column → **Indexes/Keys…**
+3. Click **Add**
+4. In **Columns**, select the column to be unique
+5. In **Type**, choose **Unique Key**
+6. Click **Close** and **Save** the table
+
+
+
+### Adding a UNIQUE constraint using SQL Query
+
+```sql
+ALTER TABLE Table_Name
+ADD CONSTRAINT Constraint_Name UNIQUE (Column_Name);
+```
+
+
+
+### UNIQUE Key vs PRIMARY Key
+
+Both constraints enforce **uniqueness**, but they are used differently.
+
+#### When to use UNIQUE key instead of PRIMARY key?
+
+* A table can have **only one PRIMARY KEY**
+* A table can have **multiple UNIQUE keys**
+* Use UNIQUE key when you want **uniqueness on additional columns**
+
+
+
+### Differences between PRIMARY KEY and UNIQUE KEY
+
+| Feature          | PRIMARY KEY              | UNIQUE KEY                     |
+| ---------------- | ------------------------ | ------------------------------ |
+| Number per table | Only one                 | More than one allowed          |
+| Null values      | ❌ Not allowed            | ✅ One NULL allowed             |
+| Purpose          | Main identifier of a row | Enforces additional uniqueness |
+
+
+
+### Dropping a UNIQUE constraint
+
+#### Method 1: Using SSMS
+
+* Right-click the constraint → **Delete**
+
+#### Method 2: Using SQL Query
+
+```sql
+ALTER TABLE tblPerson
+DROP CONSTRAINT UQ_tblPerson_Email;
+```
+
+
+## Summary Table: Commands Used
+
+| Purpose               | SQL Command                                                                  |
+| --------------------- | ---------------------------------------------------------------------------- |
+| Add UNIQUE constraint | `ALTER TABLE Table_Name ADD CONSTRAINT Constraint_Name UNIQUE (Column_Name)` |
+| Drop constraint       | `ALTER TABLE Table_Name DROP CONSTRAINT Constraint_Name`                     |
+
+---
+
+
