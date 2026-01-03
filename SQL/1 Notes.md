@@ -1096,5 +1096,334 @@ ON tblEmployee.DepartmentId = tblDepartment.Id;
 
 ---
 
-# Lecture 12
+# Lecture 12  Advanced (Intelligent) Joins in SQL Server
+
+In this session, we learn how to retrieve **only non-matching rows** using different types of joins in SQL Server.
+
+### Topics Covered
+
+1. Advanced or Intelligent Joins in SQL Server
+2. Retrieve only the **non-matching rows from the left table**
+3. Retrieve only the **non-matching rows from the right table**
+4. Retrieve only the **non-matching rows from both left and right tables**
+
+> **Prerequisite:**
+> Before watching this video, please watch **Part 12 – Joins in SQL Server**.
+
+
+## Tables Used
+
+### Employee Table (`tblEmployee`)
+![](https://github.com/user-attachments/assets/568be32d-07dd-4f5c-af16-6a0c6b0e6ba3)
+                          |
+### Department Table (`tblDepartment`)
+![](https://github.com/user-attachments/assets/dc8353cb-1300-4ea3-932c-339b0052bef3)
+
+
+## 1. Retrieve Only the Non-Matching Rows from the **Left Table**
+
+This means:
+
+* Return all rows from `tblEmployee`
+* Show **only those employees who do not have a matching department**
+
+![](https://github.com/user-attachments/assets/89484117-4fbb-418c-9c88-a1b572efa2fa)
+
+
+### Query
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee E
+LEFT JOIN tblDepartment D
+ON E.DepartmentId = D.Id
+WHERE D.Id IS NULL;
+```
+
+### Explanation
+
+* `LEFT JOIN` returns all rows from the left table (`tblEmployee`)
+* `D.Id IS NULL` filters out matching rows
+* Result: **Employees without a department**
+
+![](https://github.com/user-attachments/assets/11b073bf-86df-47da-808d-cb44ad31567a)
+
+
+## 2. Retrieve Only the Non-Matching Rows from the **Right Table**
+
+This means:
+
+* Return all rows from `tblDepartment`
+* Show **only departments that have no employees**
+
+![](https://github.com/user-attachments/assets/a9bd4805-4b9d-4cf9-8965-bbb1035dba17)
+
+### Query
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee E
+RIGHT JOIN tblDepartment D
+ON E.DepartmentId = D.Id
+WHERE E.DepartmentId IS NULL;
+```
+
+### Explanation
+
+* `RIGHT JOIN` returns all rows from the right table (`tblDepartment`)
+* `E.DepartmentId IS NULL` removes matched rows
+* Result: **Departments with no employees**
+
+![](https://github.com/user-attachments/assets/1238d015-3757-4192-aa47-cf5b5424525a)
+
+
+## 3. Retrieve Only the Non-Matching Rows from **Both Left and Right Tables**
+
+This means:
+
+* Eliminate all matching rows
+* Show:
+
+  * Employees without departments
+  * Departments without employees
+
+![](https://github.com/user-attachments/assets/04eb4ee4-c0f9-413b-9bc5-74ec4557e1c2)
+
+
+### Query
+
+```sql
+SELECT Name, Gender, Salary, DepartmentName
+FROM tblEmployee E
+FULL JOIN tblDepartment D
+ON E.DepartmentId = D.Id
+WHERE E.DepartmentId IS NULL
+OR D.Id IS NULL;
+```
+
+### Explanation
+
+* `FULL JOIN` returns all rows from both tables
+* `WHERE` clause removes matching rows
+* Result: **Only unmatched rows from both tables**
+
+![](https://github.com/user-attachments/assets/0caecfa5-c662-47c0-8114-da9dafdb70b0)
+
+
+## Combining `WHERE` and `HAVING`
+
+You can use:
+
+* `WHERE` to filter **rows before aggregation**
+* `HAVING` to filter **aggregated results**
+
+### Example
+
+```sql
+SELECT City, SUM(Salary) AS TotalSalary
+FROM tblEmployee
+WHERE Gender = 'Male'
+GROUP BY City
+HAVING SUM(Salary) > 50000;
+```
+
+### Explanation
+
+* `WHERE` filters only male employees
+* `GROUP BY` groups salaries by city
+* `HAVING` filters cities where total salary exceeds 50,000
+
+
+### Summary Table of Commands
+
+| Requirement                        | Join Type    | Condition Used                                    |
+| ---------------------------------- | ------------ | ------------------------------------------------- |
+| Non-matching rows from left table  | `LEFT JOIN`  | `WHERE RightTableColumn IS NULL`                  |
+| Non-matching rows from right table | `RIGHT JOIN` | `WHERE LeftTableColumn IS NULL`                   |
+| Non-matching rows from both tables | `FULL JOIN`  | `WHERE LeftColumn IS NULL OR RightColumn IS NULL` |
+| Filter rows before aggregation     | `WHERE`      | Applied before `GROUP BY`                         |
+| Filter aggregated results          | `HAVING`     | Applied after `GROUP BY`                          |
+
+---
+
+# Lecture 13  Self Joins in SQL Server
+
+In **Part 12**, we learned **basic joins**.
+In **Part 13**, we learned **advanced (intelligent) joins**.
+
+
+## What Is a Self Join?
+
+So far, we have joined **two different tables**, such as:
+
+* `tblEmployee`
+* `tblDepartment`
+
+Now consider a situation where **a table needs to be joined with itself**.
+
+### Example Scenario
+
+In the `tblEmployee` table:
+
+![](https://github.com/user-attachments/assets/f82c603f-caad-4025-91c8-8234797c798e")
+
+Write a query which create following result:
+![](https://github.com/user-attachments/assets/1d032fc8-4e86-4a9f-b9bc-ee1c6fcc5634)
+
+* A **Manager is also an Employee**
+* Both **Employee** and **Manager** records exist in the **same table**
+
+This creates the need for a **Self Join**.
+
+
+* `ManagerId` references `EmployeeId` in the **same table**
+
+
+## Self Join Query (LEFT OUTER SELF JOIN)
+
+### Requirement
+
+Display:
+
+* Employee Name
+* Manager Name
+  Include employees **without a manager**
+
+### Query
+
+```sql
+SELECT E.Name AS Employee, M.Name AS Manager
+FROM tblEmployee E
+LEFT JOIN tblEmployee M
+ON E.ManagerId = M.EmployeeId;
+```
+
+### Explanation
+
+* `E` → Employee alias
+* `M` → Manager alias
+* We join `tblEmployee` **with itself**
+* `LEFT JOIN` ensures employees with `ManagerId = NULL` are included
+* Example: **TODD** appears with `Manager = NULL`
+
+> If you replace `LEFT JOIN` with `INNER JOIN`, employees without managers (like TODD) will NOT appear.
+
+
+## INNER SELF JOIN
+
+### Query
+
+```sql
+SELECT E.Name AS Employee, M.Name AS Manager
+FROM tblEmployee E
+INNER JOIN tblEmployee M
+ON E.ManagerId = M.EmployeeId;
+```
+
+### Explanation
+
+* Returns only employees **who have a manager**
+* Employees with `ManagerId = NULL` are excluded
+
+
+## CROSS SELF JOIN
+
+### Query
+
+```sql
+SELECT E.Name AS Employee, M.Name AS Manager
+FROM tblEmployee E
+CROSS JOIN tblEmployee M;
+```
+
+### Explanation
+
+* Produces a **Cartesian product**
+* Every employee is joined with every other employee
+* Rarely used in real-world applications
+
+
+
+## Important Point About Self Join
+
+✔ **SELF JOIN is not a separate JOIN type**
+✔ It can be:
+
+* INNER JOIN
+* LEFT OUTER JOIN
+* RIGHT OUTER JOIN
+* FULL OUTER JOIN
+* CROSS JOIN
+
+The term *Self Join* simply means:
+
+> **Joining a table with itself using aliases**
+
+
+## Difference Between WHERE and HAVING Clause
+
+| WHERE                                   | HAVING                               |
+| --------------------------------------- | ------------------------------------ |
+| Used with `SELECT`, `INSERT`, `UPDATE`  | Used only with `SELECT`              |
+| Filters rows **before grouping**        | Filters groups **after aggregation** |
+| Cannot use aggregate functions directly | Can use aggregate functions          |
+| Faster for row-level filtering          | Used for group-level filtering       |
+
+
+
+## DISTINCT Keyword
+
+Used to remove duplicate rows.
+
+### Syntax
+
+```sql
+SELECT DISTINCT Column_List
+FROM Table_Name;
+```
+
+### Example
+
+```sql
+SELECT DISTINCT City
+FROM tblPerson;
+```
+
+
+
+## Filtering Rows Using WHERE Clause
+
+### Syntax
+
+```sql
+SELECT Column_List
+FROM Table_Name
+WHERE Filter_Condition;
+```
+
+### Example
+
+```sql
+SELECT Name, Email
+FROM tblPerson
+WHERE City = 'London';
+```
+
+
+## Summary Table
+
+| Concept         | Description                          |
+| --------------- | ------------------------------------ |
+| Self Join       | Joining a table with itself          |
+| Alias Usage     | Required to differentiate same table |
+| LEFT Self Join  | Includes employees without managers  |
+| INNER Self Join | Excludes employees without managers  |
+| CROSS Self Join | Cartesian product                    |
+| WHERE           | Filters rows before grouping         |
+| HAVING          | Filters groups after aggregation     |
+| DISTINCT        | Removes duplicate rows               |
+
+---
+
+
 
