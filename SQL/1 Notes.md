@@ -1209,6 +1209,19 @@ OR D.Id IS NULL;
 
 ![](https://github.com/user-attachments/assets/0caecfa5-c662-47c0-8114-da9dafdb70b0)
 
+### Why `=` doesn’t work with `NULL`
+
+In SQL, `NULL` means **“unknown”**, not a value.
+So comparisons like:
+
+```sql
+E.DepartmentId = NULL
+```
+
+do **not** return TRUE or FALSE — they return **UNKNOWN**, and rows with UNKNOWN conditions are filtered out by `WHERE`.
+
+That’s why this **won’t work**:
+
 
 ## Combining `WHERE` and `HAVING`
 
