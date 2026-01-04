@@ -1281,6 +1281,7 @@ In the `tblEmployee` table:
 ![](https://github.com/user-attachments/assets/6dd2ef06-5566-47bf-9163-8a017c2e1940)
 
 Write a query which create following result:
+
 ![](https://github.com/user-attachments/assets/1d032fc8-4e86-4a9f-b9bc-ee1c6fcc5634)
 
 * A **Manager is also an Employee**
@@ -1290,6 +1291,49 @@ This creates the need for a **Self Join**.
 
 
 * `ManagerId` references `EmployeeId` in the **same table**
+
+ ✅ — **a table can have a foreign key that references itself**.
+This is called a **self-referencing (or recursive) foreign key**.
+
+### When is this useful?
+
+It’s commonly used to model **hierarchies or relationships within the same entity**, such as:
+
+* Employees and their managers
+* Categories and subcategories
+* Comments and replies
+* Organizational structures
+
+### Example: Employees table
+
+```sql
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    manager_id INT,
+    FOREIGN KEY (manager_id) REFERENCES employees(employee_id)
+);
+```
+
+Here:
+
+* `employee_id` is the primary key
+* `manager_id` is a foreign key that points to **another row in the same table**
+* Top-level employees (e.g., CEO) can have `manager_id` as `NULL`
+
+### Key points to remember
+
+* The foreign key **must reference a primary key or unique key**
+* `NULL` is usually allowed to represent “no parent”
+* Be careful with **cascading deletes/updates** to avoid accidental mass changes
+
+### Example with cascading rules
+
+```sql
+FOREIGN KEY (manager_id)
+REFERENCES employees(employee_id)
+ON DELETE SET NULL
+```
 
 
 ## Self Join Query (LEFT OUTER SELF JOIN)
