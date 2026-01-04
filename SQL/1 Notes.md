@@ -1484,5 +1484,384 @@ WHERE City = 'London';
 
 ---
 
-# Lecture 14  
+# Lecture 14  Different Ways to Replace NULL in SQL Server
+
+👉 Please watch **Part 13** before continuing, where we discussed **LEFT OUTER SELF JOIN**.
+
+
+## Scenario
+
+Consider the `tblEmployee` table.
+
+![](https://github.com/user-attachments/assets/6e0447c7-39e0-4692-ab0c-5c081e50441f)
+
+
+In **Part 13**, we wrote a **LEFT OUTER SELF JOIN** query to retrieve employees and their managers. The output looked like this:
+
+![](https://github.com/user-attachments/assets/05651cc6-03f1-43d8-98cc-a47fb24596fd)
+
+
+* For **Todd**, the **Manager** column is `NULL` because he has no manager.
+
+### Requirement
+
+Replace the `NULL` value in the **Manager** column with the text **`'No Manager'`**.
+
+
+
+## Method 1: Replacing NULL using `ISNULL()` function
+
+The `ISNULL()` function takes **two parameters**:
+
+```
+ISNULL(expression, replacement_value)
+```
+
+* If `expression` is `NULL`, the `replacement_value` is returned.
+
+### Query
+
+```sql
+SELECT 
+    E.Name AS Employee, 
+    ISNULL(M.Name, 'No Manager') AS Manager
+FROM tblEmployee E
+LEFT JOIN tblEmployee M
+    ON E.ManagerID = M.EmployeeID;
+```
+
+### Explanation
+
+* If `M.Name` is `NULL`, it is replaced with `'No Manager'`.
+
+
+
+## Method 2: Replacing NULL using `CASE` statement
+
+A `CASE` expression gives more control and flexibility.
+
+### Query
+
+```sql
+SELECT 
+    E.Name AS Employee, 
+    CASE 
+        WHEN M.Name IS NULL THEN 'No Manager'
+        ELSE M.Name 
+    END AS Manager
+FROM tblEmployee E
+LEFT JOIN tblEmployee M
+    ON E.ManagerID = M.EmployeeID;
+```
+
+### Explanation
+
+* Explicitly checks if `M.Name` is `NULL`
+* Returns `'No Manager'` when true
+
+
+
+## Method 3: Replacing NULL using `COALESCE()` function
+
+The `COALESCE()` function returns the **first NON-NULL value** from the list of expressions.
+
+### Query
+
+```sql
+SELECT 
+    E.Name AS Employee, 
+    COALESCE(M.Name, 'No Manager') AS Manager
+FROM tblEmployee E
+LEFT JOIN tblEmployee M
+    ON E.ManagerID = M.EmployeeID;
+```
+
+### Explanation
+
+* If `M.Name` is `NULL`, `'No Manager'` is returned
+* Very useful when checking multiple possible values
+
+📌 We will discuss the **COALESCE() function in detail** in the next session.
+
+
+
+## Summary Table: Ways to Replace NULL in SQL Server
+
+| Method       | Syntax Example                                   | Description                          | Best Use Case            |
+| ------------ | ------------------------------------------------ | ------------------------------------ | ------------------------ |
+| `ISNULL()`   | `ISNULL(M.Name, 'No Manager')`                   | Replaces NULL with a specified value | Simple NULL replacement  |
+| `CASE`       | `CASE WHEN M.Name IS NULL THEN 'No Manager' END` | Conditional logic                    | Complex conditions       |
+| `COALESCE()` | `COALESCE(M.Name, 'No Manager')`                 | Returns first non-NULL value         | Multiple fallback values |
+
+
+
+### Key Takeaway
+
+All three approaches work for replacing `NULL` values.
+
+* Use **ISNULL** for simplicity
+* Use **CASE** for flexibility
+* Use **COALESCE** for scalability and standards compliance
+
+---
+
+#  Lecture 15  “COALESCE() Function in SQL Server
+
+According to **MSDN Books Online**, the `COALESCE()` function **returns the first NON-NULL value** from a list of expressions.
+
+Let’s understand this with a practical example.
+
+
+## Scenario
+
+Consider the `tblEmployee` table.
+
+![](https://github.com/user-attachments/assets/7f444554-ae0b-4bf5-bd67-5d124a6d1477)
+
+Not all employees have their **FirstName**, **MiddleName**, and **LastName** filled:
+
+* Some employees have **FirstName missing**
+* Some have **MiddleName missing**
+* Some have **LastName missing**
+
+
+
+## Requirement
+
+Write a query that returns **only one name per employee**, based on the following rules:
+
+1. If **FirstName** is NOT `NULL`, return **FirstName**
+2. If **FirstName** is `NULL`, but **MiddleName** is NOT `NULL`, return **MiddleName**
+3. If both **FirstName** and **MiddleName** are `NULL`, return **LastName**
+
+![](https://github.com/user-attachments/assets/4db97243-458f-42cb-a1ac-28292a61589f)
+
+### Examples
+
+* Employee with **Id = 1**
+
+  * FirstName = `Sam`
+  * Output → **Sam**
+* Employee with **Id = 2**
+
+  * FirstName = `NULL`
+  * MiddleName = `Todd`
+  * Output → **Todd**
+
+In short, the output should return the **first available (non-NULL) name**.
+
+
+
+## Using the `COALESCE()` Function
+
+We pass the columns **FirstName**, **MiddleName**, and **LastName** to the `COALESCE()` function.
+
+### Query
+
+```sql
+SELECT 
+    Id, 
+    COALESCE(FirstName, MiddleName, LastName) AS Name
+FROM tblEmployee;
+```
+
+
+
+## How COALESCE() Works Here
+
+* `COALESCE()` checks values **from left to right**
+* It returns the **first column that is NOT NULL**
+* If all values are `NULL`, the result is `NULL`
+
+### Evaluation Order
+
+```
+FirstName → MiddleName → LastName
+```
+
+
+
+## Key Points to Remember
+
+* `COALESCE()` can accept **two or more arguments**
+* It is part of the **ANSI SQL standard**
+* Very useful when you want **fallback values**
+* Cleaner and shorter than using multiple `CASE` statements
+
+
+## Quick Summary
+
+| Feature             | COALESCE()                   |
+| ------------------- | ---------------------------- |
+| Purpose             | Returns first non-NULL value |
+| Number of arguments | Two or more                  |
+| Evaluation order    | Left to right                |
+| ANSI standard       | Yes                          |
+| Common use          | Handling missing data        |
+
+---
+
+# Lecture 16  UNION and UNION ALL in SQL Server
+
+
+The **UNION** and **UNION ALL** operators in SQL Server are used to **combine the result-sets of two or more SELECT queries**.
+
+
+
+## Scenario
+
+Consider the following tables:
+
+* `tblIndiaCustomers`
+* `tblUKCustomers`
+* `tblUSCustomers`
+
+![](https://github.com/user-attachments/assets/47b1d605-b7d0-48d2-9fb9-578b74bdb7f6)
+
+
+Each table has the same columns:
+
+```
+Id, Name, Email
+```
+
+
+## Using `UNION ALL`
+
+### Query
+
+```sql
+SELECT Id, Name, Email 
+FROM tblIndiaCustomers
+UNION ALL
+SELECT Id, Name, Email 
+FROM tblUKCustomers;
+```
+
+### Result
+
+* Combines rows from **both tables**
+* **Includes duplicate rows** (if any)
+
+![](https://github.com/user-attachments/assets/dda3d25e-6efa-4f5f-a888-6cb01d61d909)
+
+
+## Using `UNION`
+
+### Query
+
+```sql
+SELECT Id, Name, Email 
+FROM tblIndiaCustomers
+UNION
+SELECT Id, Name, Email 
+FROM tblUKCustomers;
+```
+
+### Result
+
+* Combines rows from both tables
+* **Removes duplicate rows**
+
+![](https://github.com/user-attachments/assets/87db68a6-7f3d-4ef4-a1c4-f081bbce1dde)
+
+
+## Difference Between UNION and UNION ALL
+
+*(Very Common Interview Question)*
+
+| Feature        | UNION                              | UNION ALL                  |
+| -------------- | ---------------------------------- | -------------------------- |
+| Duplicate rows | Removed                            | Not removed                |
+| Sorting        | Uses DISTINCT sort                 | No sorting                 |
+| Performance    | Slower                             | Faster                     |
+| Use case       | When duplicates must be eliminated | When all rows are required |
+
+### Why is `UNION ALL` faster?
+
+* `UNION` performs a **DISTINCT SORT** internally to remove duplicates
+* This sorting operation is **time-consuming**
+* `UNION ALL` skips this step
+
+📌 **Tip:**
+To see the cost of the **DISTINCT SORT**, turn on the **Estimated Query Execution Plan** using **CTRL + L**.
+
+
+## Rules for UNION and UNION ALL
+
+For both operators to work:
+
+1. The **number of columns** must be the same
+2. The **data types** must be compatible
+3. The **order of columns** must match
+
+
+
+## Using ORDER BY with UNION / UNION ALL
+
+If you want to sort the combined result-set, the `ORDER BY` clause must be used **only once**, at the **end of the last SELECT statement**.
+
+### Correct Query
+
+```sql
+SELECT Id, Name, Email 
+FROM tblIndiaCustomers
+UNION ALL
+SELECT Id, Name, Email 
+FROM tblUKCustomers
+UNION ALL
+SELECT Id, Name, Email 
+FROM tblUSCustomers
+ORDER BY Name;
+```
+
+
+### Incorrect Query (Syntax Error)
+
+```sql
+SELECT Id, Name, Email 
+FROM tblIndiaCustomers
+ORDER BY Name
+UNION ALL
+SELECT Id, Name, Email 
+FROM tblUKCustomers
+UNION ALL
+SELECT Id, Name, Email 
+FROM tblUSCustomers;
+```
+
+❌ `ORDER BY` cannot appear before `UNION` or `UNION ALL`.
+
+
+
+## Difference Between JOIN and UNION
+
+*(Frequently Asked Interview Question)*
+
+| Feature             | UNION                     | JOIN                   |
+| ------------------- | ------------------------- | ---------------------- |
+| Purpose             | Combines rows             | Combines columns       |
+| Tables involved     | Same or similar structure | Related tables         |
+| Relationship needed | No                        | Yes                    |
+| Result              | Vertical combination      | Horizontal combination |
+
+### In Short
+
+* **UNION** combines **rows** from two or more tables
+* **JOIN** combines **columns** from two or more tables based on a relationship
+
+
+
+## Key Takeaways
+
+* Use **UNION ALL** whenever possible for better performance
+* Use **UNION** only when duplicates must be removed
+* `ORDER BY` goes at the **end**
+* Understand **JOIN vs UNION** for interviews
+
+---
+
+
+
+
 
