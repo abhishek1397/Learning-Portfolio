@@ -1292,6 +1292,8 @@ This creates the need for a **Self Join**.
 
 * `ManagerId` references `EmployeeId` in the **same table**
 
+## self-referencing (or recursive) foreign key
+
  ✅ — **a table can have a foreign key that references itself**.
 This is called a **self-referencing (or recursive) foreign key**.
 
