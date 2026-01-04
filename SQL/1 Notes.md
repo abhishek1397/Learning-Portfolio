@@ -1278,7 +1278,7 @@ Now consider a situation where **a table needs to be joined with itself**.
 
 In the `tblEmployee` table:
 
-![](https://github.com/user-attachments/assets/f82c603f-caad-4025-91c8-8234797c798e")
+![](https://github.com/user-attachments/assets/6dd2ef06-5566-47bf-9163-8a017c2e1940)
 
 Write a query which create following result:
 ![](https://github.com/user-attachments/assets/1d032fc8-4e86-4a9f-b9bc-ee1c6fcc5634)
