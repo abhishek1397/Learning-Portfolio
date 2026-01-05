@@ -1861,7 +1861,882 @@ FROM tblUSCustomers;
 
 ---
 
+# Lecture 17 Stored Procedures
 
+
+### 1. What is a Stored Procedure?
+
+* A **stored procedure (SP)** is a group of **T-SQL (Transact-SQL) statements** stored in the database.
+* If you write the same SQL query repeatedly, you can save it as a stored procedure and execute it by name.
+* Stored procedures improve:
+
+  * Reusability
+  * Maintainability
+  * Performance
+  * Security (details discussed in later sessions)
+
+
+
+### 2. Creating a Simple Stored Procedure (Without Parameters)
+
+![](https://github.com/user-attachments/assets/5b599ab6-f0e9-4dfe-9c10-3ada04e97a05)
+
+
+* Used to retrieve **Name** and **Gender** of all employees.
+* Created using `CREATE PROCEDURE` or `CREATE PROC`.
+
+```sql
+CREATE PROCEDURE spGetEmployees
+AS
+BEGIN
+    SELECT Name, Gender
+    FROM tblEmployee
+END
+```
+
+#### Important Naming Note
+
+* **Do NOT use `sp_` as a prefix** for user-defined stored procedures.
+* Microsoft reserves `sp_` for **system stored procedures**, and using it can cause:
+
+  * Performance issues
+  * Naming conflicts in the future
+
+
+### 3. Executing a Stored Procedure
+
+You can execute a stored procedure in multiple ways:
+
+```sql
+spGetEmployees
+```
+
+```sql
+EXEC spGetEmployees
+```
+
+```sql
+EXECUTE spGetEmployees
+```
+
+#### Using SQL Server Management Studio (SSMS)
+
+* Right-click the stored procedure in **Object Explorer**
+* Select **Execute Stored Procedure**
+
+
+
+### 4. Creating a Stored Procedure with Input Parameters
+
+* Parameters and variables always start with **@**.
+* This procedure accepts **Gender** and **DepartmentId** as inputs.
+
+```sql
+CREATE PROCEDURE spGetEmployeesByGenderAndDepartment
+    @Gender NVARCHAR(50),
+    @DepartmentId INT
+AS
+BEGIN
+    SELECT Name, Gender
+    FROM tblEmployee
+    WHERE Gender = @Gender
+      AND DepartmentId = @DepartmentId
+END
+```
+
+
+### 5. Executing Stored Procedures with Parameters
+
+#### a) Without Parameter Names (Order Matters)
+
+```sql
+EXECUTE spGetEmployeesByGenderAndDepartment 'Male', 1
+```
+
+⚠️ If you change the order, you will get an error:
+
+```sql
+spGetEmployeesByGenderAndDepartment 1, 'Male'
+```
+
+**Error Reason:**
+
+* `'Male'` is passed to `@DepartmentId` (INT), causing a data type conversion error.
+
+
+
+#### b) With Parameter Names (Order Does NOT Matter)
+
+```sql
+EXECUTE spGetEmployeesByGenderAndDepartment
+    @DepartmentId = 1,
+    @Gender = 'Male'
+```
+
+✔ This is the **recommended approach**.
+
+
+### 6. Viewing the Stored Procedure Definition
+
+#### Method 1: Using System Stored Procedure
+
+```sql
+sp_helptext 'spGetEmployeesByGenderAndDepartment'
+```
+
+#### Method 2: Using SSMS
+
+* Right-click SP in **Object Explorer**
+* Script Procedure As → Create To → New Query Editor Window
+
+
+
+### 7. Modifying a Stored Procedure
+
+* Use `ALTER PROCEDURE` to make changes.
+
+```sql
+ALTER PROCEDURE spGetEmployeesByGenderAndDepartment
+    @Gender NVARCHAR(50),
+    @DepartmentId INT
+AS
+BEGIN
+    SELECT Name, Gender
+    FROM tblEmployee
+    WHERE Gender = @Gender
+      AND DepartmentId = @DepartmentId
+    ORDER BY Name
+END
+```
+
+
+
+### 8. Encrypting a Stored Procedure
+
+* Use `WITH ENCRYPTION` to hide the procedure’s definition.
+* Once encrypted:
+
+  * `sp_helptext` cannot display the code
+  * The original text cannot be easily viewed
+
+```sql
+ALTER PROCEDURE spGetEmployeesByGenderAndDepartment
+    @Gender NVARCHAR(50),
+    @DepartmentId INT
+WITH ENCRYPTION
+AS
+BEGIN
+    SELECT Name, Gender
+    FROM tblEmployee
+    WHERE Gender = @Gender
+      AND DepartmentId = @DepartmentId
+END
+```
+
+
+
+### 9. Deleting a Stored Procedure
+
+* Use `DROP PROCEDURE` or `DROP PROC`.
+
+```sql
+DROP PROCEDURE spGetEmployeesByGenderAndDepartment
+```
+
+or
+
+```sql
+DROP PROC spGetEmployeesByGenderAndDepartment
+```
+
+
+## Summary of Commands Used
+
+| Command                          | Purpose                                 |
+| -------------------------------- | --------------------------------------- |
+| `CREATE PROCEDURE / CREATE PROC` | Create a new stored procedure           |
+| `EXEC / EXECUTE`                 | Execute a stored procedure              |
+| `ALTER PROCEDURE`                | Modify an existing stored procedure     |
+| `DROP PROCEDURE / DROP PROC`     | Delete a stored procedure               |
+| `sp_helptext`                    | View stored procedure definition        |
+| `WITH ENCRYPTION`                | Encrypt stored procedure text           |
+| `@ParameterName`                 | Define input parameters                 |
+| `ORDER BY`                       | Sort result set inside stored procedure |
+
+---
+
+# Lecture 18 Stored Procedures with OUTPUT Parameters
+
+### 1. What are OUTPUT Parameters?
+
+* **OUTPUT parameters** allow a stored procedure to **return values back to the calling program**.
+* They are useful when:
+
+  * You want to return **aggregated values** (COUNT, SUM, etc.)
+  * You need values **without returning a result set**
+* OUTPUT parameters are declared using **OUT** or **OUTPUT** keywords.
+
+![](https://github.com/user-attachments/assets/4ed132f4-f9a4-469d-a292-6cf45b1e4e9f)
+
+
+### 2. Creating a Stored Procedure with an OUTPUT Parameter 
+
+* `@EmployeeCount` is an OUTPUT parameter.
+* The procedure returns the **number of employees for a given gender**.
+
+```sql
+CREATE PROCEDURE spGetEmployeeCountByGender
+    @Gender NVARCHAR(20),
+    @EmployeeCount INT OUTPUT
+AS
+BEGIN
+    SELECT @EmployeeCount = COUNT(Id)
+    FROM tblEmployee
+    WHERE Gender = @Gender
+END
+```
+
+📌 **Note:**
+
+* OUTPUT keyword must be specified **both**:
+
+  * While creating the stored procedure
+  * While executing the stored procedure
+
+
+
+### 3. Executing a Stored Procedure with OUTPUT Parameter
+
+#### Steps:
+
+1. Declare a variable of the **same datatype** as the OUTPUT parameter.
+2. Pass that variable to the stored procedure.
+3. Specify the **OUTPUT** keyword.
+4. Print or use the value.
+
+```sql
+DECLARE @EmployeeTotal INT
+
+EXECUTE spGetEmployeeCountByGender 'Female', @EmployeeTotal OUTPUT
+
+PRINT @EmployeeTotal
+```
+
+
+
+### 4. What Happens If OUTPUT Keyword Is Not Used?
+
+* If `OUTPUT` keyword is **not specified**, the variable will remain **NULL**.
+
+```sql
+DECLARE @EmployeeTotal INT
+
+EXECUTE spGetEmployeeCountByGender 'Female', @EmployeeTotal
+
+IF (@EmployeeTotal IS NULL)
+    PRINT '@EmployeeTotal is null'
+ELSE
+    PRINT '@EmployeeTotal is not null'
+```
+
+✔ Output:
+
+```
+@EmployeeTotal is null
+```
+
+
+
+### 5. Passing Parameters in Any Order (Using Parameter Names)
+
+* When parameter names are specified, **order does not matter**.
+* OUTPUT parameter can be passed **before input parameters**.
+
+```sql
+DECLARE @EmployeeTotal INT
+
+EXECUTE spGetEmployeeCountByGender
+    @EmployeeCount = @EmployeeTotal OUT,
+    @Gender = 'Male'
+
+PRINT @EmployeeTotal
+```
+
+
+
+### 6. Useful System Stored Procedures
+
+#### 1. `sp_help`
+
+* Displays information about a database object:
+
+  * Parameter names
+  * Datatypes
+  * Object type
+* Works with:
+
+  * Tables
+  * Views
+  * Stored Procedures
+  * Triggers
+
+```sql
+sp_help spGetEmployeeCountByGender
+```
+
+📌 Shortcut:
+
+* Highlight object name and press **ALT + F1**
+
+
+
+#### 2. `sp_helptext`
+
+* Displays the **SQL code** of a stored procedure.
+
+```sql
+sp_helptext spGetEmployeeCountByGender
+```
+
+
+
+#### 3. `sp_depends`
+
+* Shows **dependencies** of a stored procedure.
+* Useful before:
+
+  * Dropping a table
+  * Modifying database objects
+
+```sql
+sp_depends spGetEmployeeCountByGender
+```
+
+
+
+### 7. Important Notes
+
+* All **parameters and variables** in SQL Server **must begin with `@`**.
+* OUTPUT parameters must be explicitly marked with **OUTPUT / OUT** during execution.
+* OUTPUT parameters do **not return result sets**, only values.
+
+
+
+## Summary of Commands Used
+
+| Command            | Purpose                    |
+| ------------------ | -------------------------- |
+| `CREATE PROCEDURE` | Create a stored procedure  |
+| `OUTPUT / OUT`     | Define an output parameter |
+| `DECLARE`          | Declare a variable         |
+| `EXEC / EXECUTE`   | Execute a stored procedure |
+| `COUNT()`          | Aggregate function         |
+| `PRINT`            | Display output value       |
+| `sp_help`          | View object details        |
+| `sp_helptext`      | View stored procedure code |
+| `sp_depends`       | View object dependencies   |
+| `IF...ELSE`        | Conditional logic          |
+
+---
+
+
+
+# Lecture 19 Stored Procedure Output Parameters or Return Values
+
+### Objectives of This Part
+
+1. Understand **stored procedure RETURN values**
+2. Learn the **difference between RETURN values and OUTPUT parameters**
+3. Know **when to use OUTPUT parameters over RETURN values**
+
+
+## 1. Stored Procedure Status (RETURN) Variables
+
+* Every stored procedure **returns an integer value automatically**.
+* This is called a **status or return value**.
+* By convention:
+
+  * `0` → Success
+  * Non-zero → Failure
+
+### Observing Return Value in SSMS
+
+1. Right-click stored procedure
+2. Select **Execute Stored Procedure**
+3. Provide parameters (if any)
+4. Along with result, you will see:
+   **Return Value = 0**
+
+✔ This confirms that **RETURN values are always integers**.
+
+
+
+## 2. Using OUTPUT Parameter to Return Total Employee Count
+
+![](https://github.com/user-attachments/assets/4ed132f4-f9a4-469d-a292-6cf45b1e4e9f)
+
+### Stored Procedure Using OUTPUT Parameter
+
+```sql
+CREATE PROCEDURE spGetTotalCountOfEmployees1
+    @TotalCount INT OUTPUT
+AS
+BEGIN
+    SELECT @TotalCount = COUNT(Id)
+    FROM tblEmployee
+END
+```
+
+### Executing the Procedure
+
+```sql
+DECLARE @TotalEmployees INT
+
+EXECUTE spGetTotalCountOfEmployees1 @TotalEmployees OUTPUT
+
+SELECT @TotalEmployees
+```
+
+✔ Output: `3` (example)
+
+
+
+## 3. Using RETURN Value to Return Total Employee Count
+
+### Stored Procedure Using RETURN Value
+
+```sql
+CREATE PROCEDURE spGetTotalCountOfEmployees2
+AS
+BEGIN
+    RETURN (SELECT COUNT(Id) FROM tblEmployee)
+END
+```
+
+### Executing the Procedure
+
+```sql
+DECLARE @TotalEmployees INT
+
+EXECUTE @TotalEmployees = spGetTotalCountOfEmployees2
+
+SELECT @TotalEmployees
+```
+
+✔ Output: `3`
+
+📌 So far, **both OUTPUT parameters and RETURN values work** for integers.
+
+
+
+## 4. Scenario Where RETURN Values Fail but OUTPUT Parameters Work
+
+### Requirement:
+
+* Get **Employee Name** based on **Employee Id**
+
+
+
+### ✅ Using OUTPUT Parameter (Works)
+
+```sql
+CREATE PROCEDURE spGetNameById1
+    @Id INT,
+    @Name NVARCHAR(20) OUTPUT
+AS
+BEGIN
+    SELECT @Name = Name
+    FROM tblEmployee
+    WHERE Id = @Id
+END
+```
+
+#### Executing the Procedure
+
+```sql
+DECLARE @EmployeeName NVARCHAR(20)
+
+EXECUTE spGetNameById1 3, @EmployeeName OUTPUT
+
+PRINT 'Name of the Employee = ' + @EmployeeName
+```
+
+✔ Successfully returns employee name.
+
+
+
+### ❌ Using RETURN Value (Fails)
+
+```sql
+CREATE PROCEDURE spGetNameById2
+    @Id INT
+AS
+BEGIN
+    RETURN (SELECT Name FROM tblEmployee WHERE Id = @Id)
+END
+```
+
+#### Executing the Procedure
+
+```sql
+DECLARE @EmployeeName NVARCHAR(20)
+
+EXECUTE @EmployeeName = spGetNameById2 1
+
+PRINT 'Name of the Employee = ' + @EmployeeName
+```
+
+❌ Error:
+
+```
+Conversion failed when converting the nvarchar value 'Sam' to data type int
+```
+
+📌 **Reason:**
+
+* RETURN values **can only return integers**
+* Employee Name is `NVARCHAR`
+
+
+
+## 5. Key Differences: OUTPUT Parameters vs RETURN Values
+
+| Feature                     | OUTPUT Parameters | RETURN Values              |
+| --------------------------- | ----------------- | -------------------------- |
+| Datatype                    | Any datatype      | Only INT                   |
+| Number of values            | Multiple          | Only one                   |
+| Can return strings          | Yes               | No                         |
+| Can return result of SELECT | Yes               | Only integer               |
+| Common usage                | Data retrieval    | Status / success / failure |
+| Preferred                   | ✅ Yes             | ❌ Limited                  |
+
+
+
+## 6. When to Use OUTPUT Parameters
+
+* When returning:
+
+  * Strings
+  * Dates
+  * Multiple values
+  * Computed results
+* When more flexibility is required
+
+## 7. When to Use RETURN Values
+
+* To indicate:
+
+  * Success (`0`)
+  * Failure (non-zero)
+* Especially useful in **nested stored procedures**
+
+📌 **Best Practice:**
+
+> Use **RETURN values for status** and **OUTPUT parameters for data**
+
+![](https://github.com/user-attachments/assets/d7631ac0-d96a-4e18-acff-2333b4d7b3aa)
+
+## Summary of Commands Used
+
+| Command            | Purpose                     |
+| ------------------ | --------------------------- |
+| `CREATE PROCEDURE` | Create stored procedure     |
+| `OUTPUT / OUT`     | Define output parameter     |
+| `RETURN`           | Return integer status/value |
+| `DECLARE`          | Declare variable            |
+| `EXEC / EXECUTE`   | Execute stored procedure    |
+| `COUNT()`          | Aggregate function          |
+| `SELECT`           | Retrieve data               |
+| `PRINT`            | Display message             |
+| `NVARCHAR`         | String datatype             |
+| `INT`              | Integer datatype            |
+
+---
+
+
+# Lecture 20  Advantages of Using Stored Procedures 
+
+📌 *Prerequisite:*
+
+* Basics of Stored Procedures
+
+Stored procedures are preferred over **ad-hoc (inline) SQL queries** for the following reasons:
+
+
+## 1. Execution Plan Retention and Reusability
+
+* Stored procedures are:
+
+  * **Compiled once**
+  * Their **execution plan is cached**
+  * Reused every time the stored procedure is executed
+* Ad-hoc queries:
+
+  * Execution plan is reused **only if**:
+
+    * Query text is an exact match
+    * Datatypes match
+  * Even an **extra space** or datatype change causes SQL Server to create a **new execution plan**
+
+✔ Stored procedures provide **better performance consistency**.
+
+
+
+## 2. Reduced Network Traffic
+
+* Only the statement
+
+  ```sql
+  EXEC StoredProcedureName
+  ```
+
+  is sent over the network.
+* With inline SQL, the **entire SQL query** is sent every time.
+
+✔ Less data sent → **better network performance**.
+
+
+
+## 3. Code Reusability and Better Maintainability
+
+* A single stored procedure can be used by **multiple applications**.
+* Logic changes:
+
+  * Stored procedure → change in **one place**
+  * Inline SQL → change in **multiple applications**
+
+✔ Stored procedures are **easier to maintain and manage**.
+
+
+
+## 4. Better Security
+
+* Users can be granted permission to **execute stored procedures**
+* Users can be **denied direct SELECT access** to tables
+* Provides **fine-grained access control**
+
+✔ Improves database security.
+
+
+
+## 5. Protection Against SQL Injection Attacks
+
+* Stored procedures help prevent **SQL Injection attacks**
+* Parameters are handled safely instead of concatenated strings
+
+✔ Enhances application security.
+
+
+
+# Lecture 21  Built-in String Functions in SQL Server 
+
+## Types of Functions in SQL Server
+
+1. **Built-in functions**
+2. **User-defined functions**
+
+This section focuses on **commonly used built-in string functions**.
+
+
+
+## 1. `ASCII(Character_Expression)`
+
+* Returns the **ASCII code** of a character.
+
+```sql
+SELECT ASCII('A')
+```
+
+**Output:** `65`
+
+
+
+## 2. `CHAR(Integer_Expression)`
+
+* Converts an ASCII value (0–255) into a character.
+
+### Print all ASCII characters (1–255)
+
+```sql
+DECLARE @Number INT
+SET @Number = 1
+
+WHILE (@Number <= 255)
+BEGIN
+    PRINT CHAR(@Number)
+    SET @Number = @Number + 1
+END
+```
+
+⚠ If `SET @Number = @Number + 1` is omitted → **infinite loop**
+
+
+
+### Print Uppercase Alphabets (A–Z)
+
+```sql
+DECLARE @Number INT
+SET @Number = 65
+
+WHILE (@Number <= 90)
+BEGIN
+    PRINT CHAR(@Number)
+    SET @Number = @Number + 1
+END
+```
+
+
+
+### Print Lowercase Alphabets (a–z)
+
+```sql
+DECLARE @Number INT
+SET @Number = 97
+
+WHILE (@Number <= 122)
+BEGIN
+    PRINT CHAR(@Number)
+    SET @Number = @Number + 1
+END
+```
+
+
+
+### Lowercase Using `LOWER()` and `CHAR()`
+
+```sql
+DECLARE @Number INT
+SET @Number = 65
+
+WHILE (@Number <= 90)
+BEGIN
+    PRINT LOWER(CHAR(@Number))
+    SET @Number = @Number + 1
+END
+```
+
+
+
+## 3. `LTRIM(Character_Expression)`
+
+* Removes **leading (left-side) spaces**
+
+```sql
+SELECT LTRIM('   Hello')
+```
+
+**Output:** `Hello`
+
+
+
+## 4. `RTRIM(Character_Expression)`
+
+* Removes **trailing (right-side) spaces**
+
+```sql
+SELECT RTRIM('Hello   ')
+```
+
+**Output:** `Hello`
+
+
+
+### Remove Spaces on Both Sides
+
+```sql
+SELECT LTRIM(RTRIM('   Hello   '))
+```
+
+**Output:** `Hello`
+
+
+
+## 5. `LOWER(Character_Expression)`
+
+* Converts text to **lowercase**
+
+```sql
+SELECT LOWER('CONVERT This String Into Lower Case')
+```
+
+**Output:**
+`convert this string into lower case`
+
+
+
+## 6. `UPPER(Character_Expression)`
+
+* Converts text to **uppercase**
+
+```sql
+SELECT UPPER('CONVERT This String Into upper Case')
+```
+
+**Output:**
+`CONVERT THIS STRING INTO UPPER CASE`
+
+
+
+## 7. `REVERSE(String_Expression)`
+
+* Reverses the characters in a string
+
+```sql
+SELECT REVERSE('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+```
+
+**Output:**
+`ZYXWVUTSRQPONMLKJIHGFEDCBA`
+
+
+
+## 8. `LEN(String_Expression)`
+
+* Returns number of characters
+* **Excludes trailing spaces**
+
+```sql
+SELECT LEN('SQL Functions ')
+```
+
+**Output:** `13`
+
+
+
+## Summary of Commands and Functions Used
+
+### Stored Procedures (Part 20)
+
+| Command                     | Purpose                  |
+| --------------------------- | ------------------------ |
+| `CREATE PROCEDURE`          | Create stored procedure  |
+| `EXEC / EXECUTE`            | Execute stored procedure |
+| Permissions (EXECUTE)       | Secure access to data    |
+| Stored procedure parameters | Prevent SQL Injection    |
+
+![](https://github.com/user-attachments/assets/ed18182f-c023-4c4a-9b5b-0fab1d70baab)
+
+
+### String Functions (Part 21)
+
+| Function / Command | Purpose                                   |
+| ------------------ | ----------------------------------------- |
+| `ASCII()`          | Character → ASCII code                    |
+| `CHAR()`           | ASCII code → Character                    |
+| `LTRIM()`          | Remove leading spaces                     |
+| `RTRIM()`          | Remove trailing spaces                    |
+| `LOWER()`          | Convert to lowercase                      |
+| `UPPER()`          | Convert to uppercase                      |
+| `REVERSE()`        | Reverse string                            |
+| `LEN()`            | String length (excluding trailing spaces) |
+| `WHILE`            | Loop execution                            |
+| `DECLARE`          | Declare variable                          |
+| `SET`              | Assign value                              |
+| `PRINT`            | Display output                            |
+
+---
+
+# Lecture 22
 
 
 
