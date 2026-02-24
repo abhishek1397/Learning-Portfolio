@@ -1,0 +1,6 @@
+# Config = system tuning
+
+WINDOW_SECONDS = 60
+TOP_K = 3
+ERROR_THRESHOLD = 0.20
+IP_THRESHOLD = 50
