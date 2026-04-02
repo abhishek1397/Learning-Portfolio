@@ -9,6 +9,7 @@
 | SQL | Beginners |
 |-|-|
 | ![](https://github.com/user-attachments/assets/162c0f3a-5724-431f-a620-8eeb56c08891) | ![](https://github.com/user-attachments/assets/c275c6ae-ef97-4d96-9fce-b2c6ab850f13)
+| ![](https://github.com/user-attachments/assets/8b2d49b3-a812-4cb1-80ad-e67daff6a1d7) |  ![](https://github.com/user-attachments/assets/947dc2f1-0f8e-48f3-9aaa-671976f804bb) |
 | ![](https://github.com/user-attachments/assets/a72859bb-ad3b-479b-a7d8-a193f635ab70) | ![](https://github.com/user-attachments/assets/c4978a34-aaee-40fc-b31c-de1ba94c96fa)
 
 
