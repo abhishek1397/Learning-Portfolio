@@ -1,5 +1,16 @@
 # Test-1 (T-SQL Level 1)
 
+For **Level 1**, focus on basic DDL operations:
+
+* `CREATE DATABASE`
+* `CREATE TABLE`
+* `ALTER TABLE`
+* `DROP`
+* `TRUNCATE`
+* `RENAME`
+* Constraints (`PRIMARY KEY`, `NOT NULL`, `UNIQUE`, `DEFAULT`)
+* Data types
+
 ## Q1. Create a database named `collegeDB` and select/use that database.
 
 **Answer:**
