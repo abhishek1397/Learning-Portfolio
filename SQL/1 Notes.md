@@ -32,7 +32,8 @@
 
 - If the database is in use, `DROP DATABASE` fails with an error like:  
   `Cannot drop database "DatabaseName" because it is currently in use.`  
-- To force drop, first set it to single user mode and rollback active work:  
+- To force drop, first use master and set it to single user mode and rollback active work:
+  `USE master;`
   `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;`  
 - `WITH ROLLBACK IMMEDIATE` rolls back all incomplete transactions and closes existing connections, after which you can safely run `DROP DATABASE`.  
 - System databases (like `master`, `model`, `msdb`, `tempdb`) **cannot** be dropped.
