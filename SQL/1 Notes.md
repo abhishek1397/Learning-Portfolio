@@ -33,8 +33,8 @@
 - If the database is in use, `DROP DATABASE` fails with an error like:  
   `Cannot drop database "DatabaseName" because it is currently in use.`  
 - To force drop, first use master and set it to single user mode and rollback active work:
-  `USE master;`
-  `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;`  
+  - `USE master;`
+  - `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;`  
 - `WITH ROLLBACK IMMEDIATE` rolls back all incomplete transactions and closes existing connections, after which you can safely run `DROP DATABASE`.  
 - System databases (like `master`, `model`, `msdb`, `tempdb`) **cannot** be dropped.
 
@@ -44,9 +44,9 @@
 | Operation | Graphical (SSMS) steps | T‑SQL command |
 | --- | --- | --- |
 | Create database | Right‑click **Databases** → **New Database** → enter name → **OK**  | `CREATE DATABASE DatabaseName;`  |
-| Rename database | Right‑click database → **Rename** → type new name → Enter ] | `ALTER DATABASE OldDatabaseName MODIFY NAME = NewDatabaseName;` **or** `EXEC sp_renameDB 'OldDatabaseName','NewDatabaseName';`  |
+| Rename database | Right‑click database → **Rename** → type new name → Enter ] | `ALTER DATABASE OldDatabaseName MODIFY NAME = NewDatabaseName;` **or** <br> `EXEC sp_renameDB 'OldDatabaseName','NewDatabaseName';`  |
 | Drop database (not in use) | Right‑click database → **Delete** → **OK**  | `DROP DATABASE DatabaseName;`  |
-| Prepare busy database for drop | (Delete dialog → option to close existing connections)  | `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;` then `DROP DATABASE DatabaseName;`  |
+| Prepare busy database for drop | (Delete dialog → option to close existing connections)  | - `USE master` <br>- `ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;` <br>-  `DROP DATABASE DatabaseName;`  |
 
 
 ---
