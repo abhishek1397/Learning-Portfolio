@@ -331,3 +331,321 @@ DROP TABLE attendance;
 DROP TABLE company_projects;
 ```
 
+***
+
+For **Level 3**, the task shifts from “write syntax” to **designing a schema under business constraints**. This resembles screening rounds for data engineering, database developer, or backend roles where candidates must model entities, enforce integrity, and evolve schemas.
+
+# SQL Practical Test (DDL Only) — Level 3
+
+### Scenario: Digital Banking System Database Design
+
+**Company Context:** Large bank building a core banking platform
+**Focus:** Schema design, constraints, relationships, integrity
+**Total Marks: 50
+Time: 60 minutes**
+
+---
+
+## Business Requirements
+
+The bank needs a database to manage:
+
+* Customers
+* Bank Accounts
+* Branches
+* Loans
+* Transactions
+* Employees
+
+Rules:
+
+1. A customer can have multiple accounts.
+2. Every account belongs to one branch.
+3. Transactions occur on accounts.
+4. Loans are assigned to customers.
+5. Employees work at branches.
+6. Balance cannot be negative.
+7. Loan amount must exceed ₹10,000.
+8. Transaction type only:
+
+   * Deposit
+   * Withdrawal
+   * Transfer
+
+Design database structures accordingly.
+
+---
+
+# Q1. Create Database (2 Marks)
+
+Create database:
+
+```text
+BankingSystemDB
+```
+
+Use the database.
+
+**Marks: 2**
+
+---
+
+# Q2. Create Branch Table (5 Marks)
+
+Create:
+
+```text
+branches
+```
+
+Requirements:
+
+| Column      | Constraint           |
+| ----------- | -------------------- |
+| branch_id   | PRIMARY KEY          |
+| branch_name | UNIQUE               |
+| city        | NOT NULL             |
+| IFSC_code   | UNIQUE               |
+| created_at  | DEFAULT current date |
+
+Choose suitable data types.
+
+**Marks: 5**
+
+---
+
+# Q3. Create Customer Table (6 Marks)
+
+Create:
+
+```text
+customers
+```
+
+Requirements:
+
+* customer_id → Primary Key
+* full_name → NOT NULL
+* email → UNIQUE
+* phone → UNIQUE
+* dob → DATE
+* created_at → Default timestamp
+
+**Marks: 6**
+
+---
+
+# Q4. Create Accounts Table (8 Marks)
+
+Create:
+
+```text
+accounts
+```
+
+Requirements:
+
+| Column       | Constraint              |
+| ------------ | ----------------------- |
+| account_no   | PRIMARY KEY             |
+| customer_id  | FOREIGN KEY             |
+| branch_id    | FOREIGN KEY             |
+| account_type | CHECK(Savings, Current) |
+| balance      | CHECK(balance >=0)      |
+| status       | DEFAULT 'Active'        |
+
+**Marks: 8**
+
+---
+
+# Q5. Create Transactions Table (8 Marks)
+
+Create:
+
+```text
+transactions
+```
+
+Requirements:
+
+* transaction_id → PK
+* account_no → FK
+* transaction_type
+
+Allowed values:
+
+```text
+Deposit
+Withdrawal
+Transfer
+```
+
+* amount > 0
+* transaction_date default current timestamp
+
+Apply all constraints.
+
+**Marks: 8**
+
+---
+
+# Q6. Create Loans Table (6 Marks)
+
+Requirements:
+
+Create:
+
+```text
+loans
+```
+
+Rules:
+
+* loan_id → PK
+* customer_id → FK
+* amount > 10000
+* interest_rate between 5 and 20
+* issue_date
+
+**Marks: 6**
+
+---
+
+# Q7. Create Employees Table (5 Marks)
+
+Requirements:
+
+Each employee works in one branch.
+
+Fields:
+
+* emp_id
+* emp_name
+* designation
+* salary > 20000
+* branch_id FK
+
+Apply constraints.
+
+**Marks: 5**
+
+---
+
+# Q8. Schema Evolution Challenge (5 Marks)
+
+Perform:
+
+1. Add:
+
+```text
+aadhaar_no VARCHAR(12)
+```
+
+to customers.
+
+2. Make it:
+
+```text
+UNIQUE
+```
+
+3. Add:
+
+```text
+email_verified BOOLEAN DEFAULT FALSE
+```
+
+4. Rename:
+
+```text
+employees → bank_employees
+```
+
+**Marks: 5**
+
+---
+
+# Q9. Composite Constraint Design (3 Marks)
+
+Create:
+
+```text
+account_access
+```
+
+Requirements:
+
+Store:
+
+```text
+customer_id
+account_no
+permission_type
+```
+
+Create a **composite primary key** using:
+
+```text
+(customer_id, account_no)
+```
+
+**Marks: 3**
+
+---
+
+# Q10. Maintenance Operations (2 Marks)
+
+Perform:
+
+1. Truncate:
+
+```text
+transactions
+```
+
+2. Drop:
+
+```text
+account_access
+```
+
+**Marks: 2**
+
+---
+
+# Bonus Question (+5 Marks)
+
+Implement **ON DELETE CASCADE** or **ON UPDATE CASCADE** where appropriate and justify why.
+
+Example:
+
+Deleting a customer should affect:
+
+```text
+accounts
+loans
+transactions
+```
+
+Explain your design choice.
+
+---
+
+## Evaluation Rubric (similar to screening)
+
+| Skill                   | Weight |
+| ----------------------- | ------ |
+| Correct syntax          | 20%    |
+| Constraint design       | 25%    |
+| Relationship modeling   | 25%    |
+| Schema evolution        | 15%    |
+| Data integrity thinking | 15%    |
+
+---
+
+This is closer to **entry-level data engineering / backend SQL screening**. Higher levels (L4–L5) introduce **multi-tenant architectures, audit tables, partitioning strategy, indexing assumptions, temporal tables, and regulatory constraints**.
+
+
+***
+
+
