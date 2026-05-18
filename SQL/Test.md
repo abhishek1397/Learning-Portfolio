@@ -792,4 +792,217 @@ WHERE marks < 75;
 
 ***
 
+# Test-2 (T-SQL DML Level 2)
+
+For **DML Level 2**, the focus shifts from single-table operations to:
+
+* Multiple tables
+* `JOIN`
+* `GROUP BY`
+* `HAVING`
+* Aggregate functions
+* Multi-row `INSERT`
+* Complex `UPDATE`
+* Subqueries (basic)
+* Real-world relationships
+
+## Q1. Insert the following records into `students`:
+
+| student_id | name  | age | department | marks |
+| ---------- | ----- | --- | ---------- | ----- |
+| 101        | Amit  | 20  | CSE        | 85    |
+| 102        | Priya | 21  | ECE        | 78    |
+| 103        | Rahul | 20  | CSE        | 92    |
+| 104        | Neha  | 22  | ME         | 70    |
+
+**Answer:**
+
+```sql
+INSERT INTO students (student_id, name, age, department, marks)
+VALUES
+(101, 'Amit', 20, 'CSE', 85),
+(102, 'Priya', 21, 'ECE', 78),
+(103, 'Rahul', 20, 'CSE', 92),
+(104, 'Neha', 22, 'ME', 70);
+```
+
+## Q2. Insert the following records into `courses`:
+
+| course_id | course_name | faculty |
+| --------- | ----------- | ------- |
+| 1         | DBMS        | Sharma  |
+| 2         | OS          | Verma   |
+| 3         | Java        | Gupta   |
+
+**Answer:**
+
+```sql
+INSERT INTO courses (course_id, course_name, faculty)
+VALUES
+(1, 'DBMS', 'Sharma'),
+(2, 'OS', 'Verma'),
+(3, 'Java', 'Gupta');
+```
+
+## Q3. Insert the following records into `enrollments`:
+
+| student_id | course_id | semester |
+| ---------- | --------- | -------- |
+| 101        | 1         | 3        |
+| 102        | 2         | 4        |
+| 103        | 1         | 3        |
+| 104        | 3         | 5        |
+
+**Answer:**
+
+```sql
+INSERT INTO enrollments (student_id, course_id, semester)
+VALUES
+(101, 1, 3),
+(102, 2, 4),
+(103, 1, 3),
+(104, 3, 5);
+```
+
+## Q4. Display students having:
+
+```text
+marks > 80
+```
+
+**Answer:**
+
+```sql
+SELECT *
+FROM students
+WHERE marks > 80;
+```
+
+## Q5. Display:
+
+* student name
+* course name
+* semester
+
+using `students`, `enrollments`, and `courses`.
+
+**Answer:**
+
+```sql
+SELECT s.name,
+       c.course_name,
+       e.semester
+FROM students s
+JOIN enrollments e
+ON s.student_id = e.student_id
+JOIN courses c
+ON e.course_id = c.course_id;
+```
+
+## Q6. Find average marks department-wise.
+
+**Answer:**
+
+```sql
+SELECT department,
+       AVG(marks) AS average_marks
+FROM students
+GROUP BY department;
+```
+
+## Q7. Display departments where:
+
+```text
+average marks > 80
+```
+
+**Answer:**
+
+```sql
+SELECT department,
+       AVG(marks) AS average_marks
+FROM students
+GROUP BY department
+HAVING AVG(marks) > 80;
+```
+
+## Q8. Increase marks by `+5` for all students in `CSE` department.
+
+**Answer:**
+
+```sql
+UPDATE students
+SET marks = marks + 5
+WHERE department = 'CSE';
+```
+
+## Q9. Change:
+
+```text
+department = 'Mechanical'
+```
+
+for students:
+
+```text
+marks < 75
+```
+
+**Answer:**
+
+```sql
+UPDATE students
+SET department = 'Mechanical'
+WHERE marks < 75;
+```
+
+## Q10. Delete students having:
+
+```text
+marks < 70
+```
+
+**Answer:**
+
+```sql
+DELETE FROM students
+WHERE marks < 70;
+```
+
+## Q11. Display students whose marks are greater than:
+
+```text
+average marks of all students
+```
+
+**Answer:**
+
+```sql
+SELECT *
+FROM students
+WHERE marks >
+(
+    SELECT AVG(marks)
+    FROM students
+);
+```
+
+## Q12. Display:
+
+```text
+Top 2 students
+```
+
+based on highest marks.
+
+**Answer:**
+
+```sql
+SELECT TOP 2 *
+FROM students
+ORDER BY marks DESC;
+```
+
+***
+
 
