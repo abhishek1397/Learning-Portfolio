@@ -648,4 +648,148 @@ This is closer to **entry-level data engineering / backend SQL screening**. High
 
 ***
 
+# Test-1 (T-SQL DML Level 1)
+
+## Q1. Insert the following records into `students`:
+
+| student_id | name  | age | department | marks |
+| ---------- | ----- | --- | ---------- | ----- |
+| 101        | Amit  | 20  | CSE        | 85    |
+| 102        | Priya | 21  | ECE        | 78    |
+| 103        | Rahul | 19  | CSE        | 92    |
+| 104        | Neha  | 22  | ME         | 70    |
+
+**Answer:**
+
+```sql
+INSERT INTO students (student_id, name, age, department, marks)
+VALUES
+(101, 'Amit', 20, 'CSE', 85),
+(102, 'Priya', 21, 'ECE', 78),
+(103, 'Rahul', 19, 'CSE', 92),
+(104, 'Neha', 22, 'ME', 70);
+```
+
+## Q2. Insert one more record:
+
+| student_id | name  | age | department | marks |
+| ---------- | ----- | --- | ---------- | ----- |
+| 105        | Karan | 20  | ECE        | 88    |
+
+**Answer:**
+
+```sql
+INSERT INTO students (student_id, name, age, department, marks)
+VALUES (105, 'Karan', 20, 'ECE', 88);
+```
+
+## Q3. Display all records from `students`.
+
+**Answer:**
+
+```sql
+SELECT * FROM students;
+```
+
+## Q4. Display only `name` and `department` from `students`.
+
+**Answer:**
+
+```sql
+SELECT name, department
+FROM students;
+```
+
+## Q5. Show students whose `marks > 80`.
+
+**Answer:**
+
+```sql
+SELECT *
+FROM students
+WHERE marks > 80;
+```
+
+## Q6. Display students where:
+
+```text
+department = 'CSE'
+AND
+marks > 80
+```
+
+**Answer:**
+
+```sql
+SELECT *
+FROM students
+WHERE department = 'CSE'
+AND marks > 80;
+```
+
+## Q7. Update marks of `student_id = 102` to `82`.
+
+**Answer:**
+
+```sql
+UPDATE students
+SET marks = 82
+WHERE student_id = 102;
+```
+
+## Q8. Change department of `student_id = 104` from `ME` to `Civil`.
+
+**Answer:**
+
+```sql
+UPDATE students
+SET department = 'Civil'
+WHERE student_id = 104;
+```
+
+## Q9. Delete student with `student_id = 105`.
+
+**Answer:**
+
+```sql
+DELETE FROM students
+WHERE student_id = 105;
+```
+
+## Q10. Display students ordered by `marks DESC`.
+
+**Answer:**
+
+```sql
+SELECT *
+FROM students
+ORDER BY marks DESC;
+```
+
+## Q11. Find:
+
+1. Total number of students
+2. Average marks
+
+**Answer:**
+
+```sql
+SELECT COUNT(*) AS total_students
+FROM students;
+
+SELECT AVG(marks) AS average_marks
+FROM students;
+```
+
+## Q12. Delete students with `marks < 75`.
+
+**Answer:**
+
+```sql
+DELETE FROM students
+WHERE marks < 75;
+```
+
+***
+
 
