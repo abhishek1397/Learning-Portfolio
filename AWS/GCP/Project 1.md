@@ -1,7 +1,3 @@
-Here is your definitive, end-to-end command reference sheet. You can use this for clean execution or save it for your final project documentation report.
-
----
-
 ## Phase 1: Authentication & Local Setup
 
 Run these commands to log into Google Cloud and point your PowerShell terminal to your workspace.
