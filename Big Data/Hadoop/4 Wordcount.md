@@ -86,3 +86,5 @@ Alternatively, you can monitor and track the generated files visually through a 
 * The directory will contain two key items:
 * `_SUCCESS`: A 0-byte file indicating the MapReduce task completed without errors.
 * `part-r-00000`: The actual text file holding the final reduction results sorted alphabetically.
+
+* **URL:** `https://www.youtube.com/watch?v=knehmE6L0Qo`
