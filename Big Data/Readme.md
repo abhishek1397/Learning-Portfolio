@@ -78,23 +78,11 @@ Hadoop's architecture is divided into specialized storage, resource management, 
 | Component | Type | Module | Primary Role |
 | --- | --- | --- | --- |
 | **NameNode** | Master | HDFS | Manages file system metadata, directory structures, block maps, and replication factors. *Does not store actual user data*.
-
- |
-| **DataNode** | Slave | HDFS | Stores actual data blocks, handles read/write operations, and sends periodic heartbeats to the NameNode.
-
- |
-| **JobTracker** | Master | MapReduce (v1) | Receives client jobs, splits work into tasks, schedules them on worker nodes, and tracks completion or failures.
-
- |
-| **TaskTracker** | Slave | MapReduce (v1) | Accepts specific map/reduce tasks from the JobTracker and executes them locally on worker nodes.
-
- |
-| **ResourceManager** | Master | YARN (v2) | Acts as the operating system for Hadoop 2.0; manages cluster resources and schedules jobs globally.
-
- |
-| **NodeManager** | Slave | YARN (v2) | Monitors resource containers (RAM, CPU) on individual slave nodes and reports to the ResourceManager.
-
- |
+| **DataNode** | Slave | HDFS | Stores actual data blocks, handles read/write operations, and sends periodic heartbeats to the NameNode.|
+| **JobTracker** | Master | MapReduce (v1) | Receives client jobs, splits work into tasks, schedules them on worker nodes, and tracks completion or failures.|
+| **TaskTracker** | Slave | MapReduce (v1) | Accepts specific map/reduce tasks from the JobTracker and executes them locally on worker nodes. |
+| **ResourceManager** | Master | YARN (v2) | Acts as the operating system for Hadoop 2.0; manages cluster resources and schedules jobs globally.|
+| **NodeManager** | Slave | YARN (v2) | Monitors resource containers (RAM, CPU) on individual slave nodes and reports to the ResourceManager. |
 
 ### Hadoop Distributed File System (HDFS) Features
 
@@ -217,40 +205,14 @@ MapReduce is the foundational parallel processing layer of Hadoop. It splits a l
 
 ### Functional Feature Comparison
 
-| Capability / Feature | Apache Hadoop
-
- | Apache Spark
-
- |
+| Capability / Feature | Apache Hadoop  | Apache Spark |
 | --- | --- | --- |
-| **Primary Processing Style** | Batch Processing
-
- | Batch & Real-Time Processing
-
- |
-| **Iterative Processing** | No (Inefficient disk writes)
-
- | Yes (In-Memory execution)
-
- |
-| **Stream Processing** | ✘ Not Supported natively
-
- | ✔ Supported (Spark Streaming)
-
- |
-| **Graph Processing** | ✘ Not Supported natively
-
- | ✔ Supported (GraphX module)
-
- |
-| **Multi-Language Support** | Limited natively (uses Streaming API)
-
- | ✔ Native API support
-
- |
-| **Machine Learning Layer** | ✘ None native | ✔ Integrated (MLlib module)
-
- |
+| **Primary Processing Style** | Batch Processing | Batch & Real-Time Processing |
+| **Iterative Processing** | No (Inefficient disk writes)| Yes (In-Memory execution) |
+| **Stream Processing** | ✘ Not Supported nativel| | ✔ Supported (Spark Streaming) |
+| **Graph Processing** | ✘ Not Supported natively| ✔ Supported (GraphX module)|
+| **Multi-Language Support** | Limited natively (uses Streaming API) | ✔ Native API support|
+| **Machine Learning Layer** | ✘ None native | ✔ Integrated (MLlib module) |
 
 ### Ecosystem Modules in Spark
 
