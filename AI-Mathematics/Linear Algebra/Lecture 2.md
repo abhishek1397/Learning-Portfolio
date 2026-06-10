@@ -38,7 +38,14 @@ b = \begin{bmatrix} 2 \\ 12 \\ 2 \end{bmatrix}$$
 
 After forward elimination, matrix $A$ becomes **$U$ (Upper Triangular)**:
 
-$$U = \begin{bmatrix} \mathbf{1} & 2 & 1 \\ 0 & \mathbf{2} & -2 \\ 0 & 0 & \mathbf{5} \end{bmatrix}$$
+$$
+U =
+\begin{bmatrix}
+\mathbf{1} & 2 & 1 \\
+0 & \mathbf{2} & -2 \\
+0 & 0 & \mathbf{5}
+\end{bmatrix}
+$$
 
 The three pivots are **$1$, $2$, and $5$**. *(An interesting side note: the product of the pivots equals the determinant of the matrix, which is $10$)*.
 
@@ -88,11 +95,25 @@ To execute row operations programmatically, we apply modifications to the **Iden
 
 * **To eliminate position $(2,1)$:** We need an elementary matrix $E_{21}$ that subtracts $3 \times (\text{Row 1})$ from $\text{Row 2}$:
 
-$$E_{21} = \begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+$$
+E_{21} =
+\begin{bmatrix}
+1 & 0 & 0 \\
+-3 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
 
 * **To eliminate position $(3,2)$:** We create $E_{32}$ to subtract $2 \times (\text{Row 2})$ from $\text{Row 3}$:
 
-$$E_{32} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1 \end{bmatrix}$$
+$$
+E_{32} =
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & -2 & 1
+\end{bmatrix}
+$$
 
 Putting it all together, the entire sequence of forward elimination is neatly compressed into:
 
@@ -112,17 +133,36 @@ $$E_{32} (E_{21} A) = U$$
 
 If elimination encounters a zero in a pivot zone and requires a row exchange, we use a **Permutation Matrix ($P$)**. A permutation matrix is simply an identity matrix with its rows swapped.
 
-* Multiplying a 2x2 matrix by $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ on the left swaps Row 1 and Row 2.
+* Multiplying a 2x2 matrix by
+  $$
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+$$ on the left swaps Row 1 and Row 2.
 
 ---
 
 ### 7. Introduction to Inverses ($E^{-1}$)
-
 The lecture concludes with a preview of how to undo elimination steps using **Inverse Matrices**.
 
-* If $E_{21}$ subtracts $3 \times (\text{Row 1})$ from $\text{Row 2}$, its inverse $E_{21}^{-1}$ must **add** $3 \times (\text{Row 1})$ back to $\text{Row 2}$.
+- If $E_{21}$ subtracts $3 \times (\text{Row 1})$ from $\text{Row 2}$, its inverse $E_{21}^{-1}$ must **add** $3 \times (\text{Row 1})$ back to $\text{Row 2}$.
 
-$$E_{21} = \begin{bmatrix} 1 & 0 & 0 \\ -3 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \longrightarrow E_{21}^{-1} = \begin{bmatrix} 1 & 0 & 0 \\ \mathbf{3} & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+$$
+E_{21} =
+\begin{bmatrix}
+1 & 0 & 0 \\
+-3 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\;\longrightarrow\;
+E_{21}^{-1} =
+\begin{bmatrix}
+1 & 0 & 0 \\
+\mathbf{3} & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
 
 Multiplying a matrix by its inverse returns the identity matrix ($E^{-1}E = I$).
 
