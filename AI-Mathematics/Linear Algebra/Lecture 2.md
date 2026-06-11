@@ -10,14 +10,27 @@ The lecture focuses on solving a system of linear equations $Ax = b$ using **Gau
 
 Professor Strang introduces a $3 \times 3$ system of equations:
 
-$$\begin{aligned}
-1x + 2y + 1z &= 2 \\
-3x + 8y + 1z &= 12 \\
-0x + 4y + 1z &= 2
+$$
+\begin{aligned}
+x + 2y + z &= 2 \\
+3x + 8y + z &= 12 \\
+4y + z &= 2
 \end{aligned}
-\rightarrow 
-A = \begin{bmatrix} \mathbf{1} & 2 & 1 \\ 3 & 8 & 1 \\ 0 & 4 & 1 \end{bmatrix}, 
-b = \begin{bmatrix} 2 \\ 12 \\ 2 \end{bmatrix}$$
+\quad \rightarrow \quad
+A =
+\begin{bmatrix}
+1 & 2 & 1 \\
+3 & 8 & 1 \\
+0 & 4 & 1
+\end{bmatrix},
+\qquad
+b =
+\begin{bmatrix}
+2 \\
+12 \\
+2
+\end{bmatrix}
+$$
 
 #### Step-by-Step Breakdown:
 
