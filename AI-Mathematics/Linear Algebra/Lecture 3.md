@@ -644,7 +644,7 @@ C = A @ B
 ```
 
 Equivalent to:
-
+```text
 [
 C_{ij}
 ======
@@ -652,7 +652,7 @@ C_{ij}
 \sum_{k=1}^{n}
 A_{ik}B_{kj}
 ]
-
+```
 NumPy dispatches this operation to optimized BLAS routines.
 
 ---
@@ -666,12 +666,12 @@ cj = A @ bj
 Computes one output column at a time.
 
 Lecture interpretation:
-
+```text
 [
 C =
 [Ab_1;;Ab_2;;\cdots]
 ]
-
+```text
 ---
 
 ## Row Method
@@ -899,8 +899,6 @@ int main()
 }
 ```
 
----
-
 # C++ Developer Notes
 
 ## Standard Multiplication
@@ -909,7 +907,7 @@ int main()
 C = A * B;
 ```
 
-Uses Eigen's expression templates and optimized kernels.
+Uses Eigen's expression templates and highly optimized matrix multiplication kernels.
 
 ---
 
@@ -921,9 +919,24 @@ C.col(j) = A * B.col(j);
 
 Computes one output column at a time.
 
-[
-c_j = Ab_j
-]
+### Mathematical Interpretation
+
+```text
+c_j = A * b_j
+```
+
+where:
+
+* `b_j` = j-th column of matrix `B`
+* `c_j` = j-th column of matrix `C`
+
+Thus:
+
+```text
+C = [A*b₁  A*b₂  ...  A*bₚ]
+```
+
+Every column of `C` is a linear combination of the columns of `A`.
 
 ---
 
@@ -935,34 +948,69 @@ C.row(i) = A.row(i) * B;
 
 Computes one output row at a time.
 
-[
-\text{Row}_i(C)
-===============
+### Mathematical Interpretation
 
-\text{Row}_i(A)B
-]
+```text
+Row_i(C) = Row_i(A) * B
+```
+
+where:
+
+* `Row_i(A)` = i-th row of matrix `A`
+* `Row_i(C)` = i-th row of matrix `C`
+
+Thus:
+
+```text
+      | Row₁(A) * B |
+C =   | Row₂(A) * B |
+      |     ...     |
+      | Rowₘ(A) * B |
+```
+
+Every row of `C` is a linear combination of the rows of `B`.
 
 ---
 
-## Outer Product
+## Outer Product Method
 
 ```cpp
 colA * rowB
 ```
 
-Dimensions:
+### Dimensions
 
 ```text
-(3×1)(1×2)
+(3 × 1) * (1 × 2)
 =
-(3×2)
+(3 × 2)
 ```
 
-Produces:
+### Mathematical Interpretation
 
-[
-a_kb_k^T
-]
+```text
+a_k * b_kᵀ
+```
+
+where:
+
+* `a_k` = k-th column of `A`
+* `b_kᵀ` = k-th row of `B`
+
+Matrix multiplication can be written as:
+
+```text
+AB = a₁b₁ᵀ + a₂b₂ᵀ + ... + aₙbₙᵀ
+```
+
+Each term produces a full matrix called a **rank-1 outer product**.
+
+Example:
+
+```text
+|1| * |3 4| = |3 4|
+|2|           |6 8|
+```
 
 ---
 
@@ -972,62 +1020,156 @@ a_kb_k^T
 A.block(row, col, rows, cols)
 ```
 
-Example:
+Extracts a submatrix from `A`.
+
+### Example
 
 ```cpp
-A.block(0,0,2,2)
+A.block(0, 0, 2, 2);
 ```
 
 Extracts:
 
 ```text
-top-left 2×2 block
+Top-left 2 × 2 block
+```
+
+Example:
+
+```text
+A = |1 2 3|
+    |4 5 6|
+    |7 8 9|
+```
+
+Then:
+
+```cpp
+A.block(0,0,2,2)
+```
+
+returns:
+
+```text
+|1 2|
+|4 5|
 ```
 
 ---
 
-## Inverse
+## Inverse Matrix
 
 ```cpp
-M.inverse()
+M.inverse();
 ```
 
 Computes:
 
-[
-A^{-1}
-]
+```text
+A⁻¹
+```
 
-such that
+such that:
 
-[
-A^{-1}A
-=======
+```text
+A⁻¹A = I
 
-I
-]
+and
+
+AA⁻¹ = I
+```
+
+where:
+
+```text
+I = |1 0|
+    |0 1|
+```
+
+is the identity matrix.
+
+### Example
+
+```cpp
+Eigen::Matrix2d M;
+
+M << 1, 3,
+     2, 7;
+
+std::cout << M.inverse();
+```
+
+Output:
+
+```text
+| 7 -3|
+|-2  1|
+```
 
 ---
 
 ## Performance Notes
 
-For production:
-
-Prefer
+### Recommended
 
 ```cpp
 C = A * B;
 ```
 
-instead of manually summing outer products.
+### Avoid (for performance-critical code)
 
-Reason:
+```cpp
+for (...)
+{
+    C += colA * rowB;
+}
+```
 
-* Better cache locality
-* SIMD vectorization
-* Fewer temporary matrices
-* Uses highly optimized BLAS-like kernels
+unless you specifically need the outer-product formulation.
 
-The outer-product method is primarily valuable for understanding the structure of matrix multiplication and for specialized numerical algorithms.
+### Why?
 
-This document gives complete, runnable Python and C++ implementations corresponding to all major concepts from MIT 18.06 Lecture 3.
+Eigen's native matrix multiplication:
+
+* Uses cache-friendly memory access
+* Minimizes temporary allocations
+* Enables SIMD vectorization
+* Uses expression templates
+* Is significantly faster for large matrices
+
+### Rule of Thumb
+
+Use:
+
+```cpp
+A * B
+```
+
+for production code.
+
+Use:
+
+```cpp
+colA * rowB
+```
+
+when studying matrix structure, implementing special algorithms, or demonstrating the outer-product interpretation of matrix multiplication.
+
+---
+
+## Summary Table
+
+| Concept               | Eigen Syntax              |
+| --------------------- | ------------------------- |
+| Matrix Multiplication | `A * B`                   |
+| Matrix Inverse        | `A.inverse()`             |
+| Column j              | `A.col(j)`                |
+| Row i                 | `A.row(i)`                |
+| Block Extraction      | `A.block(r,c,h,w)`        |
+| Outer Product         | `colA * rowB`             |
+| Matrix Size           | `A.rows(), A.cols()`      |
+| Identity Matrix       | `MatrixXd::Identity(n,n)` |
+
+
+---
+
